@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import LanguageSwitcher from './LanguageSwitcher';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { Menu, Sun } from 'lucide-react'; // Using Sun as a placeholder for GES logo
-import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const navLinks = [
@@ -17,7 +16,6 @@ const navLinks = [
 export default function Header() {
   const { t, i18n } = useTranslation('common');
   const locale = i18n.language;
-  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -28,17 +26,6 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   
-  const NavLinkItem = ({ href, labelKey, onClick }: { href: string, labelKey: string, onClick?: () => void }) => (
-    <Link
-      href={`/${locale}${href}`}
-      className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-      onClick={onClick}
-    >
-      {t(labelKey)}
-    </Link>
-  );
-
-
   return (
     <header className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur shadow-sm' : 'bg-background'}`}>
       <div className="container flex h-16 items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,8 +34,20 @@ export default function Header() {
           <span className="font-bold text-xl text-foreground">{t('appName').split(' - ')[0]}</span>
         </Link>
 
-        <nav className="hidden md:flex items-center space-x-6">
-          {navLinks.map(link => <NavLinkItem key={link.labelKey} href={link.href} labelKey={link.labelKey} />)}
+        <nav className="hidden md:flex items-center space-x-4">
+          {navLinks.map(link => (
+             <Button
+              key={link.labelKey}
+              variant="outline"
+              size="sm"
+              asChild
+              className="font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out"
+            >
+              <Link href={`/${locale}${link.href}`}>
+                {t(link.labelKey)}
+              </Link>
+            </Button>
+          ))}
           <Button variant="default" size="sm" asChild className="btn-primary">
             <Link href={`/${locale}/#contact`}>{t('nav.getQuote')}</Link>
           </Button>
@@ -75,7 +74,16 @@ export default function Header() {
                 <nav className="flex flex-col space-y-4 mb-8">
                   {navLinks.map(link => (
                     <SheetClose asChild key={link.labelKey}>
-                       <NavLinkItem href={link.href} labelKey={link.labelKey} />
+                       <Button
+                        variant="outline"
+                        size="sm" 
+                        asChild
+                        className="w-full font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out"
+                      >
+                        <Link href={`/${locale}${link.href}`}>
+                          {t(link.labelKey)}
+                        </Link>
+                      </Button>
                     </SheetClose>
                   ))}
                   <SheetClose asChild>
