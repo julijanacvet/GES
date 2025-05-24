@@ -45,14 +45,16 @@ export default function HeroSection() {
           </div>
           <div className="relative aspect-video rounded-xl shadow-2xl overflow-hidden group">
              <Image
-              src="https://placehold.co/600x400.png"
+              src="/locales/images/hero-1.jpg"
               alt={t('imagePlaceholders.hero')}
               layout="fill"
               objectFit="cover"
               className="transform group-hover:scale-105 transition-transform duration-500"
-              data-ai-hint="solar panels nature"
+              data-ai-hint="solar panels modern"
+              priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+            {/* Optional: You can update or remove this text overlay as needed for the new image */}
             <div className="absolute bottom-4 left-4 text-white text-sm bg-black/50 px-2 py-1 rounded">
               {t('imagePlaceholders.hero')}
             </div>
