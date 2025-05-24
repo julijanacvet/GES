@@ -10,8 +10,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
+  // CarouselPrevious, // Temporarily removed for debugging
+  // CarouselNext, // Temporarily removed for debugging
 } from "@/components/ui/carousel";
 // import Autoplay from "embla-carousel-autoplay"; // Temporarily disable Autoplay
 
@@ -42,23 +42,23 @@ export default function HeroSection() {
           loop: true,
         }}
       >
-        <CarouselContent className="h-full">
+        <CarouselContent className="h-full"> {/* Ensure CarouselContent takes full height */}
           {heroImages.map((image, index) => (
-            <CarouselItem key={index} className="h-full relative">
+            <CarouselItem key={index} className="h-full relative"> {/* Ensure CarouselItem takes full height and is relative */}
               <Image
                 src={image.src}
                 alt={t(image.altKey)}
                 layout="fill"
                 objectFit="cover"
-                className="border-8 border-red-500" // Debug border, removed w-full h-full
+                className="border-8 border-red-500" // Debug border
                 data-ai-hint={image.dataAiHint}
                 priority={index === 0}
               />
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
-        <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
+        {/* <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" /> */}
+        {/* <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" /> */}
       </Carousel>
 
       {/* Darkening overlay: z-10, on top of carousel images, increased transparency for debugging */}
@@ -96,4 +96,3 @@ export default function HeroSection() {
     </section>
   );
 }
-
