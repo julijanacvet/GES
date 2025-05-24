@@ -25,28 +25,28 @@ export default function HeroSection() {
               {t('hero.subheadline')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <Button 
-                size="lg" 
-                variant="outline" 
-                asChild 
-                className="btn-secondary shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground"
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+                className="btn-secondary shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground rounded-[8px]"
               >
                 <Link href={`/${locale}/#calculator`}>{t('hero.calculateSavingsBtn')}</Link>
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                asChild 
-                className="btn-secondary shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground"
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+                className="btn-secondary shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground rounded-[8px]"
               >
                 <Link href={`/${locale}/#contact`}>{t('hero.getConsultationBtn')}</Link>
               </Button>
             </div>
           </div>
           <div className="relative aspect-video rounded-xl shadow-2xl overflow-hidden group">
-             <Image 
-              src="https://placehold.co/600x400.png" 
-              alt={t('imagePlaceholders.hero')} 
+             <Image
+              src="https://placehold.co/600x400.png"
+              alt={t('imagePlaceholders.hero')}
               layout="fill"
               objectFit="cover"
               className="transform group-hover:scale-105 transition-transform duration-500"
