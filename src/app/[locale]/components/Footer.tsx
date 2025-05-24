@@ -20,14 +20,14 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-background-dark text-text-light-on-dark bg-[url('/images/bg-footer-1.webp')] bg-cover bg-center">
+    <footer className="relative bg-background-dark text-text-light-on-dark bg-[url('/locales/images/bg-footer-1.webp')] bg-cover bg-center">
       <div className="absolute inset-0 bg-black/60 z-0"></div> {/* Overlay */}
       <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Column 1: Logo & Description */}
           <div>
             <Link href={`/${locale}/#home`} className="flex items-center gap-2 mb-4">
-              <Image src="/images/ges_logo_dark.png" alt={t('appName').split(' - ')[0] || 'GES Logo'} width={120} height={40} />
+              <Image src="/locales/images/ges_logo_dark.png" alt={t('appName').split(' - ')[0] || 'GES Logo'} width={120} height={40} />
               {/* <span className="font-bold text-2xl text-white">{t('appName').split(' - ')[0]}</span> */}
             </Link>
             <p className="text-sm opacity-80">{t('footer.description')}</p>

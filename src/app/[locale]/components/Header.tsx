@@ -10,11 +10,8 @@ import { Menu } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-const navLinks = [
-  // { href: '#home', labelKey: 'nav.home' }, // Removed as per user request
-  // { href: '#residential', labelKey: 'nav.residential' }, // Removed as per user request
-  // { href: '#business', labelKey: 'nav.business' }, // Removed as per user request
-  // { href: '#solar-plants', labelKey: 'nav.solarPlants' }, // Removed as per user request
+const navLinks: { href: string; labelKey: string }[] = [
+  // { href: '#home', labelKey: 'nav.home' }, // Removed
 ];
 
 export default function Header() {
@@ -34,7 +31,7 @@ export default function Header() {
     <header className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur shadow-sm' : 'bg-background'}`}>
       <div className="container flex h-16 items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link href={`/${locale}/#home`} className="flex items-center gap-2">
-          <Image src="/images/ges_logo_dark.png" alt={t('appName').split(' - ')[0] || 'GES Logo'} width={100} height={32} priority />
+          <Image src="/locales/images/ges_logo_dark.png" alt={t('appName').split(' - ')[0] || 'GES Logo'} width={100} height={32} priority />
           {/* <span className="font-bold text-xl text-foreground">{t('appName').split(' - ')[0]}</span> */}
         </Link>
 
@@ -87,7 +84,7 @@ export default function Header() {
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col h-full p-6">
                 <Link href={`/${locale}/#home`} className="flex items-center gap-2 mb-8">
-                   <Image src="/images/ges_logo_dark.png" alt={t('appName').split(' - ')[0] || 'GES Logo'} width={100} height={32} />
+                   <Image src="/locales/images/ges_logo_dark.png" alt={t('appName').split(' - ')[0] || 'GES Logo'} width={100} height={32} />
                   {/* <span className="font-bold text-xl text-foreground">{t('appName').split(' - ')[0]}</span> */}
                 </Link>
                 <nav className="flex flex-col space-y-4 mb-8">
