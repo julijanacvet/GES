@@ -29,7 +29,7 @@ export default function HeroSection() {
                 size="lg"
                 variant="outline"
                 asChild
-                className="btn-secondary shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground rounded-[8px]"
+                className="bg-transparent border border-primary text-primary font-bold py-3 px-6 shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground rounded-[8px] transition duration-300 ease-in-out"
               >
                 <Link href={`/${locale}/#calculator`}>{t('hero.calculateSavingsBtn')}</Link>
               </Button>
@@ -37,7 +37,7 @@ export default function HeroSection() {
                 size="lg"
                 variant="outline"
                 asChild
-                className="btn-secondary shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground rounded-[8px]"
+                className="bg-transparent border border-primary text-primary font-bold py-3 px-6 shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground rounded-[8px] transition duration-300 ease-in-out"
               >
                 <Link href={`/${locale}/#contact`}>{t('hero.getConsultationBtn')}</Link>
               </Button>
@@ -62,4 +62,3 @@ export default function HeroSection() {
     </section>
   );
 }
-
