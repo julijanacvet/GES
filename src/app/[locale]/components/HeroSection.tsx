@@ -57,9 +57,9 @@ export default function HeroSection() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        {/* Navigation buttons can be styled and positioned better if needed */}
-        {/* <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 hover:bg-black/50 text-white border-none" />
-        <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 hover:bg-black/50 text-white border-none" /> */}
+        {/* Navigation buttons must be children of Carousel */}
+        <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
+        <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
       </Carousel>
       
       <div className="absolute inset-0 bg-black/50 -z-10"></div> {/* Darkening overlay */}
@@ -77,7 +77,7 @@ export default function HeroSection() {
               size="lg"
               asChild
               variant="outline"
-              className="bg-transparent border border-primary text-primary font-bold py-3 px-6 shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground rounded-[8px] transition duration-300 ease-in-out"
+              className="border border-primary text-primary font-bold py-3 px-6 shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground rounded-[8px] transition duration-300 ease-in-out"
             >
               <Link href={`/${locale}/#calculator`}>{t('hero.calculateSavingsBtn')}</Link>
             </Button>
@@ -85,7 +85,7 @@ export default function HeroSection() {
               size="lg"
               asChild
               variant="outline"
-              className="bg-transparent border border-primary text-primary font-bold py-3 px-6 shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground rounded-[8px] transition duration-300 ease-in-out"
+              className="border border-primary text-primary font-bold py-3 px-6 shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground rounded-[8px] transition duration-300 ease-in-out"
             >
               <Link href={`/${locale}/#contact`}>{t('hero.getConsultationBtn')}</Link>
             </Button>
@@ -93,11 +93,7 @@ export default function HeroSection() {
         </div>
       </div>
       
-      {/* Carousel navigation buttons - placed outside content div for better control if needed */}
-      <div className="absolute inset-0 flex items-center justify-between px-4 z-20 pointer-events-none">
-        <CarouselPrevious className="pointer-events-auto bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
-        <CarouselNext className="pointer-events-auto bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
-      </div>
+      {/* Removed buttons from here as they are now inside Carousel */}
     </section>
   );
 }
