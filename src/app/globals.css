@@ -8,86 +8,86 @@ body {
 
 @layer base {
   :root {
-    --background: 0 0% 0%; /* Black */
-    --foreground: 0 0% 100%; /* White */
+    --background: 80 25% 20%; /* Dark Olive Green */
+    --foreground: 75 20% 85%; /* Light Greenish-Cream */
     
-    --card: 0 0% 7%; /* Very Dark Gray for cards (e.g., #121212) */
-    --card-foreground: 0 0% 100%; /* White */
+    --card: 80 25% 25%; /* Slightly Lighter Dark Olive */
+    --card-foreground: 75 20% 85%; /* Light Greenish-Cream */
     
-    --popover: 0 0% 7%; /* Very Dark Gray */
-    --popover-foreground: 0 0% 100%; /* White */
+    --popover: 80 25% 22%; /* Similar to card, slightly adjusted if needed */
+    --popover-foreground: 75 20% 85%; /* Light Greenish-Cream */
     
-    --primary: 0 84% 60%; /* Vibrant Red (e.g., #f04444) */
-    --primary-foreground: 0 0% 100%; /* White */
+    --primary: 90 35% 50%; /* Muted Green */
+    --primary-foreground: 80 25% 20%; /* Dark Olive Green (for text on primary buttons) */
     
-    --secondary: 0 0% 20%; /* Dark Gray (e.g., #333333) */
-    --secondary-foreground: 0 0% 100%; /* White */
+    --secondary: 80 25% 30%; /* Medium Olive for secondary elements */
+    --secondary-foreground: 75 20% 85%; /* Light Greenish-Cream */
     
-    --muted: 0 0% 10%; /* Darker Gray for muted backgrounds (e.g., #1a1a1a) */
-    --muted-foreground: 0 0% 70%; /* Light Gray for text on muted (e.g., #b3b3b3) */
+    --muted: 80 25% 15%; /* Darker Olive for muted backgrounds */
+    --muted-foreground: 80 20% 60%; /* Muted Greenish-Gray for text on muted */
     
-    --accent: 0 84% 60%; /* Vibrant Red (same as primary) */
-    --accent-foreground: 0 0% 100%; /* White */
+    --accent: 55 80% 60%; /* Bright Yellow */
+    --accent-foreground: 80 25% 20%; /* Dark Olive Green (for text on accent buttons) */
     
-    --destructive: 0 84.2% 60.2%; /* Default destructive, can adjust if needed */
+    --destructive: 0 70% 50%; /* Keeping a standard red for destructive actions */
     --destructive-foreground: 0 0% 98%;
     
-    --border: 0 0% 25%; /* Dark Gray for borders (e.g., #404040) */
-    --input: 0 0% 100%; /* White background for input fields */
+    --border: 80 25% 35%; /* Medium-Dark Olive for borders */
+    --input: 75 20% 95%; /* Very Light Cream for input backgrounds */
     /* --input-foreground will be handled by .form-input text color */
-    --ring: 0 84% 60%; /* Red for focus rings */
+    --ring: 90 35% 50%; /* Muted Green for focus rings */
     
-    --chart-1: 0 84% 60%; /* Red */
-    --chart-2: 0 0% 80%; /* Light Gray */
-    --chart-3: 0 0% 60%; /* Medium Gray */
-    --chart-4: 0 70% 50%; /* Another shade of Red/Orange */
-    --chart-5: 0 60% 40%; /* Darker Red/Orange */
+    --chart-1: 90 35% 50%; /* Muted Green */
+    --chart-2: 55 80% 60%; /* Bright Yellow */
+    --chart-3: 90 35% 70%; /* Lighter Muted Green */
+    --chart-4: 55 70% 70%; /* Lighter Bright Yellow */
+    --chart-5: 80 25% 40%; /* Mid-tone Olive */
     
     --radius: 0rem; /* Sharp corners by default */
 
     /* Specific variables for consistency with the new theme */
-    --background-dark: 0 0% 0%; /* Black (same as main background) */
-    --text-light-on-dark: 0 0% 100%; /* White (same as main foreground) */
+    --background-dark: 80 25% 20%; /* Dark Olive Green */
+    --text-light-on-dark: 75 20% 85%; /* Light Greenish-Cream */
   }
 
   .dark {
-    --background: 0 0% 0%; /* Black */
-    --foreground: 0 0% 100%; /* White */
+    --background: 80 25% 20%; /* Dark Olive Green */
+    --foreground: 75 20% 85%; /* Light Greenish-Cream */
     
-    --card: 0 0% 7%; /* Very Dark Gray for cards (e.g., #121212) */
-    --card-foreground: 0 0% 100%; /* White */
+    --card: 80 25% 25%; /* Slightly Lighter Dark Olive */
+    --card-foreground: 75 20% 85%; /* Light Greenish-Cream */
     
-    --popover: 0 0% 7%; /* Very Dark Gray */
-    --popover-foreground: 0 0% 100%; /* White */
+    --popover: 80 25% 22%; 
+    --popover-foreground: 75 20% 85%;
     
-    --primary: 0 84% 60%; /* Vibrant Red */
-    --primary-foreground: 0 0% 100%; /* White */
+    --primary: 90 35% 50%; /* Muted Green */
+    --primary-foreground: 80 25% 20%; /* Dark Olive Green */
     
-    --secondary: 0 0% 20%; /* Dark Gray */
-    --secondary-foreground: 0 0% 100%; /* White */
+    --secondary: 80 25% 30%;
+    --secondary-foreground: 75 20% 85%;
     
-    --muted: 0 0% 10%; /* Darker Gray for muted backgrounds */
-    --muted-foreground: 0 0% 70%; /* Light Gray for text on muted */
+    --muted: 80 25% 15%;
+    --muted-foreground: 80 20% 60%;
     
-    --accent: 0 84% 60%; /* Vibrant Red */
-    --accent-foreground: 0 0% 100%; /* White */
+    --accent: 55 80% 60%; /* Bright Yellow */
+    --accent-foreground: 80 25% 20%; /* Dark Olive Green */
     
-    --destructive: 0 70% 50%; /* Adjusted for dark theme consistency if needed */
+    --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 98%;
     
-    --border: 0 0% 25%; /* Dark Gray for borders */
-    --input: 0 0% 100%; /* White background for input fields */
-    /* --input-foreground will be handled by .form-input text color */
-    --ring: 0 84% 60%; /* Red for focus rings */
+    --border: 80 25% 35%;
+    --input: 75 20% 95%; /* Very Light Cream for input backgrounds */
+    /* --input-foreground handled by .form-input */
+    --ring: 90 35% 50%;
 
-    --chart-1: 0 84% 60%;
-    --chart-2: 0 0% 80%;
-    --chart-3: 0 0% 60%;
-    --chart-4: 0 70% 50%;
-    --chart-5: 0 60% 40%;
+    --chart-1: 90 35% 50%;
+    --chart-2: 55 80% 60%;
+    --chart-3: 90 35% 70%;
+    --chart-4: 55 70% 70%;
+    --chart-5: 80 25% 40%;
 
-    --background-dark: 0 0% 0%; /* Black */
-    --text-light-on-dark: 0 0% 100%; /* White */
+    --background-dark: 80 25% 20%;
+    --text-light-on-dark: 75 20% 85%;
   }
 }
 
@@ -111,7 +111,7 @@ body {
     @apply text-base md:text-lg leading-relaxed; /* text-foreground is default from body */
   }
   a {
-    @apply text-primary hover:text-red-400; /* Primary red, lighter red on hover */
+    @apply text-primary hover:text-green-400; /* Primary green, lighter green on hover */
   }
   section {
     @apply py-16 md:py-24;
@@ -120,7 +120,7 @@ body {
 
 /* Custom button styles */
 .btn-primary {
-  @apply bg-primary hover:bg-red-700 text-primary-foreground font-bold py-3 px-6 rounded-md shadow-md transition duration-300 ease-in-out;
+  @apply bg-primary hover:bg-green-700 text-primary-foreground font-bold py-3 px-6 rounded-md shadow-md transition duration-300 ease-in-out;
 }
 .btn-secondary {
   @apply bg-transparent border border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold py-3 px-6 rounded-md transition duration-300 ease-in-out;
@@ -128,5 +128,5 @@ body {
 
 /* Custom form input styles */
 .form-input {
-  @apply w-full p-3 border border-input rounded-none focus:outline-none focus:ring-2 focus:ring-primary bg-input text-black placeholder:text-gray-500; /* bg-input (white), text-black, no rounding */
+  @apply w-full p-3 border border-input rounded-none focus:outline-none focus:ring-2 focus:ring-primary bg-input text-[hsl(80_25%_15%)] placeholder:text-gray-500; /* bg-input (light cream), text-dark-olive, no rounding */
 }
