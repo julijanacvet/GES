@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useTranslation } from 'react-i18next';
@@ -27,7 +28,7 @@ export default function HeroSection() {
               <Button size="lg" asChild className="btn-primary shadow-lg hover:shadow-xl transform hover:scale-105">
                 <Link href={`/${locale}/#calculator`}>{t('hero.calculateSavingsBtn')}</Link>
               </Button>
-              <Button size="lg" variant="outline" asChild className="btn-secondary shadow-lg hover:shadow-xl transform hover:scale-105">
+              <Button size="lg" variant="outline" asChild className="btn-secondary shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground">
                 <Link href={`/${locale}/#contact`}>{t('hero.getConsultationBtn')}</Link>
               </Button>
             </div>
