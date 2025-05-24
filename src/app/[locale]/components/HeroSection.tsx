@@ -45,12 +45,12 @@ export default function HeroSection() {
         <CarouselContent className="h-full"> {/* Ensure CarouselContent takes full height */}
           {heroImages.map((image, index) => (
             <CarouselItem key={index} className="h-full relative"> {/* Ensure CarouselItem takes full height and is relative */}
-              <div className="relative w-full h-full"> {/* Explicit relative container for Image */}
+              <div className="relative w-full h-full flex items-center justify-center"> {/* Explicit relative container for Image, added flex for centering fixed size image */}
                 <Image
                   src={image.src}
                   alt={t(image.altKey)}
-                  layout="fill"
-                  objectFit="cover"
+                  width={800} // Using fixed dimensions for diagnostics
+                  height={600} // Using fixed dimensions for diagnostics
                   priority={index === 0}
                   className="border-8 border-red-500" // Keep debug border
                   data-ai-hint={image.dataAiHint}
@@ -59,8 +59,10 @@ export default function HeroSection() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        {/* <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" /> */}
-        {/* <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" /> */}
+        {/* 
+        <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
+        <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
+        */}
       </Carousel>
 
       {/* Darkening overlay: z-10, on top of carousel images, increased transparency for debugging */}
