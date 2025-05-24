@@ -25,10 +25,20 @@ export default function HeroSection() {
               {t('hero.subheadline')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <Button size="lg" asChild className="btn-primary shadow-lg hover:shadow-xl transform hover:scale-105">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                asChild 
+                className="btn-secondary shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground"
+              >
                 <Link href={`/${locale}/#calculator`}>{t('hero.calculateSavingsBtn')}</Link>
               </Button>
-              <Button size="lg" variant="outline" asChild className="btn-secondary shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                asChild 
+                className="btn-secondary shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground"
+              >
                 <Link href={`/${locale}/#contact`}>{t('hero.getConsultationBtn')}</Link>
               </Button>
             </div>
@@ -52,3 +62,4 @@ export default function HeroSection() {
     </section>
   );
 }
+
