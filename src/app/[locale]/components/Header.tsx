@@ -48,7 +48,12 @@ export default function Header() {
               </Link>
             </Button>
           ))}
-          <Button variant="default" size="sm" asChild className="btn-primary">
+          <Button
+            variant="outline"
+            size="sm"
+            asChild
+            className="font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out"
+          >
             <Link href={`/${locale}/#contact`}>{t('nav.getQuote')}</Link>
           </Button>
         </nav>
@@ -87,7 +92,12 @@ export default function Header() {
                     </SheetClose>
                   ))}
                   <SheetClose asChild>
-                    <Button variant="default" className="w-full btn-primary" asChild>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      asChild
+                      className="w-full font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out"
+                    >
                         <Link href={`/${locale}/#contact`}>{t('nav.getQuote')}</Link>
                     </Button>
                   </SheetClose>
