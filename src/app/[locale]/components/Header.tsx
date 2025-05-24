@@ -11,7 +11,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const navLinks = [
-  { href: '#home', labelKey: 'nav.home' },
+  // { href: '#home', labelKey: 'nav.home' }, // Removed
   // { href: '#residential', labelKey: 'nav.residential' }, // Removed
   // { href: '#business', labelKey: 'nav.business' }, // Removed
   // { href: '#solar-plants', labelKey: 'nav.solarPlants' }, // Removed
