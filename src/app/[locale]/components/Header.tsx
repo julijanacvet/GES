@@ -6,11 +6,15 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import LanguageSwitcher from './LanguageSwitcher';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
-import { Menu, Sun } from 'lucide-react'; // Using Sun as a placeholder for GES logo
+import { Menu } from 'lucide-react';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 const navLinks = [
-  { href: '#calculator', labelKey: 'nav.calculator' },
+  // { href: '#home', labelKey: 'nav.home' }, // Removed as per user request
+  // { href: '#residential', labelKey: 'nav.residential' }, // Removed as per user request
+  // { href: '#business', labelKey: 'nav.business' }, // Removed as per user request
+  // { href: '#solar-plants', labelKey: 'nav.solarPlants' }, // Removed as per user request
 ];
 
 export default function Header() {
@@ -30,13 +34,13 @@ export default function Header() {
     <header className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur shadow-sm' : 'bg-background'}`}>
       <div className="container flex h-16 items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link href={`/${locale}/#home`} className="flex items-center gap-2">
-          <Sun className="h-7 w-7 text-primary" />
-          <span className="font-bold text-xl text-foreground">{t('appName').split(' - ')[0]}</span>
+          <Image src="/images/ges_logo_dark.png" alt={t('appName').split(' - ')[0] || 'GES Logo'} width={100} height={32} priority />
+          {/* <span className="font-bold text-xl text-foreground">{t('appName').split(' - ')[0]}</span> */}
         </Link>
 
         <nav className="hidden md:flex items-center space-x-4">
           {navLinks.map(link => (
-             <Button
+            <Button
               key={link.labelKey}
               variant="outline"
               size="sm"
@@ -48,6 +52,16 @@ export default function Header() {
               </Link>
             </Button>
           ))}
+           <Button
+              variant="outline"
+              size="sm"
+              asChild
+              className="font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out"
+            >
+              <Link href={`/${locale}/#calculator`}>
+                {t('nav.calculator')}
+              </Link>
+            </Button>
           <Button
             variant="outline"
             size="sm"
@@ -73,8 +87,8 @@ export default function Header() {
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col h-full p-6">
                 <Link href={`/${locale}/#home`} className="flex items-center gap-2 mb-8">
-                   <Sun className="h-7 w-7 text-primary" />
-                  <span className="font-bold text-xl text-foreground">{t('appName').split(' - ')[0]}</span>
+                   <Image src="/images/ges_logo_dark.png" alt={t('appName').split(' - ')[0] || 'GES Logo'} width={100} height={32} />
+                  {/* <span className="font-bold text-xl text-foreground">{t('appName').split(' - ')[0]}</span> */}
                 </Link>
                 <nav className="flex flex-col space-y-4 mb-8">
                   {navLinks.map(link => (
@@ -91,6 +105,18 @@ export default function Header() {
                       </Button>
                     </SheetClose>
                   ))}
+                  <SheetClose asChild>
+                       <Button
+                        variant="outline"
+                        size="sm" 
+                        asChild
+                        className="w-full font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out"
+                      >
+                        <Link href={`/${locale}/#calculator`}>
+                          {t('nav.calculator')}
+                        </Link>
+                      </Button>
+                  </SheetClose>
                   <SheetClose asChild>
                     <Button
                       variant="outline"
