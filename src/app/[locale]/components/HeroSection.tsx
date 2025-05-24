@@ -50,17 +50,15 @@ export default function HeroSection() {
               layout="fill"
               objectFit="cover"
               className="transform group-hover:scale-105 transition-transform duration-500"
-              data-ai-hint="solar panels modern"
+              data-ai-hint="solar panels roof"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-            {/* Optional: You can update or remove this text overlay as needed for the new image */}
-            <div className="absolute bottom-4 left-4 text-white text-sm bg-black/50 px-2 py-1 rounded">
-              {t('imagePlaceholders.hero')}
-            </div>
+            {/* Text overlay removed */}
           </div>
         </div>
       </div>
     </section>
   );
 }
+
