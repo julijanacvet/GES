@@ -5,7 +5,7 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-// import Image from 'next/image'; // Temporarily remove next/image import
+import Image from 'next/image'; // Re-import next/image
 import {
   Carousel,
   CarouselContent,
@@ -45,11 +45,13 @@ export default function HeroSection() {
         <CarouselContent className="h-full"> {/* Ensure CarouselContent takes full height */}
           {heroImages.map((image, index) => (
             <CarouselItem key={index} className="h-full relative"> {/* Ensure CarouselItem takes full height and is relative */}
-              {/* Temporarily use a standard img tag for diagnostics */}
-              <img
-                src={image.src} // This path should resolve from the public directory
+              <Image
+                src={image.src}
                 alt={t(image.altKey)}
-                style={{ width: '100%', height: '100%', objectFit: 'cover', border: '8px solid red' }} // Basic styling + debug border
+                layout="fill"
+                objectFit="cover"
+                priority={index === 0} // Add priority to the first image
+                className="border-8 border-red-500" // Keep debug border
                 data-ai-hint={image.dataAiHint}
               />
             </CarouselItem>
