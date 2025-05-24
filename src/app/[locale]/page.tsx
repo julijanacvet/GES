@@ -1,0 +1,40 @@
+import initServerTranslations from '@/app/i18n';
+import Header from './components/Header';
+import HeroSection from './components/HeroSection';
+import BenefitsSection from './components/BenefitsSection';
+import ServicesSection from './components/ServicesSection';
+import SolarCalculator from './components/SolarCalculator';
+import WhyChooseGES from './components/WhyChooseGES';
+import TestimonialsSection from './components/TestimonialsSection';
+import FAQSection from './components/FAQSection';
+import CallToActionBlock from './components/CallToActionBlock';
+import Footer from './components/Footer';
+
+// This forces the page to be dynamic, useful if locale changes frequently or based on headers.
+// For SSG, you'd remove this and ensure generateStaticParams is correctly configured in layout.
+// export const dynamic = 'force-dynamic';
+
+
+export default async function HomePage({ params: { locale } }: { params: { locale: string }}) {
+  // Translations are now primarily handled by the TranslationsProvider in the layout
+  // and useTranslation hook in client components.
+  // If this page itself needed to pass 't' to server component children, you'd init here.
+  // For now, client components will fetch their own translations.
+
+  return (
+    <div className="flex flex-col min-h-screen bg-background">
+      <Header />
+      <main className="flex-grow">
+        <HeroSection />
+        <BenefitsSection />
+        <ServicesSection />
+        <SolarCalculator />
+        <WhyChooseGES />
+        <TestimonialsSection />
+        <FAQSection />
+        <CallToActionBlock />
+      </main>
+      <Footer />
+    </div>
+  );
+}

@@ -1,0 +1,113 @@
+{
+  "appName": "GES - Green Energy Solutions",
+  "nav": {
+    "home": "Home",
+    "residential": "Residential",
+    "business": "Business",
+    "solarPlants": "Solar Plants",
+    "calculator": "Calculator",
+    "getQuote": "Get a Quote"
+  },
+  "hero": {
+    "headline": "Power Your Home, Save Your Planet: Sustainable Solar Solutions for Macedonia.",
+    "subheadline": "GES: Your trusted partner for residential, business, and large-scale solar power across Macedonia.",
+    "calculateSavingsBtn": "Calculate Savings",
+    "getConsultationBtn": "Free Consultation"
+  },
+  "benefits": {
+    "lowerBillsTitle": "Lower Bills",
+    "lowerBillsDesc": "Reduce your monthly electricity costs by generating your own power.",
+    "energyIndependenceTitle": "Energy Independence",
+    "energyIndependenceDesc": "Become less reliant on fluctuating energy prices from the grid.",
+    "carbonReductionTitle": "CO2 Reduction",
+    "carbonReductionDesc": "Contribute to a cleaner environment by reducing your carbon footprint.",
+    "propertyValueTitle": "Increased Property Value",
+    "propertyValueDesc": "Investing in solar panels can increase the value of your property."
+  },
+  "services": {
+    "title": "Our Services",
+    "residentialTitle": "Residential Solar Systems",
+    "residentialDesc": "Custom solar solutions for your home, designed for maximum efficiency and savings.",
+    "getResidentialQuoteBtn": "Quote for Home",
+    "commercialTitle": "Commercial Solar Systems",
+    "commercialDesc": "Optimize your business's energy costs with our commercial solar solutions.",
+    "getCommercialQuoteBtn": "Quote for Business",
+    "solarPlantsTitle": "Solar Plants",
+    "solarPlantsDesc": "Development and implementation of large-scale solar projects and photovoltaic power plants.",
+    "exploreSolarPlantsBtn": "Explore Projects"
+  },
+  "calculator": {
+    "title": "Solar Savings Calculator",
+    "billLabel": "Current Monthly Electricity Bill (MKD)",
+    "billPlaceholder": "Example: 3000",
+    "roofSizeLabel": "Roof Size / Available Area (sq. meters)",
+    "roofSizePlaceholder": "Example: 50",
+    "offsetLabel": "Desired Energy Offset (%)",
+    "offsetPlaceholder": "Example: 80",
+    "buildingTypeLabel": "Building Type",
+    "residentialOption": "Residential",
+    "businessOption": "Business",
+    "industrialOption": "Industrial",
+    "calculateBtn": "Calculate",
+    "resultsTitle": "Your Estimated Savings",
+    "systemSizeLabel": "Estimated System Size:",
+    "systemCostLabel": "Estimated System Cost:",
+    "annualSavingsLabel": "Annual Savings:",
+    "paybackPeriodLabel": "Payback Period:",
+    "co2ReductionLabel": "Annual CO2 Reduction:",
+    "disclaimer": "This calculation is indicative. For an accurate quote, please contact us.",
+    "getDetailedQuoteBtn": "Get Detailed Quote",
+    "errorInput": "Please enter valid positive numbers."
+  },
+  "whyChooseUs": {
+    "headline": "Why Choose GES?",
+    "expertise": "Expertise: Years of experience in the solar industry.",
+    "quality": "Quality: We use only high-quality components and panels.",
+    "installers": "Professional Installers: Certified and experienced teams.",
+    "support": "Support: Comprehensive support from planning to maintenance.",
+    "sustainability": "Sustainability: Committed to green solutions for a better future."
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "quote1": "Excellent service and a professional team. The savings are already visible!",
+    "author1": "Petar P., Skopje",
+    "quote2": "Investing in solar panels with GES was the best decision for our business.",
+    "author2": "Ana K., Bitola"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "question1": "How long does it take to install a solar system?",
+    "answer1": "Installation typically takes 1 to 3 days for residential systems, depending on size and complexity.",
+    "question2": "What maintenance is required for solar panels?",
+    "answer2": "Solar panels require minimal maintenance, mainly occasional cleaning to ensure optimal efficiency.",
+    "question3": "Do I get a warranty for the system?",
+    "answer3": "Yes, we offer warranties for both the panels and the inverter, as well as for the installation itself. You will receive details with your quote."
+  },
+  "cta": {
+    "finalHeadline": "Ready to Switch to Solar?",
+    "finalSubheadline": "Contact us today for a free consultation and a personalized quote.",
+    "requestFreeQuoteBtn": "Request a Free Quote Now"
+  },
+  "footer": {
+    "description": "GES - Your partner for sustainable solar solutions in Macedonia.",
+    "navTitle": "Quick Links",
+    "contactTitle": "Contact Us",
+    "addressLabel": "Address:",
+    "addressValue": "Example Street 123, Skopje",
+    "phoneLabel": "Phone:",
+    "phoneValue": "+389 70 123 456",
+    "emailLabel": "Email:",
+    "emailValue": "info@ges.mk",
+    "copyright": "© {year} GES. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
+  },
+  "languageSwitcher": {
+    "mk": "MK",
+    "en": "EN"
+  },
+  "imagePlaceholders": {
+    "hero": "Stunning Solar Image/Video",
+    "service": "Service Image"
+  }
+}
