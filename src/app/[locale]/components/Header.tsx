@@ -42,7 +42,7 @@ export default function Header() {
               variant="outline"
               size="sm"
               asChild
-              className="font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out"
+              className="font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out rounded-[8px]"
             >
               <Link href={`/${locale}${link.href}`}>
                 {t(link.labelKey)}
@@ -53,7 +53,7 @@ export default function Header() {
               variant="outline"
               size="sm"
               asChild
-              className="font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out"
+              className="font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out rounded-[8px]"
             >
               <Link href={`/${locale}/#calculator`}>
                 {t('nav.calculator')}
@@ -63,7 +63,7 @@ export default function Header() {
             variant="outline"
             size="sm"
             asChild
-            className="font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out"
+            className="font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out rounded-[8px]"
           >
             <Link href={`/${locale}/#contact`}>{t('nav.getQuote')}</Link>
           </Button>
@@ -94,7 +94,7 @@ export default function Header() {
                         variant="outline"
                         size="sm" 
                         asChild
-                        className="w-full font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out"
+                        className="w-full font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out rounded-[8px]"
                       >
                         <Link href={`/${locale}${link.href}`}>
                           {t(link.labelKey)}
@@ -107,7 +107,7 @@ export default function Header() {
                         variant="outline"
                         size="sm" 
                         asChild
-                        className="w-full font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out"
+                        className="w-full font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out rounded-[8px]"
                       >
                         <Link href={`/${locale}/#calculator`}>
                           {t('nav.calculator')}
@@ -119,7 +119,7 @@ export default function Header() {
                       variant="outline"
                       size="sm"
                       asChild
-                      className="w-full font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out"
+                      className="w-full font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out rounded-[8px]"
                     >
                         <Link href={`/${locale}/#contact`}>{t('nav.getQuote')}</Link>
                     </Button>
