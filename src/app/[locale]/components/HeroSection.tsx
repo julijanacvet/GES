@@ -31,11 +31,11 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative flex items-center justify-center text-center min-h-[70vh] md:min-h-[85vh] overflow-hidden"
+      className="relative min-h-[70vh] md:min-h-[85vh] overflow-hidden"
     >
       <Carousel
         plugins={[plugin.current]}
-        className="absolute inset-0 w-full h-full -z-20"
+        className="w-full h-full" // Carousel fills the section
         onMouseEnter={plugin.current.stop}
         onMouseLeave={plugin.current.reset}
         opts={{
@@ -57,15 +57,17 @@ export default function HeroSection() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        {/* Navigation buttons must be children of Carousel */}
-        <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
-        <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
+        {/* Navigation buttons: z-40, on top of text and overlay */}
+        <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-40 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
+        <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-40 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
       </Carousel>
       
-      <div className="absolute inset-0 bg-black/50 -z-10"></div> {/* Darkening overlay */}
+      {/* Darkening overlay: z-20, on top of carousel images */}
+      <div className="absolute inset-0 bg-black/50 z-20"></div> 
       
-      <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-foreground">
+      {/* Text content: z-30, on top of overlay */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-30">
+        <div className="text-foreground"> {/* Ensure text color contrasts with potential image variations */}
           <h1 className="mb-6">
             {t('hero.headline')}
           </h1>
@@ -92,8 +94,6 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-      
-      {/* Removed buttons from here as they are now inside Carousel */}
     </section>
   );
 }
