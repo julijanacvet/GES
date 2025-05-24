@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -11,9 +12,9 @@ import { useEffect, useState } from 'react';
 
 const navLinks = [
   { href: '#home', labelKey: 'nav.home' },
-  { href: '#residential', labelKey: 'nav.residential' },
-  { href: '#business', labelKey: 'nav.business' },
-  { href: '#solar-plants', labelKey: 'nav.solarPlants' },
+  // { href: '#residential', labelKey: 'nav.residential' }, // Removed
+  // { href: '#business', labelKey: 'nav.business' }, // Removed
+  // { href: '#solar-plants', labelKey: 'nav.solarPlants' }, // Removed
   { href: '#calculator', labelKey: 'nav.calculator' },
 ];
 
