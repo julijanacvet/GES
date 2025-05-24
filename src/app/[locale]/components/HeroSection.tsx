@@ -35,9 +35,9 @@ export default function HeroSection() {
     >
       <Carousel
         // plugins={[plugin.current]} // Temporarily disable Autoplay
-        className="w-full h-full"
-        // onMouseEnter={plugin.current.stop} // Temporarily disable Autoplay
-        // onMouseLeave={plugin.current.reset} // Temporarily disable Autoplay
+        className="absolute inset-0 w-full h-full" // Ensure Carousel fills the section
+        // onMouseEnter={plugin.current?.stop} // Temporarily disable Autoplay interaction
+        // onMouseLeave={plugin.current?.reset} // Temporarily disable Autoplay interaction
         opts={{
           loop: true,
         }}
@@ -50,7 +50,7 @@ export default function HeroSection() {
                 alt={t(image.altKey)}
                 layout="fill"
                 objectFit="cover"
-                className="w-full h-full border-8 border-red-500" // Added highly visible border for debugging
+                className="border-8 border-red-500" // Debug border, removed w-full h-full
                 data-ai-hint={image.dataAiHint}
                 priority={index === 0}
               />
@@ -96,3 +96,4 @@ export default function HeroSection() {
     </section>
   );
 }
+
