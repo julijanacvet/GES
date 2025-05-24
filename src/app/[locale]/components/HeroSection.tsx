@@ -11,7 +11,7 @@ export default function HeroSection() {
   const locale = i18n.language;
 
   return (
-    <section id="home" className="relative bg-gradient-to-br from-background to-green-50/50 dark:from-background dark:to-green-900/20 pt-20 md:pt-32 pb-16 md:pb-24 overflow-hidden">
+    <section id="home" className="relative bg-gradient-to-br from-background to-green-50/50 dark:from-background dark:to-green-900/20 pt-8 md:pt-12 pb-16 md:pb-24 overflow-hidden">
       <div className="absolute inset-0 opacity-10 dark:opacity-5">
         {/* Decorative background pattern or image if desired */}
       </div>
