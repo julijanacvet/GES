@@ -11,10 +11,6 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const navLinks = [
-  // { href: '#home', labelKey: 'nav.home' }, // Removed
-  // { href: '#residential', labelKey: 'nav.residential' }, // Removed
-  // { href: '#business', labelKey: 'nav.business' }, // Removed
-  // { href: '#solar-plants', labelKey: 'nav.solarPlants' }, // Removed
   { href: '#calculator', labelKey: 'nav.calculator' },
 ];
 
@@ -53,13 +49,13 @@ export default function Header() {
 
         <nav className="hidden md:flex items-center space-x-6">
           {navLinks.map(link => <NavLinkItem key={link.labelKey} href={link.href} labelKey={link.labelKey} />)}
+          <Button variant="default" size="sm" asChild className="btn-primary">
+            <Link href={`/${locale}/#contact`}>{t('nav.getQuote')}</Link>
+          </Button>
         </nav>
 
         <div className="hidden md:flex items-center space-x-4">
           <LanguageSwitcher />
-          <Button variant="default" size="sm" asChild className="btn-primary">
-            <Link href={`/${locale}/#contact`}>{t('nav.getQuote')}</Link>
-          </Button>
         </div>
 
         <div className="md:hidden flex items-center">
@@ -82,14 +78,14 @@ export default function Header() {
                        <NavLinkItem href={link.href} labelKey={link.labelKey} />
                     </SheetClose>
                   ))}
-                </nav>
-                <div className="mt-auto space-y-4">
-                  <LanguageSwitcher isMobile />
-                   <SheetClose asChild>
+                  <SheetClose asChild>
                     <Button variant="default" className="w-full btn-primary" asChild>
                         <Link href={`/${locale}/#contact`}>{t('nav.getQuote')}</Link>
                     </Button>
                   </SheetClose>
+                </nav>
+                <div className="mt-auto space-y-4">
+                  <LanguageSwitcher isMobile />
                 </div>
               </div>
             </SheetContent>
