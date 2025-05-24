@@ -13,7 +13,7 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
+// import Autoplay from "embla-carousel-autoplay"; // Temporarily disable Autoplay
 
 const heroImages = [
   { src: '/locales/images/hero-1.jpg', altKey: 'imagePlaceholders.hero', dataAiHint: 'solar panels modern house' },
@@ -24,9 +24,9 @@ export default function HeroSection() {
   const { t, i18n } = useTranslation('common');
   const locale = i18n.language;
 
-  const plugin = React.useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: true })
-  );
+  // const plugin = React.useRef(
+  //   Autoplay({ delay: 5000, stopOnInteraction: true })
+  // ); // Temporarily disable Autoplay
 
   return (
     <section
@@ -34,10 +34,10 @@ export default function HeroSection() {
       className="relative min-h-[70vh] md:min-h-[85vh] overflow-hidden"
     >
       <Carousel
-        plugins={[plugin.current]}
-        className="w-full h-full" // Carousel fills the section
-        onMouseEnter={plugin.current.stop}
-        onMouseLeave={plugin.current.reset}
+        // plugins={[plugin.current]} // Temporarily disable Autoplay
+        className="w-full h-full"
+        // onMouseEnter={plugin.current.stop} // Temporarily disable Autoplay
+        // onMouseLeave={plugin.current.reset} // Temporarily disable Autoplay
         opts={{
           loop: true,
         }}
@@ -50,24 +50,23 @@ export default function HeroSection() {
                 alt={t(image.altKey)}
                 layout="fill"
                 objectFit="cover"
-                className="w-full h-full"
+                className="w-full h-full border-8 border-red-500" // Added highly visible border for debugging
                 data-ai-hint={image.dataAiHint}
-                priority={index === 0} 
+                priority={index === 0}
               />
             </CarouselItem>
           ))}
         </CarouselContent>
-        {/* Navigation buttons: z-40, on top of text and overlay */}
-        <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-40 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
-        <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-40 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
+        <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
+        <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
       </Carousel>
-      
-      {/* Darkening overlay: z-20, on top of carousel images */}
-      <div className="absolute inset-0 bg-black/50 z-20"></div> 
-      
-      {/* Text content: z-30, on top of overlay */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-30">
-        <div className="text-foreground"> {/* Ensure text color contrasts with potential image variations */}
+
+      {/* Darkening overlay: z-10, on top of carousel images, increased transparency for debugging */}
+      <div className="absolute inset-0 bg-black/10 z-10"></div>
+
+      {/* Text content: z-20, on top of overlay */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
+        <div className="text-foreground">
           <h1 className="mb-6">
             {t('hero.headline')}
           </h1>
