@@ -5,13 +5,13 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import Image from 'next/image'; // Re-import next/image
+import Image from 'next/image';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  // CarouselPrevious, // Temporarily removed for debugging
-  // CarouselNext, // Temporarily removed for debugging
+  CarouselPrevious,
+  CarouselNext,
 } from "@/components/ui/carousel";
 // import Autoplay from "embla-carousel-autoplay"; // Temporarily disable Autoplay
 
@@ -45,15 +45,17 @@ export default function HeroSection() {
         <CarouselContent className="h-full"> {/* Ensure CarouselContent takes full height */}
           {heroImages.map((image, index) => (
             <CarouselItem key={index} className="h-full relative"> {/* Ensure CarouselItem takes full height and is relative */}
-              <Image
-                src={image.src}
-                alt={t(image.altKey)}
-                layout="fill"
-                objectFit="cover"
-                priority={index === 0} // Add priority to the first image
-                className="border-8 border-red-500" // Keep debug border
-                data-ai-hint={image.dataAiHint}
-              />
+              <div className="relative w-full h-full"> {/* Explicit relative container for Image */}
+                <Image
+                  src={image.src}
+                  alt={t(image.altKey)}
+                  layout="fill"
+                  objectFit="cover"
+                  priority={index === 0}
+                  className="border-8 border-red-500" // Keep debug border
+                  data-ai-hint={image.dataAiHint}
+                />
+              </div>
             </CarouselItem>
           ))}
         </CarouselContent>
