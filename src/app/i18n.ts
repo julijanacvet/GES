@@ -1,3 +1,4 @@
+
 // src/app/i18n.ts
 import { createInstance, type i18n as I18nInstanceType } from 'i18next';
 import resourcesToBackend from 'i18next-resources-to-backend';
@@ -13,6 +14,12 @@ export const getOptions = (lng = i18nConfig.defaultLocale, ns = 'common') => {
     lng,
     ns,
     defaultNS: 'common',
+    react: {
+      useSuspense: true, // Recommended for React 18+ and App Router
+    },
+    interpolation: {
+      escapeValue: false, // React already safes from xss
+    },
     // Explicitly tell i18next to not use localStorage or cookies for language detection on server
     // detection: {
     //   order: [], // No detection order on server

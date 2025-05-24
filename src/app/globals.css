@@ -106,5 +106,5 @@ body {
 
 /* Custom form input styles */
 .form-input {
-  @apply w-full p-3 border border-gray-medium rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground placeholder:text-muted-foreground;
+  @apply w-full p-3 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground placeholder:text-muted-foreground;
 }
