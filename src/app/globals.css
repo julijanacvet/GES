@@ -8,64 +8,86 @@ body {
 
 @layer base {
   :root {
-    --background: 210 17% 98%; /* #f8f9fa - Very light green/almost white */
-    --foreground: 210 10% 23%; /* #343a40 - Text Dark */
-    --card: 0 0% 100%; /* #ffffff - White for cards */
-    --card-foreground: 210 10% 23%; /* #343a40 - Text Dark on cards */
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 10% 23%;
-    --primary: 134 61% 40%; /* #28a745 - Primary Green */
-    --primary-foreground: 210 17% 98%; /* #f8f9fa - Text Light on primary */
-    --secondary: 210 100% 50%; /* #007bff - Secondary Blue (can be adjusted if less used) */
-    --secondary-foreground: 210 17% 98%; /* #f8f9fa - Text Light on secondary */
-    --muted: 208 7% 46%; /* #6c757d - Gray Medium */
-    --muted-foreground: 210 17% 98%; /* Text on muted backgrounds - light gray */
-    --accent: 45 100% 51%; /* #ffc107 - Accent Yellow */
-    --accent-foreground: 210 10% 23%; /* #343a40 - Text Dark on accent */
-    --destructive: 0 84.2% 60.2%;
+    --background: 0 0% 0%; /* Black */
+    --foreground: 0 0% 100%; /* White */
+    
+    --card: 0 0% 7%; /* Very Dark Gray for cards (e.g., #121212) */
+    --card-foreground: 0 0% 100%; /* White */
+    
+    --popover: 0 0% 7%; /* Very Dark Gray */
+    --popover-foreground: 0 0% 100%; /* White */
+    
+    --primary: 0 84% 60%; /* Vibrant Red (e.g., #f04444) */
+    --primary-foreground: 0 0% 100%; /* White */
+    
+    --secondary: 0 0% 20%; /* Dark Gray (e.g., #333333) */
+    --secondary-foreground: 0 0% 100%; /* White */
+    
+    --muted: 0 0% 10%; /* Darker Gray for muted backgrounds (e.g., #1a1a1a) */
+    --muted-foreground: 0 0% 70%; /* Light Gray for text on muted (e.g., #b3b3b3) */
+    
+    --accent: 0 84% 60%; /* Vibrant Red (same as primary) */
+    --accent-foreground: 0 0% 100%; /* White */
+    
+    --destructive: 0 84.2% 60.2%; /* Default destructive, can adjust if needed */
     --destructive-foreground: 0 0% 98%;
-    --border: 210 16% 91%; /* #dee2e6 - Border Light */
-    --input: 210 16% 91%; /* #dee2e6 - Border Light for inputs */
-    --ring: 134 61% 40%; /* #28a745 - Primary Green for focus rings */
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+    
+    --border: 0 0% 25%; /* Dark Gray for borders (e.g., #404040) */
+    --input: 0 0% 100%; /* White background for input fields */
+    /* --input-foreground will be handled by .form-input text color */
+    --ring: 0 84% 60%; /* Red for focus rings */
+    
+    --chart-1: 0 84% 60%; /* Red */
+    --chart-2: 0 0% 80%; /* Light Gray */
+    --chart-3: 0 0% 60%; /* Medium Gray */
+    --chart-4: 0 70% 50%; /* Another shade of Red/Orange */
+    --chart-5: 0 60% 40%; /* Darker Red/Orange */
+    
+    --radius: 0rem; /* Sharp corners by default */
 
-    /* Specific for GES project based on dark background */
-    --background-dark: 210 10% 13%; /* #212529 */
-    --text-light-on-dark: 210 17% 98%; /* #f8f9fa */
+    /* Specific variables for consistency with the new theme */
+    --background-dark: 0 0% 0%; /* Black (same as main background) */
+    --text-light-on-dark: 0 0% 100%; /* White (same as main foreground) */
   }
-  .dark {
-    --background: 210 10% 13%; /* #212529 - Background Dark */
-    --foreground: 210 17% 98%; /* #f8f9fa - Text Light */
-    --card: 210 10% 17%; /* Slightly lighter than background-dark for cards e.g. #2c3034 */
-    --card-foreground: 210 17% 98%; /* #f8f9fa - Text Light on cards */
-    --popover: 210 10% 13%;
-    --popover-foreground: 210 17% 98%;
-    --primary: 134 61% 40%; /* #28a745 - Primary Green */
-    --primary-foreground: 210 17% 98%; /* #f8f9fa - Text Light on primary */
-    --secondary: 210 100% 50%; /* #007bff - Secondary Blue */
-    --secondary-foreground: 210 17% 98%; /* #f8f9fa - Text Light on secondary */
-    --muted: 210 10% 23%; /* #343a40 - Text Dark as muted background */
-    --muted-foreground: 210 16% 91%; /* #dee2e6 - Light gray text on muted */
-    --accent: 45 100% 51%; /* #ffc107 - Accent Yellow */
-    --accent-foreground: 210 10% 13%; /* #212529 - Background Dark as text on accent */
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 208 7% 30%; /* Darker border, e.g. #495057 */
-    --input: 208 7% 30%; 
-    --ring: 134 61% 40%; /* #28a745 - Primary Green for focus rings */
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
 
-    --background-dark: 210 10% 13%; /* #212529 - already background */
-    --text-light-on-dark: 210 17% 98%; /* #f8f9fa - already foreground */
+  .dark {
+    --background: 0 0% 0%; /* Black */
+    --foreground: 0 0% 100%; /* White */
+    
+    --card: 0 0% 7%; /* Very Dark Gray for cards (e.g., #121212) */
+    --card-foreground: 0 0% 100%; /* White */
+    
+    --popover: 0 0% 7%; /* Very Dark Gray */
+    --popover-foreground: 0 0% 100%; /* White */
+    
+    --primary: 0 84% 60%; /* Vibrant Red */
+    --primary-foreground: 0 0% 100%; /* White */
+    
+    --secondary: 0 0% 20%; /* Dark Gray */
+    --secondary-foreground: 0 0% 100%; /* White */
+    
+    --muted: 0 0% 10%; /* Darker Gray for muted backgrounds */
+    --muted-foreground: 0 0% 70%; /* Light Gray for text on muted */
+    
+    --accent: 0 84% 60%; /* Vibrant Red */
+    --accent-foreground: 0 0% 100%; /* White */
+    
+    --destructive: 0 70% 50%; /* Adjusted for dark theme consistency if needed */
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 0 0% 25%; /* Dark Gray for borders */
+    --input: 0 0% 100%; /* White background for input fields */
+    /* --input-foreground will be handled by .form-input text color */
+    --ring: 0 84% 60%; /* Red for focus rings */
+
+    --chart-1: 0 84% 60%;
+    --chart-2: 0 0% 80%;
+    --chart-3: 0 0% 60%;
+    --chart-4: 0 70% 50%;
+    --chart-5: 0 60% 40%;
+
+    --background-dark: 0 0% 0%; /* Black */
+    --text-light-on-dark: 0 0% 100%; /* White */
   }
 }
 
@@ -86,25 +108,25 @@ body {
     @apply text-2xl md:text-3xl font-semibold text-foreground;
   }
   p {
-    @apply text-base md:text-lg leading-relaxed text-foreground;
+    @apply text-base md:text-lg leading-relaxed; /* text-foreground is default from body */
   }
   a {
-    @apply text-primary hover:underline hover:text-secondary;
+    @apply text-primary hover:text-red-400; /* Primary red, lighter red on hover */
   }
   section {
     @apply py-16 md:py-24;
   }
 }
 
-/* Custom button styles from user prompt */
+/* Custom button styles */
 .btn-primary {
-  @apply bg-primary hover:bg-green-700 text-primary-foreground font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out;
+  @apply bg-primary hover:bg-red-700 text-primary-foreground font-bold py-3 px-6 rounded-md shadow-md transition duration-300 ease-in-out;
 }
 .btn-secondary {
-  @apply bg-transparent border border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out;
+  @apply bg-transparent border border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold py-3 px-6 rounded-md transition duration-300 ease-in-out;
 }
 
 /* Custom form input styles */
 .form-input {
-  @apply w-full p-3 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground placeholder:text-muted-foreground;
+  @apply w-full p-3 border border-input rounded-none focus:outline-none focus:ring-2 focus:ring-primary bg-input text-black placeholder:text-gray-500; /* bg-input (white), text-black, no rounding */
 }
