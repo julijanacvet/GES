@@ -11,54 +11,49 @@ export default function HeroSection() {
   const locale = i18n.language;
 
   return (
-    <section id="home" className="relative bg-gradient-to-br from-background to-green-50/50 dark:from-background dark:to-green-900/20 pt-8 md:pt-12 pb-16 md:pb-24 overflow-hidden">
-      <div className="absolute inset-0 opacity-10 dark:opacity-5">
-        {/* Decorative background pattern or image if desired */}
-      </div>
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-          <div className="text-center md:text-left">
-            <h1 className="mb-6">
-              {t('hero.headline')}
-            </h1>
-            <p className="mb-8 text-lg md:text-xl text-muted-foreground">
-              {t('hero.subheadline')}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="bg-transparent border border-primary text-primary font-bold py-3 px-6 shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground rounded-[8px] transition duration-300 ease-in-out"
-              >
-                <Link href={`/${locale}/#calculator`}>{t('hero.calculateSavingsBtn')}</Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="bg-transparent border border-primary text-primary font-bold py-3 px-6 shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground rounded-[8px] transition duration-300 ease-in-out"
-              >
-                <Link href={`/${locale}/#contact`}>{t('hero.getConsultationBtn')}</Link>
-              </Button>
-            </div>
-          </div>
-          <div className="relative aspect-video rounded-xl shadow-2xl overflow-hidden group">
-             <Image
-              src="/locales/images/hero-1.jpg"
-              alt={t('imagePlaceholders.hero')}
-              layout="fill"
-              objectFit="cover"
-              className="transform group-hover:scale-105 transition-transform duration-500"
-              data-ai-hint="solar panels roof"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-            {/* Text overlay removed */}
+    <section 
+      id="home" 
+      className="relative flex items-center justify-center text-center min-h-[70vh] md:min-h-[85vh] py-16 md:py-24 overflow-hidden"
+    >
+      <Image
+        src="https://images.unsplash.com/photo-1545209463-e2825498edbf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8c29sYXIlMjBwYW5lbHN8ZW58MHx8fHwxNzQ4MTA1MzUxfDA&ixlib=rb-4.1.0&q=80&w=1080"
+        alt={t('imagePlaceholders.hero')}
+        layout="fill"
+        objectFit="cover"
+        className="-z-20" // Behind content and overlay
+        data-ai-hint="solar panels modern house"
+        priority
+      />
+      <div className="absolute inset-0 bg-black/50 -z-10"></div> {/* Darkening overlay */}
+      
+      <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-foreground"> {/* Ensure text color contrasts with dark overlay/image */}
+          <h1 className="mb-6">
+            {t('hero.headline')}
+          </h1>
+          <p className="mb-8 text-lg md:text-xl text-foreground/90"> {/* Slightly muted subheadline for better hierarchy */}
+            {t('hero.subheadline')}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              size="lg"
+              asChild
+              variant="outline"
+              className="bg-transparent border border-primary text-primary font-bold py-3 px-6 shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground rounded-[8px] transition duration-300 ease-in-out"
+            >
+              <Link href={`/${locale}/#calculator`}>{t('hero.calculateSavingsBtn')}</Link>
+            </Button>
+            <Button
+              size="lg"
+              asChild
+              variant="outline"
+              className="bg-transparent border border-primary text-primary font-bold py-3 px-6 shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground rounded-[8px] transition duration-300 ease-in-out"
+            >
+              <Link href={`/${locale}/#contact`}>{t('hero.getConsultationBtn')}</Link>
+            </Button>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
