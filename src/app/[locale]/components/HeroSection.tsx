@@ -1,37 +1,75 @@
 
 'use client';
 
+import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+
+const heroImages = [
+  { src: '/locales/images/hero-1.jpg', altKey: 'imagePlaceholders.hero', dataAiHint: 'solar panels modern house' },
+  { src: '/locales/images/hero-2.jpg', altKey: 'imagePlaceholders.hero', dataAiHint: 'solar installation rooftop' },
+];
 
 export default function HeroSection() {
   const { t, i18n } = useTranslation('common');
   const locale = i18n.language;
 
+  const plugin = React.useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: true })
+  );
+
   return (
-    <section 
-      id="home" 
-      className="relative flex items-center justify-center text-center min-h-[70vh] md:min-h-[85vh] py-16 md:py-24 overflow-hidden"
+    <section
+      id="home"
+      className="relative flex items-center justify-center text-center min-h-[70vh] md:min-h-[85vh] overflow-hidden"
     >
-      <Image
-        src="https://images.unsplash.com/photo-1545209463-e2825498edbf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8c29sYXIlMjBwYW5lbHN8ZW58MHx8fHwxNzQ4MTA1MzUxfDA&ixlib=rb-4.1.0&q=80&w=1080"
-        alt={t('imagePlaceholders.hero')}
-        layout="fill"
-        objectFit="cover"
-        className="-z-20" // Behind content and overlay
-        data-ai-hint="solar panels modern house"
-        priority
-      />
+      <Carousel
+        plugins={[plugin.current]}
+        className="absolute inset-0 w-full h-full -z-20"
+        onMouseEnter={plugin.current.stop}
+        onMouseLeave={plugin.current.reset}
+        opts={{
+          loop: true,
+        }}
+      >
+        <CarouselContent className="h-full">
+          {heroImages.map((image, index) => (
+            <CarouselItem key={index} className="h-full relative">
+              <Image
+                src={image.src}
+                alt={t(image.altKey)}
+                layout="fill"
+                objectFit="cover"
+                className="w-full h-full"
+                data-ai-hint={image.dataAiHint}
+                priority={index === 0} 
+              />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        {/* Navigation buttons can be styled and positioned better if needed */}
+        {/* <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 hover:bg-black/50 text-white border-none" />
+        <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 hover:bg-black/50 text-white border-none" /> */}
+      </Carousel>
+      
       <div className="absolute inset-0 bg-black/50 -z-10"></div> {/* Darkening overlay */}
       
       <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-foreground"> {/* Ensure text color contrasts with dark overlay/image */}
+        <div className="text-foreground">
           <h1 className="mb-6">
             {t('hero.headline')}
           </h1>
-          <p className="mb-8 text-lg md:text-xl text-foreground/90"> {/* Slightly muted subheadline for better hierarchy */}
+          <p className="mb-8 text-lg md:text-xl text-foreground/90">
             {t('hero.subheadline')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -53,6 +91,12 @@ export default function HeroSection() {
             </Button>
           </div>
         </div>
+      </div>
+      
+      {/* Carousel navigation buttons - placed outside content div for better control if needed */}
+      <div className="absolute inset-0 flex items-center justify-between px-4 z-20 pointer-events-none">
+        <CarouselPrevious className="pointer-events-auto bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
+        <CarouselNext className="pointer-events-auto bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
       </div>
     </section>
   );
