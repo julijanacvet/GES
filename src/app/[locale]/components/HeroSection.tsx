@@ -45,7 +45,7 @@ export default function HeroSection() {
       >
         <CarouselContent className="h-full">
           {heroImages.map((image, index) => (
-            <CarouselItem key={index} className="relative h-full">
+            <CarouselItem key={index} className="h-full relative">
               <div className={`relative w-full h-full`}>
                 <Image
                   src={image.src}
@@ -63,7 +63,7 @@ export default function HeroSection() {
         <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
       </Carousel>
 
-      <div className="absolute inset-0 bg-black/10 z-10"></div> {/* Changed from bg-black/40 */}
+      <div className="absolute inset-0 bg-black/10 z-10"></div>
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
         <div className="text-white">
@@ -78,7 +78,7 @@ export default function HeroSection() {
               size="lg"
               asChild
               variant="outline"
-              className="border border-primary text-primary font-bold py-3 px-6 rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
+              className="bg-black/5 border border-primary text-primary font-bold py-3 px-6 rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
             >
               <Link href={`/${locale}/#calculator`}>{t('hero.calculateSavingsBtn')}</Link>
             </Button>
@@ -86,7 +86,7 @@ export default function HeroSection() {
               size="lg"
               asChild
               variant="outline"
-              className="border border-primary text-primary font-bold py-3 px-6 rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
+              className="bg-black/5 border border-primary text-primary font-bold py-3 px-6 rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
             >
               <Link href={`/${locale}/#contact`}>{t('hero.getConsultationBtn')}</Link>
             </Button>
