@@ -78,7 +78,7 @@ export default function HeroSection() {
               size="lg"
               asChild
               variant="outline"
-              className="bg-black/5 border border-primary text-primary font-bold py-3 px-6 rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
+              className="bg-black/50 border border-primary text-primary font-bold py-3 px-6 rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
             >
               <Link href={`/${locale}/#calculator`}>{t('hero.calculateSavingsBtn')}</Link>
             </Button>
@@ -86,7 +86,7 @@ export default function HeroSection() {
               size="lg"
               asChild
               variant="outline"
-              className="bg-black/5 border border-primary text-primary font-bold py-3 px-6 rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
+              className="bg-black/50 border border-primary text-primary font-bold py-3 px-6 rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
             >
               <Link href={`/${locale}/#contact`}>{t('hero.getConsultationBtn')}</Link>
             </Button>
