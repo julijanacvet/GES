@@ -143,83 +143,7 @@ const Carousel = React.forwardRef<
           aria-roledescription="carousel"
           {...props}
         >
-          <div ref={carouselRef} className="overflow-hidden h-full"> {/* Added h-full */}
-            {/* CarouselContent is rendered by the consumer directly if they follow shadcn pattern,
-                but it's better to make this viewport div take full height if CarouselContent is expected to.
-                The actual CarouselContent component defined below is what the user puts their items in.
-             */}
-            {children} 
-            {/* If CarouselContent is not part of `children` here but defined separately by user,
-                this approach changes slightly.
-                However, looking at HeroSection.tsx usage, CarouselContent IS a child.
-                The typical shadcn structure is:
-                <Carousel>
-                  <CarouselContent>
-                    <CarouselItem/>
-                  </CarouselContent>
-                  <CarouselPrevious/>
-                  <CarouselNext/>
-                </Carousel>
-                So `children` here refers to CarouselContent, Previous, Next.
-                The fix must be on the div that WRAPS CarouselContent.
-                Ah, `CarouselContent` is NOT a child here. This is a common mistake in my understanding.
-                `CarouselContent` is a separate component.
-                The `children` prop of `Carousel` is where `CarouselContent`, `CarouselPrevious`, `CarouselNext` are placed by the USER.
-
-                Let's re-evaluate.
-                The structure from Shadcn is:
-                Carousel (provides context, root div)
-                  - USER places CarouselContent here
-                  - USER places CarouselPrevious here
-                  - USER places CarouselNext here
-
-                CarouselContent (uses context, div with ref=carouselRef, then the flex div)
-                  - USER places CarouselItem here
-
-                The div with `ref={carouselRef}` is actually INSIDE the `CarouselContent` component, not `Carousel`.
-
-                This means the fix applied to `Carousel` component (adding h-full to its inner div) was incorrect.
-                The `ref={carouselRef}` div is in `CarouselContent`.
-              */}
-              {/* Corrected logic: The ref to embla is on the CarouselContent's first div.
-                  My previous change attempt for carousel.tsx was on the WRONG component's structure.
-                  The change needs to be within the CarouselContent component's structure if that's where the viewport is.
-
-                  Let's look at CarouselContent in carousel.tsx:
-                  const CarouselContent = React.forwardRef(...) {
-                    const { carouselRef, orientation } = useCarousel()
-                    return (
-                      <div ref={carouselRef} className="overflow-hidden"> // <<< THIS IS THE VIEWPORT
-                        <div className={cn("flex", ...)}> // <<< THIS IS THE CONTAINER FOR ITEMS
-                          {props.children}
-                        </div>
-                      </div>
-                    )
-                  }
-                  So, the `overflow-hidden` div needs `h-full` IF its parent (which is the root div of `Carousel` component in HeroSection) has height.
-                  The `Carousel` component in HeroSection has `className="absolute inset-0 w-full h-full"`. So it HAS height.
-                  Therefore, the `overflow-hidden` div in `CarouselContent` needs `h-full`.
-              */}
-          </div>
-          {/* The `children` here refers to what's passed to <Carousel>.
-              In HeroSection.tsx, these are: <CarouselContent>, <CarouselPrevious>, <CarouselNext>
-              So the `div` above with `ref={carouselRef}` is not the one I thought.
-
-              The `carouselRef` is obtained from `useEmblaCarousel` WITHIN the `Carousel` component
-              and then PASSED via context to `CarouselContent`, which then uses it.
-              Okay, the original `Carousel` component:
-              const [carouselRef, api] = useEmblaCarousel(...);
-              This `carouselRef` is given to the CONTEXT.
-
-              `CarouselContent`:
-              const { carouselRef, orientation } = useCarousel();
-              return (
-                <div ref={carouselRef} className="overflow-hidden"> // THIS IS THE ONE!
-                  <div className={cn("flex", orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col", className)} {...props} />
-                </div>
-              )
-              So, the `div` with `className="overflow-hidden"` in `CarouselContent` needs `h-full`.
-            */}
+          {children}
         </div>
       </CarouselContext.Provider>
     )
@@ -235,12 +159,12 @@ const CarouselContent = React.forwardRef<
 
   return (
     // This is the Embla viewport
-    <div ref={carouselRef} className="overflow-hidden h-full"> {/* <<< ADDED h-full HERE */}
+    <div ref={carouselRef} className="overflow-hidden h-full"> 
       <div
         ref={ref} // This ref is for the user, if they want to ref CarouselContent
         className={cn(
-          "flex",
-          orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
+          "flex h-full", // Added h-full
+          orientation === "horizontal" ? "" : "flex-col", // Removed -ml-4
           className
         )}
         {...props} // children are passed here
@@ -254,7 +178,7 @@ const CarouselItem = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
-  const { orientation } = useCarousel()
+  // const { orientation } = useCarousel() // Not needed if we remove orientation-specific padding
 
   return (
     <div
@@ -262,8 +186,7 @@ const CarouselItem = React.forwardRef<
       role="group"
       aria-roledescription="slide"
       className={cn(
-        "min-w-0 shrink-0 grow-0 basis-full",
-        orientation === "horizontal" ? "pl-4" : "pt-4",
+        "min-w-0 shrink-0 grow-0 basis-full h-full", // Added h-full, removed pl-4/pt-4
         className
       )}
       {...props}
@@ -286,7 +209,7 @@ const CarouselPrevious = React.forwardRef<
       className={cn(
         "absolute h-10 w-10 rounded-full",
         orientation === "horizontal"
-          ? "-left-12 top-1/2 -translate-y-1/2" // Original Shadcn styling. Will be overridden in HeroSection.
+          ? "-left-12 top-1/2 -translate-y-1/2" 
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -315,7 +238,7 @@ const CarouselNext = React.forwardRef<
       className={cn(
         "absolute h-10 w-10 rounded-full",
         orientation === "horizontal"
-          ? "-right-12 top-1/2 -translate-y-1/2" // Original Shadcn styling. Will be overridden in HeroSection.
+          ? "-right-12 top-1/2 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -338,4 +261,3 @@ export {
   CarouselPrevious,
   CarouselNext,
 }
-

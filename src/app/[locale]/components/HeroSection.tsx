@@ -13,7 +13,7 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
+// import Autoplay from "embla-carousel-autoplay"; // Temporarily removed
 
 const heroImages = [
   { src: '/locales/images/hero-1.jpg', altKey: 'imagePlaceholders.hero', dataAiHint: 'solar panels modern house' },
@@ -24,11 +24,10 @@ export default function HeroSection() {
   const { t, i18n } = useTranslation('common');
   const locale = i18n.language;
 
-  // Use useMemo to ensure the plugin instance is stable
-  const autoplayPlugin = React.useMemo(
-    () => Autoplay({ delay: 5000, stopOnInteraction: true }),
-    [] // Empty dependency array means it's created once
-  );
+  // const autoplayPlugin = React.useMemo( // Temporarily removed
+  //   () => Autoplay({ delay: 5000, stopOnInteraction: true }),
+  //   []
+  // );
 
   return (
     <section
@@ -36,18 +35,18 @@ export default function HeroSection() {
       className="relative min-h-[70vh] md:min-h-[85vh] overflow-hidden"
     >
       <Carousel
-        plugins={[autoplayPlugin]}
+        // plugins={[autoplayPlugin]} // Temporarily removed
         className="absolute inset-0 w-full h-full"
-        onMouseEnter={autoplayPlugin.stop}
-        onMouseLeave={autoplayPlugin.reset}
+        // onMouseEnter={autoplayPlugin.stop} // Temporarily removed
+        // onMouseLeave={autoplayPlugin.reset} // Temporarily removed
         opts={{
-          loop: true,
+          loop: false, // Set to false for debugging
         }}
       >
-        <CarouselContent className="h-full">
+        <CarouselContent className="h-full"> {/* User passes h-full */}
           {heroImages.map((image, index) => (
-            <CarouselItem key={index} className="h-full relative">
-              <div className="relative w-full h-full">
+            <CarouselItem key={index} className="relative"> {/* User passes relative */}
+              <div className={`relative w-full h-full ${index === 0 ? 'bg-red-500/50' : 'bg-blue-500/50'}`}> {/* Diagnostic BG with some transparency */}
                 <Image
                   src={image.src}
                   alt={t(image.altKey)}
@@ -55,7 +54,6 @@ export default function HeroSection() {
                   objectFit="cover"
                   priority={index === 0}
                   data-ai-hint={image.dataAiHint}
-                  // className="border-8 border-red-500" // Debug border removed
                 />
               </div>
             </CarouselItem>
@@ -65,7 +63,7 @@ export default function HeroSection() {
         <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
       </Carousel>
 
-      <div className="absolute inset-0 bg-black/40 z-10"></div>
+      <div className="absolute inset-0 bg-black/40 z-10"></div> {/* Overlay */}
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
         <div className="text-white">
