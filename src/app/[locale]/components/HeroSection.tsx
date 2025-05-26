@@ -46,7 +46,8 @@ export default function HeroSection() {
           {heroImages.map((image, index) => (
             <CarouselItem key={index} className="h-full relative">
               {/* This div is the direct relative parent for the Image with layout="fill" */}
-              <div className="relative w-full h-full">
+              {/* Added diagnostic background color bg-lime-500 */}
+              <div className="relative w-full h-full bg-lime-500"> 
                 <Image
                   src={image.src}
                   alt={t(image.altKey)}
@@ -98,3 +99,4 @@ export default function HeroSection() {
     </section>
   );
 }
+
