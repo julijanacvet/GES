@@ -32,7 +32,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-[70vh] md:min-h-[85vh] overflow-hidden"
+      className="relative min-h-[70vh] sm:min-h-[75vh] md:min-h-[85vh] overflow-hidden"
     >
       <Carousel
         plugins={[autoplayPlugin]}
@@ -65,30 +65,28 @@ export default function HeroSection() {
 
       <div className="absolute inset-0 bg-black/10 z-10"></div> {/* Overlay for image darkening */}
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-20 py-6 sm:py-10 md:py-12">
         <div className="text-white">
-          <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight [text-shadow:0_2px_6px_rgba(0,0,0,0.75)]">
+          <h1 className="mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight [text-shadow:0_2px_6px_rgba(0,0,0,0.75)]">
             {t('hero.headline')}
           </h1>
-          <div className="mb-8 bg-black/20 px-4 py-2 rounded-md inline-block">
-            <p className="text-lg md:text-xl text-gray-200/90 [text-shadow:0_3px_8px_rgba(0,0,0,0.85)]">
+          <div className="mb-6 bg-black/20 px-3 py-1 sm:px-4 sm:py-2 rounded-md inline-block">
+            <p className="text-base sm:text-lg md:text-xl text-gray-200/90 [text-shadow:0_3px_8px_rgba(0,0,0,0.85)]">
               {t('hero.subheadline')}
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center">
             <Button
               size="lg"
               asChild
-              variant="outline"
-              className="bg-black/50 border border-primary text-primary font-bold py-3 px-6 rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
+              className="bg-black/50 border border-primary text-primary font-bold py-2 px-4 text-sm sm:py-3 sm:px-6 sm:text-base rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
             >
               <Link href={`/${locale}/#calculator`}>{t('hero.calculateSavingsBtn')}</Link>
             </Button>
             <Button
               size="lg"
               asChild
-              variant="outline"
-              className="bg-black/50 border border-primary text-primary font-bold py-3 px-6 rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
+              className="bg-black/50 border border-primary text-primary font-bold py-2 px-4 text-sm sm:py-3 sm:px-6 sm:text-base rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
             >
               <Link href={`/${locale}/#contact`}>{t('hero.getConsultationBtn')}</Link>
             </Button>
