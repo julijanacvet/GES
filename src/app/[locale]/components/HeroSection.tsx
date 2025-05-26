@@ -40,13 +40,13 @@ export default function HeroSection() {
         onMouseEnter={autoplayPlugin.stop}
         onMouseLeave={autoplayPlugin.reset}
         opts={{
-          loop: true, // Enable looping
+          loop: true,
         }}
       >
         <CarouselContent className="h-full">
           {heroImages.map((image, index) => (
-            <CarouselItem key={index} className="relative h-full"> {/* User passes relative h-full */}
-              <div className={`relative w-full h-full`}> {/* Removed diagnostic BG */}
+            <CarouselItem key={index} className="relative h-full">
+              <div className={`relative w-full h-full`}>
                 <Image
                   src={image.src}
                   alt={t(image.altKey)}
@@ -63,7 +63,7 @@ export default function HeroSection() {
         <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
       </Carousel>
 
-      <div className="absolute inset-0 bg-black/40 z-10"></div> {/* Overlay */}
+      <div className="absolute inset-0 bg-black/10 z-10"></div> {/* Changed from bg-black/40 */}
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
         <div className="text-white">
@@ -78,7 +78,7 @@ export default function HeroSection() {
               size="lg"
               asChild
               variant="outline"
-              className="border border-primary text-primary font-bold py-3 px-6 shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground rounded-[8px] transition duration-300 ease-in-out"
+              className="border border-primary text-primary font-bold py-3 px-6 rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
             >
               <Link href={`/${locale}/#calculator`}>{t('hero.calculateSavingsBtn')}</Link>
             </Button>
@@ -86,7 +86,7 @@ export default function HeroSection() {
               size="lg"
               asChild
               variant="outline"
-              className="border border-primary text-primary font-bold py-3 px-6 shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground rounded-[8px] transition duration-300 ease-in-out"
+              className="border border-primary text-primary font-bold py-3 px-6 rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
             >
               <Link href={`/${locale}/#contact`}>{t('hero.getConsultationBtn')}</Link>
             </Button>
