@@ -71,7 +71,7 @@ export default function HeroSection() {
             {t('hero.headline')}
           </h1>
           <div className="mb-8 bg-black/20 px-4 py-2 rounded-md inline-block">
-            <p className="text-lg md:text-xl text-gray-200/90">
+            <p className="text-lg md:text-xl text-gray-200/90 [text-shadow:0_2px_6px_rgba(0,0,0,0.75)]">
               {t('hero.subheadline')}
             </p>
           </div>
