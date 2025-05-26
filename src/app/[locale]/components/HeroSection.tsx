@@ -70,7 +70,7 @@ export default function HeroSection() {
           <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight [text-shadow:0_2px_6px_rgba(0,0,0,0.75)]">
             {t('hero.headline')}
           </h1>
-          <p className="mb-8 text-lg md:text-xl text-gray-200/90 [text-shadow:0_1px_4px_rgba(0,0,0,0.65)]">
+          <p className="mb-8 text-lg md:text-xl text-gray-200/90 [text-shadow:0_2px_8px_rgba(0,0,0,0.85)]">
             {t('hero.subheadline')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
