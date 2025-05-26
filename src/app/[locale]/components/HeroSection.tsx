@@ -35,19 +35,19 @@ export default function HeroSection() {
     >
       <Carousel
         plugins={[plugin.current]}
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full h-full" // Carousel fills the section
         onMouseEnter={plugin.current?.stop}
         onMouseLeave={plugin.current?.reset}
         opts={{
           loop: true,
         }}
       >
-        <CarouselContent className="h-full">
+        {/* CarouselContent is now expected to get h-full from its parent div in carousel.tsx */}
+        <CarouselContent className="h-full"> {/* This h-full is crucial */}
           {heroImages.map((image, index) => (
-            <CarouselItem key={index} className="h-full relative">
+            <CarouselItem key={index} className="h-full relative"> {/* This h-full and relative is crucial */}
               {/* This div is the direct relative parent for the Image with layout="fill" */}
-              {/* Added diagnostic background color bg-lime-500 */}
-              <div className="relative w-full h-full bg-lime-500"> 
+              <div className="relative w-full h-full"> 
                 <Image
                   src={image.src}
                   alt={t(image.altKey)}
@@ -69,11 +69,11 @@ export default function HeroSection() {
 
       {/* Text content: z-20, on top of overlay */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
-        <div className="text-white"> {/* Ensure text is white or very light for contrast */}
+        <div className="text-white">
           <h1 className="mb-6">
             {t('hero.headline')}
           </h1>
-          <p className="mb-8 text-lg md:text-xl text-gray-200/90"> {/* Lighter text for subheadline */}
+          <p className="mb-8 text-lg md:text-xl text-gray-200/90">
             {t('hero.subheadline')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
