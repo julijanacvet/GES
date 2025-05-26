@@ -1,4 +1,3 @@
-
 {
   "appName": "GES - Green Energy Solutions",
   "nav": {
@@ -10,95 +9,91 @@
     "getQuote": "Get Quote"
   },
   "hero": {
-    "headline": "Your Partner for Sustainable Energy in Macedonia",
+    "headline": "Your Partner for Sustainable Energy",
     "subheadline": "Harness solar power to reduce your bills and protect the environment. We offer top-tier solar solutions tailored to your needs.",
     "calculateSavingsBtn": "Calculate Savings",
     "getConsultationBtn": "Free Consultation"
   },
-  "imagePlaceholders": {
-    "hero": "Solar panels on a roof with clear sky",
-    "service": "Solar panel installation"
-  },
   "benefits": {
-    "lowerBillsTitle": "Lower Bills",
-    "lowerBillsDesc": "Significantly reduce your monthly electricity costs.",
+    "lowerBillsTitle": "Lower Energy Bills",
+    "lowerBillsDesc": "Significantly reduce or eliminate your electricity costs by generating your own clean energy.",
     "energyIndependenceTitle": "Energy Independence",
-    "energyIndependenceDesc": "Generate your own clean energy and be less dependent on the grid.",
-    "carbonReductionTitle": "CO2 Reduction",
-    "carbonReductionDesc": "Contribute to a cleaner environment by reducing your carbon footprint.",
-    "propertyValueTitle": "Increased Value",
-    "propertyValueDesc": "Investing in solar energy can increase the value of your property."
+    "energyIndependenceDesc": "Gain more control over your energy supply and protect yourself from rising electricity prices.",
+    "carbonReductionTitle": "Reduce Carbon Footprint",
+    "carbonReductionDesc": "Contribute to a healthier planet by using renewable energy and lowering greenhouse gas emissions.",
+    "propertyValueTitle": "Increase Property Value",
+    "propertyValueDesc": "Solar installations can enhance the market value and attractiveness of your property."
   },
   "services": {
-    "title": "Our Services",
-    "residentialTitle": "Residential Solar Systems",
-    "residentialDesc": "Customized solutions for your home, designed for maximum efficiency and savings.",
-    "getResidentialQuoteBtn": "Quote for Households",
-    "commercialTitle": "Commercial Solar Systems",
-    "commercialDesc": "Optimize your operational costs and demonstrate your commitment to sustainability.",
-    "getCommercialQuoteBtn": "Quote for Businesses",
-    "solarPlantsTitle": "Solar Plant Investments",
-    "solarPlantsDesc": "Development and construction of large-scale solar projects for clean energy generation.",
+    "title": "Our Solar Solutions",
+    "residentialTitle": "For Households",
+    "residentialDesc": "Custom solar panel systems for your home, designed for maximum efficiency and savings.",
+    "getResidentialQuoteBtn": "Get Residential Quote",
+    "commercialTitle": "For Businesses",
+    "commercialDesc": "Scalable solar solutions for commercial and industrial properties to reduce operational costs.",
+    "getCommercialQuoteBtn": "Get Commercial Quote",
+    "solarPlantsTitle": "Solar Power Plants",
+    "solarPlantsDesc": "Development and implementation of large-scale solar power plants for sustainable energy generation.",
     "exploreSolarPlantsBtn": "Explore Solar Plants"
   },
   "calculator": {
     "title": "Solar Savings Calculator",
-    "billLabel": "Your average monthly electricity bill (MKD)",
-    "billPlaceholder": "e.g. 3000",
-    "roofSizeLabel": "Available roof area (m²)",
-    "roofSizePlaceholder": "e.g. 50",
-    "offsetLabel": "Desired energy offset percentage (%)",
-    "offsetPlaceholder": "e.g. 80",
+    "billLabel": "Average Monthly Electricity Bill (MKD)",
+    "billPlaceholder": "e.g., 3000",
+    "roofSizeLabel": "Available Roof Area (sq. meters)",
+    "roofSizePlaceholder": "e.g., 50",
+    "offsetLabel": "Desired Energy Offset (%)",
+    "offsetPlaceholder": "e.g., 80",
     "buildingTypeLabel": "Building Type",
     "residentialOption": "Residential",
     "businessOption": "Business",
     "industrialOption": "Industrial",
-    "calculateBtn": "Calculate",
-    "resultsTitle": "Your Estimated Results",
-    "systemSizeLabel": "Recommended system size:",
-    "systemCostLabel": "Estimated system cost:",
-    "annualSavingsLabel": "Annual savings:",
-    "paybackPeriodLabel": "Payback period:",
-    "co2ReductionLabel": "Annual CO2 reduction:",
+    "calculateBtn": "Calculate My Savings",
+    "resultsTitle": "Estimated Results",
+    "systemSizeLabel": "Estimated System Size:",
+    "systemCostLabel": "Estimated System Cost:",
+    "annualSavingsLabel": "Estimated Annual Savings:",
+    "paybackPeriodLabel": "Estimated Payback Period:",
+    "co2ReductionLabel": "Estimated Annual CO2 Reduction:",
     "getDetailedQuoteBtn": "Get a Detailed Quote",
-    "disclaimer": "Note: This is an estimate. For an accurate quote, please contact us.",
-    "errorInput": "Please enter valid positive values for bill and roof size, and an offset percentage between 1 and 100."
+    "disclaimer": "Disclaimer: These calculations are estimates. Actual savings may vary. Contact us for a detailed assessment.",
+    "errorInput": "Please enter valid positive numbers for all fields. Energy offset must be between 1 and 100."
   },
   "whyChooseUs": {
     "headline": "Why Choose GES?",
-    "expertise": "Proven expertise in designing and installing solar systems across Macedonia.",
-    "quality": "We use only high-quality components from reputable manufacturers with long-term warranties.",
-    "installers": "Our teams are certified and experienced, ensuring safe and efficient installation.",
-    "support": "We offer comprehensive support, from planning and financing to maintenance and monitoring.",
-    "sustainability": "We are committed to promoting sustainable energy solutions for a better future."
+    "expertise": "Decades of experience in renewable energy solutions and a deep understanding of the Macedonian market.",
+    "quality": "We use only high-quality, certified solar panels and components from leading manufacturers.",
+    "installers": "Our team of certified installers ensures professional and safe installation.",
+    "support": "Comprehensive customer support from initial consultation to post-installation maintenance.",
+    "sustainability": "Committed to promoting sustainable energy and helping Macedonia achieve its green energy goals."
   },
   "testimonials": {
     "title": "What Our Clients Say",
-    "quote1": "Excellent service and professionalism! The savings on electricity bills are amazing. Thank you GES!",
-    "author1": "Ana P., Skopje",
-    "quote2": "The whole process was smooth and well-explained. The team was very helpful. Highly recommend!",
-    "author2": "Marko T., Bitola"
+    "quote1": "GES provided an excellent service from start to finish. Our energy bills have never been lower!",
+    "author1": "Petar P., Skopje",
+    "quote2": "The installation was quick and professional. We are very happy with our new solar system.",
+    "author2": "Ana K., Bitola"
   },
   "faq": {
     "title": "Frequently Asked Questions",
-    "question1": "How long does it take to install a solar system?",
-    "answer1": "A typical residential installation takes 1 to 3 days, depending on the system size and complexity.",
-    "question2": "What maintenance is required for solar panels?",
-    "answer2": "Solar panels require minimal maintenance. We recommend periodic cleaning and an annual check-up by our team.",
-    "question3": "Are there subsidies for solar systems in Macedonia?",
-    "answer3": "Yes, there are various subsidy programs. Our team can help you find and apply for available options."
+    "question1": "How much can I save with solar panels?",
+    "answer1": "Savings vary based on your energy consumption, system size, and local sunlight conditions. Our calculator can give you an estimate, and we can provide a detailed analysis.",
+    "question2": "How long does the installation take?",
+    "answer2": "A typical residential installation can take 1-3 days. Larger commercial projects may take longer.",
+    "question3": "What maintenance is required for solar panels?",
+    "answer3": "Solar panels require minimal maintenance, usually just occasional cleaning and an annual check-up to ensure optimal performance."
   },
   "cta": {
     "finalHeadline": "Ready to Switch to Solar?",
-    "finalSubheadline": "Contact us today for a personalized quote and find out how you can start saving and contributing to a cleaner planet.",
-    "requestFreeQuoteBtn": "Request a Free Quote Now"
+    "finalSubheadline": "Join the growing number of Macedonians choosing clean, affordable solar energy. Get your free, no-obligation quote today!",
+    "requestFreeQuoteBtn": "Request a Free Quote"
   },
   "footer": {
-    "description": "Your trusted partner for innovative and sustainable solar solutions in Macedonia.",
+    "description": "Leading the charge in sustainable solar solutions for Macedonia.",
     "navTitle": "Navigation",
-    "contactTitle": "Contact",
+    "contactTitle": "Contact Us",
     "addressLabel": "Address:",
-    "addressValue": "Example Street 123, Skopje",
+    "addressValue": "Solar Str. 123, Skopje, Macedonia",
     "phoneLabel": "Phone:",
     "phoneValue": "+389 70 123 456",
     "emailLabel": "Email:",
@@ -108,9 +103,12 @@
     "termsOfService": "Terms of Service"
   },
   "languageSwitcher": {
-    "mk": "МК",
+    "mk": "MK",
     "en": "EN"
+  },
+  "imagePlaceholders": {
+    "hero": "Solar panels on a modern house roof with clear sky",
+    "service": "Solar panel installation service",
+    "testimonialAvatar": "Happy customer photo"
   }
 }
-
-    
