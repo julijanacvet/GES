@@ -67,10 +67,10 @@ export default function HeroSection() {
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
         <div className="text-white">
-          <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight [text-shadow:0_1px_3px_rgba(0,0,0,0.6)]">
+          <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight [text-shadow:0_2px_6px_rgba(0,0,0,0.75)]">
             {t('hero.headline')}
           </h1>
-          <p className="mb-8 text-lg md:text-xl text-gray-200/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.5)]">
+          <p className="mb-8 text-lg md:text-xl text-gray-200/90 [text-shadow:0_1px_4px_rgba(0,0,0,0.65)]">
             {t('hero.subheadline')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
