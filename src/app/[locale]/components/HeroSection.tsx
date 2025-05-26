@@ -13,7 +13,7 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel";
-// import Autoplay from "embla-carousel-autoplay"; // Temporarily disable Autoplay
+import Autoplay from "embla-carousel-autoplay";
 
 const heroImages = [
   { src: '/locales/images/hero-1.jpg', altKey: 'imagePlaceholders.hero', dataAiHint: 'solar panels modern house' },
@@ -24,9 +24,9 @@ export default function HeroSection() {
   const { t, i18n } = useTranslation('common');
   const locale = i18n.language;
 
-  // const plugin = React.useRef(
-  //   Autoplay({ delay: 5000, stopOnInteraction: true })
-  // ); // Temporarily disable Autoplay
+  const plugin = React.useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: true })
+  );
 
   return (
     <section
@@ -34,47 +34,45 @@ export default function HeroSection() {
       className="relative min-h-[70vh] md:min-h-[85vh] overflow-hidden"
     >
       <Carousel
-        // plugins={[plugin.current]} // Temporarily disable Autoplay
-        className="absolute inset-0 w-full h-full" // Ensure Carousel fills the section
-        // onMouseEnter={plugin.current?.stop} // Temporarily disable Autoplay interaction
-        // onMouseLeave={plugin.current?.reset} // Temporarily disable Autoplay interaction
+        plugins={[plugin.current]}
+        className="absolute inset-0 w-full h-full"
+        onMouseEnter={plugin.current?.stop}
+        onMouseLeave={plugin.current?.reset}
         opts={{
           loop: true,
         }}
       >
-        <CarouselContent className="h-full"> {/* Ensure CarouselContent takes full height */}
+        <CarouselContent className="h-full">
           {heroImages.map((image, index) => (
-            <CarouselItem key={index} className="h-full relative"> {/* Ensure CarouselItem takes full height and is relative */}
-              <div className="relative w-full h-full flex items-center justify-center"> {/* Explicit relative container for Image, added flex for centering fixed size image */}
+            <CarouselItem key={index} className="h-full relative">
+              {/* This div is the direct relative parent for the Image with layout="fill" */}
+              <div className="relative w-full h-full">
                 <Image
                   src={image.src}
                   alt={t(image.altKey)}
-                  width={800} // Using fixed dimensions for diagnostics
-                  height={600} // Using fixed dimensions for diagnostics
+                  layout="fill"
+                  objectFit="cover"
                   priority={index === 0}
-                  className="border-8 border-red-500" // Keep debug border
                   data-ai-hint={image.dataAiHint}
                 />
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        {/* 
         <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
         <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
-        */}
       </Carousel>
 
-      {/* Darkening overlay: z-10, on top of carousel images, increased transparency for debugging */}
-      <div className="absolute inset-0 bg-black/10 z-10"></div>
+      {/* Darkening overlay: z-10, on top of carousel images */}
+      <div className="absolute inset-0 bg-black/40 z-10"></div>
 
       {/* Text content: z-20, on top of overlay */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
-        <div className="text-foreground">
+        <div className="text-white"> {/* Ensure text is white or very light for contrast */}
           <h1 className="mb-6">
             {t('hero.headline')}
           </h1>
-          <p className="mb-8 text-lg md:text-xl text-foreground/90">
+          <p className="mb-8 text-lg md:text-xl text-gray-200/90"> {/* Lighter text for subheadline */}
             {t('hero.subheadline')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
