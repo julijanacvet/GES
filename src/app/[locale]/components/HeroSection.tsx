@@ -13,7 +13,7 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel";
-// import Autoplay from "embla-carousel-autoplay"; // Temporarily removed
+import Autoplay from "embla-carousel-autoplay";
 
 const heroImages = [
   { src: '/locales/images/hero-1.jpg', altKey: 'imagePlaceholders.hero', dataAiHint: 'solar panels modern house' },
@@ -24,10 +24,10 @@ export default function HeroSection() {
   const { t, i18n } = useTranslation('common');
   const locale = i18n.language;
 
-  // const autoplayPlugin = React.useMemo( // Temporarily removed
-  //   () => Autoplay({ delay: 5000, stopOnInteraction: true }),
-  //   []
-  // );
+  const autoplayPlugin = React.useMemo(
+    () => Autoplay({ delay: 5000, stopOnInteraction: true }),
+    []
+  );
 
   return (
     <section
@@ -35,18 +35,18 @@ export default function HeroSection() {
       className="relative min-h-[70vh] md:min-h-[85vh] overflow-hidden"
     >
       <Carousel
-        // plugins={[autoplayPlugin]} // Temporarily removed
+        plugins={[autoplayPlugin]}
         className="absolute inset-0 w-full h-full"
-        // onMouseEnter={autoplayPlugin.stop} // Temporarily removed
-        // onMouseLeave={autoplayPlugin.reset} // Temporarily removed
+        onMouseEnter={autoplayPlugin.stop}
+        onMouseLeave={autoplayPlugin.reset}
         opts={{
-          loop: false, // Set to false for debugging
+          loop: true, // Enable looping
         }}
       >
-        <CarouselContent className="h-full"> {/* User passes h-full */}
+        <CarouselContent className="h-full">
           {heroImages.map((image, index) => (
-            <CarouselItem key={index} className="relative"> {/* User passes relative */}
-              <div className={`relative w-full h-full ${index === 0 ? 'bg-red-500/50' : 'bg-blue-500/50'}`}> {/* Diagnostic BG with some transparency */}
+            <CarouselItem key={index} className="relative h-full"> {/* User passes relative h-full */}
+              <div className={`relative w-full h-full`}> {/* Removed diagnostic BG */}
                 <Image
                   src={image.src}
                   alt={t(image.altKey)}
@@ -67,7 +67,7 @@ export default function HeroSection() {
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
         <div className="text-white">
-          <h1 className="mb-6">
+          <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">
             {t('hero.headline')}
           </h1>
           <p className="mb-8 text-lg md:text-xl text-gray-200/90">
