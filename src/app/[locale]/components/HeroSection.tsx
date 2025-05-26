@@ -63,16 +63,18 @@ export default function HeroSection() {
         <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
       </Carousel>
 
-      <div className="absolute inset-0 bg-black/10 z-10"></div>
+      <div className="absolute inset-0 bg-black/10 z-10"></div> {/* Overlay for image darkening */}
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
         <div className="text-white">
           <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight [text-shadow:0_2px_6px_rgba(0,0,0,0.75)]">
             {t('hero.headline')}
           </h1>
-          <p className="mb-8 text-lg md:text-xl text-gray-200/90 [text-shadow:0_2px_8px_rgba(0,0,0,0.85)]">
-            {t('hero.subheadline')}
-          </p>
+          <div className="mb-8 bg-black/20 px-4 py-2 rounded-md inline-block">
+            <p className="text-lg md:text-xl text-gray-200/90">
+              {t('hero.subheadline')}
+            </p>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
