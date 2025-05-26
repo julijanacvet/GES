@@ -24,8 +24,10 @@ export default function HeroSection() {
   const { t, i18n } = useTranslation('common');
   const locale = i18n.language;
 
-  const plugin = React.useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: true })
+  // Use useMemo to ensure the plugin instance is stable
+  const autoplayPlugin = React.useMemo(
+    () => Autoplay({ delay: 5000, stopOnInteraction: true }),
+    [] // Empty dependency array means it's created once
   );
 
   return (
@@ -34,20 +36,18 @@ export default function HeroSection() {
       className="relative min-h-[70vh] md:min-h-[85vh] overflow-hidden"
     >
       <Carousel
-        plugins={[plugin.current]}
-        className="absolute inset-0 w-full h-full" // Carousel fills the section
-        onMouseEnter={plugin.current?.stop}
-        onMouseLeave={plugin.current?.reset}
+        plugins={[autoplayPlugin]}
+        className="absolute inset-0 w-full h-full"
+        onMouseEnter={autoplayPlugin.stop}
+        onMouseLeave={autoplayPlugin.reset}
         opts={{
           loop: true,
         }}
       >
-        {/* CarouselContent is now expected to get h-full from its parent div in carousel.tsx */}
-        <CarouselContent className="h-full"> {/* This h-full is crucial */}
+        <CarouselContent className="h-full">
           {heroImages.map((image, index) => (
-            <CarouselItem key={index} className="h-full relative"> {/* This h-full and relative is crucial */}
-              {/* This div is the direct relative parent for the Image with layout="fill" */}
-              <div className="relative w-full h-full"> 
+            <CarouselItem key={index} className="h-full relative">
+              <div className="relative w-full h-full">
                 <Image
                   src={image.src}
                   alt={t(image.altKey)}
@@ -55,6 +55,7 @@ export default function HeroSection() {
                   objectFit="cover"
                   priority={index === 0}
                   data-ai-hint={image.dataAiHint}
+                  // className="border-8 border-red-500" // Debug border removed
                 />
               </div>
             </CarouselItem>
@@ -64,10 +65,8 @@ export default function HeroSection() {
         <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
       </Carousel>
 
-      {/* Darkening overlay: z-10, on top of carousel images */}
       <div className="absolute inset-0 bg-black/40 z-10"></div>
 
-      {/* Text content: z-20, on top of overlay */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
         <div className="text-white">
           <h1 className="mb-6">
@@ -99,4 +98,3 @@ export default function HeroSection() {
     </section>
   );
 }
-
