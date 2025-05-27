@@ -20,8 +20,12 @@ const benefits: Benefit[] = [
 ];
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 50, rotate: -5 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    rotate: 0,
+  },
 };
 
 export default function BenefitsSection() {
@@ -37,9 +41,19 @@ export default function BenefitsSection() {
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.03, y: -5 }}
+              viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the card is visible
+              transition={{ 
+                type: "spring", 
+                stiffness: 100, 
+                damping: 12,
+                duration: 0.6, // Overall duration hint for spring
+                delay: index * 0.15 // Slightly increased stagger
+              }}
+              whileHover={{ 
+                scale: 1.05, 
+                y: -8,
+                transition: { type: "spring", stiffness: 300, damping: 15 } // Smoother hover transition
+              }}
               className="h-full" // Ensure motion.div takes full height for consistent card sizing
             >
               <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-xl overflow-hidden group h-full flex flex-col">
@@ -60,3 +74,4 @@ export default function BenefitsSection() {
     </section>
   );
 }
+
