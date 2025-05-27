@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import {
   Carousel,
   CarouselContent,
@@ -28,6 +29,11 @@ export default function HeroSection() {
     () => Autoplay({ delay: 5000, stopOnInteraction: true }),
     []
   );
+
+  const variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   return (
     <section
@@ -67,29 +73,59 @@ export default function HeroSection() {
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-20 py-6 sm:py-10 md:py-12">
         <div className="text-white">
-          <h1 className="mb-2 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight [text-shadow:0_2px_6px_rgba(0,0,0,0.75)]">
+          <motion.h1
+            className="mb-2 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight [text-shadow:0_2px_6px_rgba(0,0,0,0.75)]"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            variants={variants}
+          >
             {t('hero.headline')}
-          </h1>
-          <div className="mb-4 bg-black/20 px-2 py-0.5 sm:px-4 sm:py-2 rounded-md inline-block">
+          </motion.h1>
+          <motion.div
+            className="mb-4 bg-black/20 px-2 py-0.5 sm:px-4 sm:py-2 rounded-md inline-block"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            variants={variants}
+          >
             <p className="text-sm sm:text-lg md:text-xl text-gray-200/90 [text-shadow:0_3px_8px_rgba(0,0,0,0.85)]">
               {t('hero.subheadline')}
             </p>
-          </div>
+          </motion.div>
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center">
-            <Button
-              size="lg"
-              asChild
-              className="bg-black/50 border border-primary text-primary font-bold py-1.5 px-3 text-xs sm:py-3 sm:px-6 sm:text-base rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              variants={variants}
             >
-              <Link href={`/${locale}/#calculator`}>{t('hero.calculateSavingsBtn')}</Link>
-            </Button>
-            <Button
-              size="lg"
-              asChild
-              className="bg-black/50 border border-primary text-primary font-bold py-1.5 px-3 text-xs sm:py-3 sm:px-6 sm:text-base rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
+              <Button
+                size="lg"
+                asChild
+                className="bg-black/50 border border-primary text-primary font-bold py-1.5 px-3 text-xs sm:py-3 sm:px-6 sm:text-base rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
+              >
+                <Link href={`/${locale}/#calculator`}>{t('hero.calculateSavingsBtn')}</Link>
+              </Button>
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              variants={variants}
             >
-              <Link href={`/${locale}/#contact`}>{t('hero.getConsultationBtn')}</Link>
-            </Button>
+              <Button
+                size="lg"
+                asChild
+                className="bg-black/50 border border-primary text-primary font-bold py-1.5 px-3 text-xs sm:py-3 sm:px-6 sm:text-base rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
+              >
+                <Link href={`/${locale}/#contact`}>{t('hero.getConsultationBtn')}</Link>
+              </Button>
+            </motion.div>
           </div>
         </div>
       </div>
