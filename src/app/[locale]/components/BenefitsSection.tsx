@@ -27,11 +27,11 @@ export default function BenefitsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, index) => (
             <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-xl overflow-hidden group">
-              <CardHeader className="flex flex-row items-center gap-4 pb-2 bg-primary/5 group-hover:bg-primary/10 transition-colors duration-300">
+              <CardHeader className="flex flex-row items-center gap-4 px-4 pb-2 bg-primary/5 group-hover:bg-primary/10 transition-colors duration-300">
                 <div className="p-3 rounded-full bg-primary text-primary-foreground">
                   <benefit.icon className="h-6 w-6" />
                 </div>
-                <CardTitle className="text-lg lg:text-xl font-semibold">{t(benefit.titleKey)}</CardTitle>
+                <CardTitle className="text-base font-semibold">{t(benefit.titleKey)}</CardTitle>
               </CardHeader>
               <CardContent className="pt-4">
                 <p className="text-sm text-muted-foreground">{t(benefit.descriptionKey)}</p>
@@ -43,3 +43,4 @@ export default function BenefitsSection() {
     </section>
   );
 }
+
