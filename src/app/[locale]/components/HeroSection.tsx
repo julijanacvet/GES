@@ -30,9 +30,14 @@ export default function HeroSection() {
     []
   );
 
-  const variants = {
+  const textVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
+  };
+
+  const imageWrapperVariants = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { opacity: 1, x: 0 },
   };
 
   return (
@@ -52,7 +57,13 @@ export default function HeroSection() {
         <CarouselContent className="h-full">
           {heroImages.map((image, index) => (
             <CarouselItem key={index} className="h-full relative">
-              <div className={`relative w-full h-full`}>
+              <motion.div
+                className="relative w-full h-full"
+                variants={imageWrapperVariants}
+                initial="hidden"
+                animate="visible" // Use animate for mount-based animation
+                transition={{ duration: 0.6, delay: 0.2 + (index * 0.3) }} // Staggered delay
+              >
                 <Image
                   src={image.src}
                   alt={t(image.altKey)}
@@ -61,7 +72,7 @@ export default function HeroSection() {
                   priority={index === 0}
                   data-ai-hint={image.dataAiHint}
                 />
-              </div>
+              </motion.div>
             </CarouselItem>
           ))}
         </CarouselContent>
@@ -75,21 +86,22 @@ export default function HeroSection() {
         <div className="text-white">
           <motion.h1
             className="mb-2 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight [text-shadow:0_2px_6px_rgba(0,0,0,0.75)]"
+            variants={textVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            variants={variants}
           >
             {t('hero.headline')}
           </motion.h1>
           <motion.div
             className="mb-4 bg-black/20 px-2 py-0.5 sm:px-4 sm:py-2 rounded-md inline-block"
+            variants={textVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            variants={variants}
+
           >
             <p className="text-sm sm:text-lg md:text-xl text-gray-200/90 [text-shadow:0_3px_8px_rgba(0,0,0,0.85)]">
               {t('hero.subheadline')}
@@ -97,11 +109,11 @@ export default function HeroSection() {
           </motion.div>
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center">
             <motion.div
+              variants={textVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              variants={variants}
             >
               <Button
                 size="lg"
@@ -112,11 +124,11 @@ export default function HeroSection() {
               </Button>
             </motion.div>
             <motion.div
+              variants={textVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.8 }}
-              variants={variants}
             >
               <Button
                 size="lg"
