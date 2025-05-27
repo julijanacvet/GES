@@ -40,6 +40,20 @@ export default function HeroSection() {
     visible: { opacity: 1, x: 0 },
   };
 
+  const handleSmoothScroll = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    event.preventDefault();
+    const targetId = href.split('#')[1];
+    if (targetId) {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+    }
+  };
+
   return (
     <section
       id="home"
@@ -63,7 +77,7 @@ export default function HeroSection() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 + (index * 0.3) }} // Staggered delay
+                transition={{ duration: 0.6, delay: 0.2 + (index * 0.3) }} 
               >
                 <Image
                   src={image.src}
@@ -102,7 +116,6 @@ export default function HeroSection() {
             whileInView="visible"
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
-
           >
             <p className="text-sm sm:text-lg md:text-xl text-gray-200/90 [text-shadow:0_3px_8px_rgba(0,0,0,0.85)]">
               {t('hero.subheadline')}
@@ -121,7 +134,12 @@ export default function HeroSection() {
                 asChild
                 className="bg-black/50 border border-primary text-primary font-bold py-1.5 px-3 text-xs sm:py-3 sm:px-6 sm:text-base rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
               >
-                <Link href={`/${locale}/#calculator`}>{t('hero.calculateSavingsBtn')}</Link>
+                <Link 
+                  href={`/${locale}/#calculator`}
+                  onClick={(e) => handleSmoothScroll(e, `/${locale}/#calculator`)}
+                >
+                  {t('hero.calculateSavingsBtn')}
+                </Link>
               </Button>
             </motion.div>
             <motion.div
@@ -136,7 +154,12 @@ export default function HeroSection() {
                 asChild
                 className="bg-black/50 border border-primary text-primary font-bold py-1.5 px-3 text-xs sm:py-3 sm:px-6 sm:text-base rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
               >
-                <Link href={`/${locale}/#contact`}>{t('hero.getConsultationBtn')}</Link>
+                <Link 
+                  href={`/${locale}/#contact`}
+                  onClick={(e) => handleSmoothScroll(e, `/${locale}/#contact`)}
+                >
+                  {t('hero.getConsultationBtn')}
+                </Link>
               </Button>
             </motion.div>
           </div>
