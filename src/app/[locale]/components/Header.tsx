@@ -28,7 +28,7 @@ export default function Header() {
   }, []);
   
   return (
-    <header className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${isScrolled ? 'bg-transparent backdrop-blur' : 'bg-background'}`}>
+    <header className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${isScrolled ? 'bg-transparent backdrop-blur-sm' : 'bg-background'}`}>
       <div className="container flex h-16 items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link href={`/${locale}/#home`} className="flex items-center gap-2">
           <Image src="/locales/images/ges_logo_dark.png" alt={t('appName').split(' - ')[0] || 'GES Logo'} width={100} height={32} priority />
