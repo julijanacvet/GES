@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useTranslation } from 'react-i18next';
@@ -30,7 +31,7 @@ export default function BenefitsSection() {
                 <div className="p-3 rounded-full bg-primary text-primary-foreground">
                   <benefit.icon className="h-6 w-6" />
                 </div>
-                <CardTitle className="text-xl font-semibold">{t(benefit.titleKey)}</CardTitle>
+                <CardTitle className="text-lg lg:text-xl font-semibold">{t(benefit.titleKey)}</CardTitle>
               </CardHeader>
               <CardContent className="pt-4">
                 <p className="text-sm text-muted-foreground">{t(benefit.descriptionKey)}</p>
