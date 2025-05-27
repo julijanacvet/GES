@@ -36,7 +36,7 @@ export default function HeroSection() {
   };
 
   const imageWrapperVariants = {
-    hidden: { opacity: 0, x: 50 },
+    hidden: { opacity: 0, x: 50 }, // Slide from right
     visible: { opacity: 1, x: 0 },
   };
 
@@ -61,7 +61,8 @@ export default function HeroSection() {
                 className="relative w-full h-full"
                 variants={imageWrapperVariants}
                 initial="hidden"
-                animate="visible" // Use animate for mount-based animation
+                whileInView="visible"
+                viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 + (index * 0.3) }} // Staggered delay
               >
                 <Image
