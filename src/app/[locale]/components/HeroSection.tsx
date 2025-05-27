@@ -95,7 +95,7 @@ export default function HeroSection() {
         <CarouselNext className="hidden md:inline-flex absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
       </Carousel>
 
-      <div className="absolute inset-0 bg-black/10 z-10"></div> {/* Overlay for image darkening */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/60 z-10"></div> {/* Updated overlay */}
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-20 py-6 sm:py-10 md:py-12">
         <div className="text-white">
