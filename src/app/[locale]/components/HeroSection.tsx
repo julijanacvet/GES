@@ -19,6 +19,7 @@ import Autoplay from "embla-carousel-autoplay";
 const heroImages = [
   { src: '/locales/images/hero-1.jpg', altKey: 'imagePlaceholders.hero', dataAiHint: 'solar panels modern house' },
   { src: '/locales/images/hero-2.jpg', altKey: 'imagePlaceholders.hero', dataAiHint: 'solar installation rooftop' },
+  { src: '/locales/images/hero-3.jpg', altKey: 'imagePlaceholders.hero', dataAiHint: 'solar energy technology' },
 ];
 
 export default function HeroSection() {
