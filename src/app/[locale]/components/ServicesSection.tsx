@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useTranslation } from 'react-i18next';
@@ -5,25 +6,25 @@ import ServiceCard from './ServiceCard';
 
 const servicesData = [
   {
-    imageSrc: 'https://placehold.co/600x400.png',
+    imageSrc: '/locales/images/Residential solar.jpg',
     imageAltKey: 'imagePlaceholders.service',
-    dataAiHint: 'residential solar panels',
+    dataAiHint: 'home solar installation',
     titleKey: 'services.residentialTitle',
     descriptionKey: 'services.residentialDesc',
     ctaKey: 'services.getResidentialQuoteBtn',
     ctaLink: '/#contact', 
   },
   {
-    imageSrc: 'https://placehold.co/600x400.png',
+    imageSrc: '/locales/images/Commercial solar.jpg',
     imageAltKey: 'imagePlaceholders.service',
-    dataAiHint: 'commercial building solar',
+    dataAiHint: 'business solar panels',
     titleKey: 'services.commercialTitle',
     descriptionKey: 'services.commercialDesc',
     ctaKey: 'services.getCommercialQuoteBtn',
     ctaLink: '/#contact',
   },
   {
-    imageSrc: 'https://placehold.co/600x400.png',
+    imageSrc: '/locales/images/Solar Power Plants.jpg',
     imageAltKey: 'imagePlaceholders.service',
     dataAiHint: 'solar farm field',
     titleKey: 'services.solarPlantsTitle',
