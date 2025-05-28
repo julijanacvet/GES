@@ -37,7 +37,7 @@ export default function HeroSection() {
   };
 
   const imageWrapperVariants = {
-    hidden: { opacity: 0, x: 20 },
+    hidden: { opacity: 0, x: 20 }, // Changed from y: 50 for a different effect
     visible: { opacity: 1, x: 0 },
   };
 
@@ -63,8 +63,8 @@ export default function HeroSection() {
       <Carousel
         plugins={[autoplayPlugin]}
         className="absolute inset-0 w-full h-full"
-        onMouseEnter={autoplayPlugin.stop}
-        onMouseLeave={autoplayPlugin.reset}
+        // onMouseEnter={autoplayPlugin.stop} // Removed
+        // onMouseLeave={autoplayPlugin.reset} // Removed
         opts={{
           loop: true,
         }}
@@ -96,8 +96,11 @@ export default function HeroSection() {
         <CarouselNext className="hidden md:inline-flex absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-background/50 hover:bg-background/70 text-foreground border-foreground/50 h-10 w-10 rounded-full" />
       </Carousel>
 
+      {/* Overlay for text readability */}
       <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent from-[0%] via-transparent via-[70%] to-[#121212] to-[100%]"></div>
 
+
+      {/* Text content container */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-20 py-6 sm:py-10 md:py-12">
         <div className="text-white">
           <motion.h1
@@ -169,3 +172,4 @@ export default function HeroSection() {
     </section>
   );
 }
+
