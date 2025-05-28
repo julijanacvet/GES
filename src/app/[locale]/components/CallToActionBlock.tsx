@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useTranslation } from 'react-i18next';
@@ -9,7 +10,7 @@ export default function CallToActionBlock() {
   const locale = i18n.language;
 
   return (
-    <section id="contact" className="bg-primary text-primary-foreground">
+    <section id="contact" className="bg-primary text-primary-foreground py-16 md:py-24">
       <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           {t('cta.finalHeadline')}
@@ -25,9 +26,9 @@ export default function CallToActionBlock() {
           <Link href={`/${locale}/#contact`}>{t('cta.requestFreeQuoteBtn')}</Link>
         </Button>
         {/* Optional: Secondary CTA with phone/email */}
-        <div className="mt-6 text-sm opacity-80">
-          <p>{t('footer.phoneLabel')} <a href={`tel:${t('footer.phoneValue')}`} className="hover:underline">{t('footer.phoneValue')}</a></p>
-          <p>{t('footer.emailLabel')} <a href={`mailto:${t('footer.emailValue')}`} className="hover:underline">{t('footer.emailValue')}</a></p>
+        <div className="mt-6 text-sm opacity-90">
+          <p className="text-primary-foreground">{t('footer.phoneLabel')} <a href={`tel:${t('footer.phoneValue')}`} className="text-primary-foreground hover:underline">{t('footer.phoneValue')}</a></p>
+          <p className="text-primary-foreground">{t('footer.emailLabel')} <a href={`mailto:${t('footer.emailValue')}`} className="text-primary-foreground hover:underline">{t('footer.emailValue')}</a></p>
         </div>
       </div>
     </section>
