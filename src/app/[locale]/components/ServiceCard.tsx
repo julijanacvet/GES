@@ -35,8 +35,8 @@ export default function ServiceCard({
         <Image 
             src={imageSrc} 
             alt={t(imageAltKey)} 
-            layout="fill" 
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
             data-ai-hint={dataAiHint}
         />
       </div>

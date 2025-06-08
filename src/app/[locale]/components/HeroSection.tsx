@@ -83,8 +83,8 @@ export default function HeroSection() {
                 <Image
                   src={image.src}
                   alt={t(image.altKey)}
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  style={{ objectFit: 'cover' }}
                   priority={index === 0}
                   data-ai-hint={image.dataAiHint}
                 />
