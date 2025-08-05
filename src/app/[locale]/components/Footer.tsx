@@ -27,8 +27,7 @@ export default function Footer() {
           {/* Column 1: Logo & Description */}
           <div>
             <Link href={`/${locale}/#home`} className="flex items-center gap-2 mb-4">
-              <Image src="/locales/images/ges_logo_dark.png" alt={t('appName').split(' - ')[0] || 'GES Logo'} width={120} height={40} />
-              {/* <span className="font-bold text-2xl text-white">{t('appName').split(' - ')[0]}</span> */}
+              <Image src="/locales/images/ges_logo_dark.png" alt={t('appName').split(' - ')[0] || 'GES Logo'} width={120} height={40} style={{ height: 'auto' }} />
             </Link>
             <p className="text-sm opacity-80">{t('footer.description')}</p>
           </div>
