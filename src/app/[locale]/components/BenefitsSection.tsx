@@ -35,16 +35,13 @@ export default function BenefitsSection() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('card-active');
-            // Optional: unobserve after first intersection
-            // observer.unobserve(entry.target);
           } else {
-             // Optional: remove class when it goes out of view to re-trigger animation
             entry.target.classList.remove('card-active');
           }
         });
       },
       {
-        threshold: 0.1, // Trigger when 10% of the card is visible
+        threshold: 0.2, // Trigger when 20% of the card is visible
       }
     );
 
@@ -52,6 +49,7 @@ export default function BenefitsSection() {
       observer.observe(card);
     });
 
+    // Cleanup observer on component unmount
     return () => {
       cards.forEach((card) => {
         observer.unobserve(card);
