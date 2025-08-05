@@ -41,31 +41,43 @@ export default function BenefitsSection() {
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the card is visible
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ 
                 type: "spring", 
                 stiffness: 100, 
                 damping: 12,
-                duration: 0.6, // Overall duration hint for spring
-                delay: index * 0.15 // Slightly increased stagger
+                duration: 0.6,
+                delay: index * 0.15
               }}
-              whileHover={{ 
-                scale: 1.05, 
-                y: -8,
-                transition: { type: "spring", stiffness: 300, damping: 15 } // Smoother hover transition
-              }}
-              className="h-full" // Ensure motion.div takes full height for consistent card sizing
+              className="h-full"
             >
-              <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-xl overflow-hidden group h-full flex flex-col">
-                <CardHeader className="flex flex-row items-center gap-4 px-4 pb-2 bg-primary/5 group-hover:bg-primary/10 transition-colors duration-300">
-                  <div className="p-3 rounded-full bg-primary text-primary-foreground">
-                    <benefit.icon className="h-6 w-6" />
+              <Card className="benefit-card h-full flex flex-col">
+                <div className="p-6 relative z-10">
+                    <span className="icon relative inline-block p-2 after:absolute after:inset-[4.5px] after:rounded-full after:bg-primary/10 after:border after:border-primary/20 after:backdrop-blur-sm group-hover:after:bg-primary/15 group-hover:after:border-primary/30 transition-colors duration-200">
+                      <benefit.icon className="h-6 w-6 relative z-10 text-primary" />
+                    </span>
+                    <h4 className="mt-3 mb-1 text-base font-semibold text-foreground">{t(benefit.titleKey)}</h4>
+                    <p className="text-sm text-muted-foreground">{t(benefit.descriptionKey)}</p>
+                </div>
+                
+                <div className="shine"></div>
+                <div className="background">
+                  <div className="tiles">
+                    <div className="tile tile-1"></div>
+                    <div className="tile tile-2"></div>
+                    <div className="tile tile-3"></div>
+                    <div className="tile tile-4"></div>
+                    <div className="tile tile-5"></div>
+                    <div className="tile tile-6"></div>
+                    <div className="tile tile-7"></div>
+                    <div className="tile tile-8"></div>
+                    <div className="tile tile-9"></div>
+                    <div className="tile tile-10"></div>
                   </div>
-                  <CardTitle className="text-base font-semibold">{t(benefit.titleKey)}</CardTitle>
-                </CardHeader>
-                <CardContent className="pt-4 flex-grow">
-                  <p className="text-sm text-muted-foreground">{t(benefit.descriptionKey)}</p>
-                </CardContent>
+                  <div className="line line-1"></div>
+                  <div className="line line-2"></div>
+                  <div className="line line-3"></div>
+                </div>
               </Card>
             </motion.div>
           ))}
@@ -74,4 +86,3 @@ export default function BenefitsSection() {
     </section>
   );
 }
-

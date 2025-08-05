@@ -53,7 +53,7 @@ export default function Header() {
           href={`/${locale}/#home`} 
           className="flex items-center gap-2"
           onClick={(e) => handleSmoothScroll(e, `/${locale}/#home`)}
-        >
+        > 
           <Image src="/locales/images/ges_logo_dark.png" alt={t('appName').split(' - ')[0] || 'GES Logo'} width={100} height={32} priority />
         </Link>
 
@@ -106,7 +106,7 @@ export default function Header() {
                   className="flex items-center gap-2 mb-8"
                   onClick={(e) => handleMobileLinkClick(e, `/${locale}/#home`)}
                 >
-                   <Image src="/locales/images/ges_logo_dark.png" alt={t('appName').split(' - ')[0] || 'GES Logo'} width={100} height={32} />
+ <Image src="/locales/images/ges_logo_dark.png" alt={t('appName').split(' - ')[0] || 'GES Logo'} width={100} height={32} priority />
                 </Link>
                 <nav className="flex flex-col space-y-4 mb-8">
                   {navLinks.map(link => (
