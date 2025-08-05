@@ -38,7 +38,7 @@ export default function BenefitsSection() {
           if (entry.isIntersecting) {
             const timeoutId = setTimeout(() => {
               entry.target.classList.add('card-active');
-            }, 3000); // 3-second delay
+            }, 1000); // 1-second delay
             timeouts.set(entry.target, timeoutId);
           } else {
             const timeoutId = timeouts.get(entry.target);
