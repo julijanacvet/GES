@@ -40,6 +40,9 @@ export default function BenefitsSection() {
       if (key === 'benefits.energyIndependenceDesc') {
         return 'Ослободете се од променливите цени на електричната енергија и зголемете ја Вашата енергетска сигурност.';
       }
+      if (key === 'benefits.carbonReductionDesc') {
+        return 'Придонесете за поздрава животна средина со намалување на Вашиот јаглероден отпечаток.';
+      }
     }
     return t(key);
   };
