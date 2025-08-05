@@ -26,6 +26,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.prod.website-files.com',
+        port: '',
+        pathname: '/**',
+      }
     ],
   },
   // i18n, // Removed: This is for Pages Router i18n and conflicts with App Router [locale] setup.

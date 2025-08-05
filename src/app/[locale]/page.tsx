@@ -2,6 +2,7 @@ import initServerTranslations from '@/app/i18n';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import BenefitsSection from './components/BenefitsSection';
+import LogoMarquee from './components/LogoMarquee';
 import ServicesSection from './components/ServicesSection';
 import SolarCalculator from './components/SolarCalculator';
 import WhyChooseGES from './components/WhyChooseGES';
@@ -27,6 +28,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
       <main className="flex-grow">
         <HeroSection />
         <BenefitsSection />
+        <LogoMarquee />
         <ServicesSection />
         <SolarCalculator />
         <WhyChooseGES />

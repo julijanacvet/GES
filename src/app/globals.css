@@ -415,7 +415,7 @@ body {
 
 .card:hover,
 .card.card-active {
-  box-shadow: 0px 3px 6px var(--card-hover-box-shadow-1), 0px var(--card-hover-box-shadow-2-y) var(--card-hover-box-shadow-2-blur) var(--card-hover-box-shadow-2), 0 0 0 1px var(--card-hover-border-color);
+  box-shadow: 0px var(--card-hover-box-shadow-1-y) var(--card-hover-box-shadow-1-blur) var(--card-hover-box-shadow-1), 0px var(--card-hover-box-shadow-2-y) var(--card-hover-box-shadow-2-blur) var(--card-hover-box-shadow-2), 0 0 0 1px var(--card-hover-border-color);
 }
 
 .card:hover .icon::after,
@@ -482,4 +482,50 @@ body {
 .card:hover .background .line.line-3:after,
 .card.card-active .background .line.line-3:after {
   transition-delay: .3s;
+}
+
+/* MARQUEE STYLES */
+.marquee {
+	overflow: hidden;
+	position: relative;
+	mask-image: linear-gradient(
+		var(--mask-direction, to right),
+		hsl(0 0% 0% / 0),
+		hsl(0 0% 0% / 1) 10%,
+		hsl(0 0% 0% / 1) 90%,
+		hsl(0 0% 0% / 0)
+	);
+}
+
+.marquee__ctn {
+	display: flex;
+	width: 100%;
+}
+
+.marquee__track {
+	display: flex;
+}
+
+@supports (-webkit-touch-callout: none) {
+	.marquee__ctn {
+		transform: translate3d(0, 0, 0) scale(1);
+		perspective: 1px;
+	}
+}
+
+.marquee__item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 120px;
+	margin-inline-end: 3rem;
+}
+
+.marquee__item img {
+  height: 60px;
+  width: 100%;
+  object-fit: contain;
+  backface-visibility: hidden;
+  filter: brightness(100%);
 }
