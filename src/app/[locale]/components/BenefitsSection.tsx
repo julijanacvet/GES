@@ -30,12 +30,22 @@ export default function BenefitsSection() {
     const cards = section.querySelectorAll('.card');
     if (cards.length === 0) return;
 
+    const timeouts = new Map<Element, NodeJS.Timeout>();
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('card-active');
+            const timeoutId = setTimeout(() => {
+              entry.target.classList.add('card-active');
+            }, 3000); // 3-second delay
+            timeouts.set(entry.target, timeoutId);
           } else {
+            const timeoutId = timeouts.get(entry.target);
+            if (timeoutId) {
+              clearTimeout(timeoutId);
+              timeouts.delete(entry.target);
+            }
             entry.target.classList.remove('card-active');
           }
         });
@@ -49,11 +59,12 @@ export default function BenefitsSection() {
       observer.observe(card);
     });
 
-    // Cleanup observer on component unmount
+    // Cleanup observer and timeouts on component unmount
     return () => {
       cards.forEach((card) => {
         observer.unobserve(card);
       });
+      timeouts.forEach((timeoutId) => clearTimeout(timeoutId));
     };
   }, []);
 
