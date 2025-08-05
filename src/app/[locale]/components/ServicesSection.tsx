@@ -35,14 +35,15 @@ const servicesData = [
 ];
 
 export default function ServicesSection() {
-  const { t } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
+  const isMacedonian = i18n.language === 'mk';
 
   return (
     <section id="services" className="bg-muted/30 dark:bg-background/50">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold">
-            {t('services.title')}
+            {isMacedonian ? 'Соларни решенија' : t('services.title')}
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
