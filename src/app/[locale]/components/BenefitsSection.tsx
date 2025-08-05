@@ -2,7 +2,7 @@
 'use client';
 
 import { useTranslation } from 'react-i18next';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 import { DollarSign, Zap, Leaf, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -51,13 +51,31 @@ export default function BenefitsSection() {
               }}
               className="h-full"
             >
-              <Card className="h-full flex flex-col p-6">
+              <Card className="card h-full flex flex-col p-6">
                 <div className="relative z-10">
-                    <span className="icon relative inline-block p-2 after:absolute after:inset-[4.5px] after:rounded-full after:bg-primary/10 after:border after:border-primary/20 after:backdrop-blur-sm group-hover:after:bg-primary/15 group-hover:after:border-primary/30 transition-colors duration-200">
-                      <benefit.icon className="h-6 w-6 relative z-10 text-primary" />
+                    <span className="icon">
+                      <benefit.icon className="h-6 w-6 relative z-10" />
                     </span>
-                    <h4 className="mt-3 mb-1 text-base font-semibold text-foreground">{t(benefit.titleKey)}</h4>
+                    <h4 className="mt-3 mb-1 text-base font-semibold">{t(benefit.titleKey)}</h4>
                     <p className="text-sm text-muted-foreground">{t(benefit.descriptionKey)}</p>
+                </div>
+                <div className="shine"></div>
+                <div className="background">
+                  <div className="tiles">
+                    <div className="tile tile-1"></div>
+                    <div className="tile tile-2"></div>
+                    <div className="tile tile-3"></div>
+                    <div className="tile tile-4"></div>
+                    <div className="tile tile-5"></div>
+                    <div className="tile tile-6"></div>
+                    <div className="tile tile-7"></div>
+                    <div className="tile tile-8"></div>
+                    <div className="tile tile-9"></div>
+                    <div className="tile tile-10"></div>
+                  </div>
+                  <div className="line line-1"></div>
+                  <div className="line line-2"></div>
+                  <div className="line line-3"></div>
                 </div>
               </Card>
             </motion.div>
