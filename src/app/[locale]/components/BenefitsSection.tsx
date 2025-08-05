@@ -32,6 +32,18 @@ export default function BenefitsSection() {
   const { t, i18n } = useTranslation('common');
   const isMacedonian = i18n.language === 'mk';
 
+  const getDescription = (key: string) => {
+    if (isMacedonian) {
+      if (key === 'benefits.propertyValueDesc') {
+        return 'Инвестицијата во соларни панели може значително да ја зголеми вредноста на Вашиот имот.';
+      }
+      if (key === 'benefits.energyIndependenceDesc') {
+        return 'Ослободете се од променливите цени на електричната енергија и зголемете ја Вашата енергетска сигурност.';
+      }
+    }
+    return t(key);
+  };
+
   return (
     <section className="bg-background">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,10 +71,7 @@ export default function BenefitsSection() {
                     </span>
                     <h4 className="mt-3 mb-1 text-base font-semibold">{t(benefit.titleKey)}</h4>
                     <p className="text-sm text-muted-foreground">
-                      {(isMacedonian && benefit.descriptionKey === 'benefits.propertyValueDesc') 
-                        ? 'Инвестицијата во соларни панели може значително да ја зголеми вредноста на Вашиот имот.'
-                        : t(benefit.descriptionKey)
-                      }
+                      {getDescription(benefit.descriptionKey)}
                     </p>
                 </div>
                 <div className="shine"></div>
@@ -91,4 +100,3 @@ export default function BenefitsSection() {
     </section>
   );
 }
-
