@@ -4,7 +4,7 @@
 import { useTranslation } from 'react-i18next';
 import { Card } from '@/components/ui/card';
 import { DollarSign, Zap, Leaf, TrendingUp } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 interface Benefit {
   icon: React.ElementType;
@@ -19,62 +19,60 @@ const benefits: Benefit[] = [
   { icon: TrendingUp, titleKey: 'benefits.propertyValueTitle', descriptionKey: 'benefits.propertyValueDesc' },
 ];
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 50, rotate: -5 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    rotate: 0,
-  },
-};
-
 export default function BenefitsSection() {
   const { t, i18n } = useTranslation('common');
-  const isMacedonian = i18n.language === 'mk';
+  const sectionRef = useRef<HTMLDivElement>(null);
 
-  const getDescription = (key: string) => {
-    if (isMacedonian) {
-      if (key === 'benefits.propertyValueDesc') {
-        return 'Инвестицијата во соларни панели може значително да ја зголеми вредноста на Вашиот имот.';
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const cards = section.querySelectorAll('.card');
+    if (cards.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('card-active');
+            // Optional: unobserve after first intersection
+            // observer.unobserve(entry.target);
+          } else {
+             // Optional: remove class when it goes out of view to re-trigger animation
+            entry.target.classList.remove('card-active');
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the card is visible
       }
-      if (key === 'benefits.energyIndependenceDesc') {
-        return 'Ослободете се од променливите цени на електричната енергија и зголемете ја Вашата енергетска сигурност.';
-      }
-      if (key === 'benefits.carbonReductionDesc') {
-        return 'Придонесете за поздрава животна средина со намалување на Вашиот јаглероден отпечаток.';
-      }
-    }
-    return t(key);
-  };
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+
+    return () => {
+      cards.forEach((card) => {
+        observer.unobserve(card);
+      });
+    };
+  }, []);
 
   return (
-    <section className="bg-background">
+    <section className="bg-background" ref={sectionRef}>
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ 
-                type: "spring", 
-                stiffness: 100, 
-                damping: 12,
-                duration: 0.6,
-                delay: index * 0.15
-              }}
-              className="h-full"
-            >
+            <div key={index} className="h-full">
               <Card className="card h-full flex flex-col p-6">
-                <div className="relative z-10">
+                 <div className="relative z-10">
                     <span className="icon">
                       <benefit.icon className="h-6 w-6 relative z-10" />
                     </span>
                     <h4 className="mt-3 mb-1 text-base font-semibold">{t(benefit.titleKey)}</h4>
                     <p className="text-sm text-muted-foreground">
-                      {getDescription(benefit.descriptionKey)}
+                      {t(benefit.descriptionKey)}
                     </p>
                 </div>
                 <div className="shine"></div>
@@ -96,7 +94,7 @@ export default function BenefitsSection() {
                   <div className="line line-3"></div>
                 </div>
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
