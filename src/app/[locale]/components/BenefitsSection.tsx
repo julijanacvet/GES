@@ -29,7 +29,8 @@ const cardVariants = {
 };
 
 export default function BenefitsSection() {
-  const { t } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
+  const isMacedonian = i18n.language === 'mk';
 
   return (
     <section className="bg-background">
@@ -57,7 +58,12 @@ export default function BenefitsSection() {
                       <benefit.icon className="h-6 w-6 relative z-10" />
                     </span>
                     <h4 className="mt-3 mb-1 text-base font-semibold">{t(benefit.titleKey)}</h4>
-                    <p className="text-sm text-muted-foreground">{t(benefit.descriptionKey)}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {(isMacedonian && benefit.descriptionKey === 'benefits.propertyValueDesc') 
+                        ? 'Инвестицијата во соларни панели може значително да ја зголеми вредноста на Вашиот имот.'
+                        : t(benefit.descriptionKey)
+                      }
+                    </p>
                 </div>
                 <div className="shine"></div>
                 <div className="background">
@@ -85,3 +91,4 @@ export default function BenefitsSection() {
     </section>
   );
 }
+
