@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -82,7 +81,7 @@ export default function Header() {
               href={`/${locale}/#contact`}
               onClick={(e) => handleSmoothScroll(e, `/${locale}/#contact`)}
             >
-              {t('nav.getQuote')}
+              Побарај понуда
             </Link>
           </Button>
         </nav>
@@ -149,7 +148,7 @@ export default function Header() {
                       href={`/${locale}/#contact`}
                       onClick={(e) => handleMobileLinkClick(e, `/${locale}/#contact`)}
                     >
-                      {t('nav.getQuote')}
+                      Побарај понуда
                     </Link>
                   </Button>
                 </nav>
@@ -164,4 +163,4 @@ export default function Header() {
     </header>
   );
 }
-
+    
