@@ -14,15 +14,17 @@ const logos = [
   { src: "https://cdn.prod.website-files.com/61ed56ae9da9fd7e0ef0a967/65607df9d46a61fcef7c719f_Aiken-colored.svg", alt: "Aiken" },
 ];
 
-const MarqueeTrack = ({ 'aria-hidden': ariaHidden }: { 'aria-hidden'?: boolean }) => (
-  <div className="marquee__track" aria-hidden={ariaHidden}>
-    {logos.map((logo, index) => (
-      <div key={index} className="marquee__item">
-        <Image src={logo.src} alt={logo.alt} width={120} height={60} />
-      </div>
-    ))}
-  </div>
-);
+const MarqueeTrack = React.forwardRef<HTMLDivElement, { 'aria-hidden'?: boolean }>((props, ref) => (
+    <div ref={ref} className="marquee__track" {...props}>
+      {logos.map((logo, index) => (
+        <div key={index} className="marquee__item">
+          <Image src={logo.src} alt={logo.alt} width={120} height={60} />
+        </div>
+      ))}
+    </div>
+));
+MarqueeTrack.displayName = 'MarqueeTrack';
+
 
 export default function LogoMarquee() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -32,13 +34,16 @@ export default function LogoMarquee() {
   useEffect(() => {
     const container = containerRef.current;
     const track = trackRef.current;
-    let start: number | null = null;
-    let pos = 0;
     
     if (!container || !track) return;
+    
+    let start: number | null = null;
+    let pos = 0;
 
     const trackWidth = track.getBoundingClientRect().width;
-    container.style.width = `${trackWidth}px`;
+    const clone = track.cloneNode(true) as HTMLDivElement;
+    container.appendChild(clone);
+
     const speed = 80;
 
     const animate = (timestamp: number) => {
@@ -61,6 +66,9 @@ export default function LogoMarquee() {
       if (rafId.current) {
         cancelAnimationFrame(rafId.current);
       }
+      if (clone) {
+        container.removeChild(clone);
+      }
     };
   }, []);
 
@@ -69,8 +77,7 @@ export default function LogoMarquee() {
     <section className="bg-background py-12 md:py-16">
         <div className="marquee">
             <div ref={containerRef} className="marquee__ctn">
-              <MarqueeTrack />
-              <MarqueeTrack aria-hidden={true} />
+              <MarqueeTrack ref={trackRef}/>
             </div>
         </div>
     </section>
