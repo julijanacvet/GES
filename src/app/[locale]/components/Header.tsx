@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -54,7 +53,7 @@ export default function Header() {
           href={`/${locale}/#home`} 
           className="flex items-center gap-2"
           onClick={(e) => handleSmoothScroll(e, `/${locale}/#home`)}
-        > 
+        >
           <Image src="/locales/images/ges_logo_dark.png" alt={t('appName').split(' - ')[0] || 'GES Logo'} width={100} height={32} priority style={{ height: 'auto' }} />
         </Link>
 
