@@ -33,7 +33,7 @@ export default function OurServices() {
     []
   );
   
-  const sectionTitle = locale === 'mk' ? 'Одржување на Вашиот систем во врвна форма' : 'Keeping Your System at Peak Performance';
+  const sectionTitle = t('ourServices.title');
 
   return (
     <section id="our-services" className="bg-background py-16">
@@ -42,6 +42,9 @@ export default function OurServices() {
           <h2 className="text-3xl md:text-4xl font-bold">
             {sectionTitle}
           </h2>
+           <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
+            {t('ourServices.intro')}
+          </p>
         </div>
         <Carousel
           plugins={[autoplayPlugin]}
