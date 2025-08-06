@@ -63,7 +63,7 @@ export default function VideoCarousel() {
             {videos.map((video, index) => (
               <CarouselItem key={index} className="embla__slide">
                 <Card className="h-full w-full overflow-hidden rounded-xl shadow-lg">
-                  <CardContent className="flex aspect-video items-center justify-center p-0">
+                  <CardContent className="flex items-center justify-center p-0 h-full">
                     {video.type === 'local' ? (
                       <video
                         src={video.src}
@@ -77,7 +77,6 @@ export default function VideoCarousel() {
                       <iframe
                         src={video.src}
                         title={`YouTube video player ${index + 1}`}
-                        frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
                         className="w-full h-full"

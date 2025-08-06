@@ -269,7 +269,7 @@ body {
   transition: opacity .25s;
 }
 
-.card .background .tile {
+.card .background .tiles .tile {
   position: absolute;
   background-color: var(--card-tile-color);
   animation-duration: 8s;
@@ -707,31 +707,25 @@ body {
 
 /* VIDEO CAROUSEL STYLES */
 .video-carousel .embla__slide {
-  height: 50vh; /* Adjust height as needed */
   position: relative;
+  height: 0;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
   overflow: hidden;
 }
 
 .video-carousel .embla__slide video,
 .video-carousel .embla__slide iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border: 0;
 }
 
 .video-carousel {
   position: relative;
-}
-
-.video-carousel-navigation {
-  position: absolute;
-  top: 50%;
-  left: 1rem;
-  right: 1rem;
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-  z-index: 10;
 }
 
 .video-carousel .carousel-navigation-buttons {
