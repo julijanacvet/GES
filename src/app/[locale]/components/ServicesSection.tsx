@@ -56,7 +56,11 @@ const ServiceCard = ({ imageSrc, dataAiHint, titleKey, descriptionKey, ctaKey, c
         <p className="text-base mb-4 opacity-90">
           {t(descriptionKey)}
         </p>
-        <Button asChild className="w-full mt-auto btn-secondary group-hover:bg-accent group-hover:text-accent-foreground group-hover:border-accent">
+        <Button 
+          asChild 
+          size="lg"
+          className="w-full mt-auto bg-black/50 border border-primary text-primary font-bold py-1.5 px-3 text-xs sm:py-3 sm:px-6 sm:text-base rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
+        >
           <Link href={`/${locale}${ctaLink}`}>
             {t(ctaKey)} <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
