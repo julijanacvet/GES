@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useMemo } from 'react';
@@ -38,7 +39,7 @@ export default function OurServices() {
 
   const sectionIntro = locale === 'mk'
     ? 'Вашиот соларен систем е проектиран за децении на издржливост и висока ефикасност. Ние се грижиме секој панел и компонентa да испорача оптимална излезна моќ.'
-    : "Your solar system is engineered for decades of durable, high-efficiency performance. We ensure every panel and component delivers optimal output, safeguarding your energy savings and giving you complete confidence in your investment.";
+    : "Your solar system is engineered for decades of durable, high-efficiency performance. We ensure every panel and component delivers optimal output.";
 
   return (
     <section id="our-services" className="bg-background py-16">
