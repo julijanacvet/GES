@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useTranslation } from 'react-i18next';
@@ -6,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
 
 const servicesData = [
   {
@@ -57,12 +57,12 @@ const ServiceCard = ({ imageSrc, dataAiHint, titleKey, descriptionKey, ctaKey, c
         src={imageSrc}
         alt={t(titleKey)}
         fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         className="service-card__background"
       />
-      <div className="service-card__overlay"></div>
-      <div className="service-card__content">
-        <h3 className="service-card__title">{t(titleKey)}</h3>
-        <p className="service-card__copy">{descriptionText}</p>
+      <div className="text-content">
+        <h3 className="text-xl font-bold mb-2">{t(titleKey)}</h3>
+        <p className="text-sm mb-4">{descriptionText}</p>
         <Button
           asChild
           className="w-full bg-black/50 border border-primary text-primary font-bold py-1.5 px-3 text-xs sm:py-3 sm:px-6 sm:text-base rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out group whitespace-normal h-auto"
@@ -80,6 +80,34 @@ const ServiceCard = ({ imageSrc, dataAiHint, titleKey, descriptionKey, ctaKey, c
 export default function ServicesSection() {
   const { t, i18n } = useTranslation('common');
   const isMacedonian = i18n.language === 'mk';
+  
+  useEffect(() => {
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    if (!serviceCards.length) return;
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    serviceCards.forEach(card => {
+      observer.observe(card);
+    });
+
+    return () => serviceCards.forEach(card => observer.unobserve(card));
+  }, []);
+
 
   return (
     <section id="services" className="bg-muted/30 dark:bg-background/50">
