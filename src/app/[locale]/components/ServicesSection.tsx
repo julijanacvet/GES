@@ -51,6 +51,7 @@ const ServiceCard = ({ imageSrc, dataAiHint, titleKey, descriptionKey, ctaKey, c
         className="service-card__background"
         data-ai-hint={dataAiHint}
       />
+      <div className="service-card__overlay"></div>
       <div className="service-card__content">
         <h3 className="text-2xl font-bold mb-2">{t(titleKey)}</h3>
         <p className="text-base mb-4 opacity-90">
