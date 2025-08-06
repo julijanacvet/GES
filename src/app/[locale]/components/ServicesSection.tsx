@@ -37,6 +37,10 @@ const ServiceCard = ({ imageSrc, dataAiHint, titleKey, descriptionKey, ctaKey, c
   const { t, i18n } = useTranslation('common');
   const locale = i18n.language;
 
+  const descriptionText = locale === 'mk' && descriptionKey === 'services.residentialDesc'
+    ? 'Прилагодени соларни системи за Вашиот дом, дизајнирани за максимална ефикасност и заштеда.'
+    : t(descriptionKey);
+
   return (
     <div className="service-card" data-ai-hint={dataAiHint}>
       <Image
@@ -48,7 +52,7 @@ const ServiceCard = ({ imageSrc, dataAiHint, titleKey, descriptionKey, ctaKey, c
       <div className="service-card__overlay"></div>
       <div className="service-card__content">
         <h3 className="service-card__title">{t(titleKey)}</h3>
-        <p className="service-card__copy">{t(descriptionKey)}</p>
+        <p className="service-card__copy">{descriptionText}</p>
         <Button
           asChild
           className="w-full bg-black/50 border border-primary text-primary font-bold py-1.5 px-3 text-xs sm:py-3 sm:px-6 sm:text-base rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out group whitespace-normal h-auto"
