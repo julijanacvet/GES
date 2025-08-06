@@ -46,7 +46,8 @@ const services = [
 ];
 
 export default function OurServices() {
-  const { t } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
+  const isMacedonian = i18n.language === 'mk';
 
   const autoplayPlugin = useMemo(
     () => Autoplay({ delay: 3000, stopOnInteraction: true }),
@@ -58,7 +59,7 @@ export default function OurServices() {
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold">
-            {t('ourServices.title')}
+            {isMacedonian ? 'Ги нудиме следните услуги' : 'Our Services'}
           </h2>
         </div>
         <Carousel
