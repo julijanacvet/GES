@@ -25,7 +25,7 @@ const services = [
 ];
 
 export default function OurServices() {
-  const { t, i18n } = useTranslation('common');
+  const { i18n } = useTranslation('common');
   const locale = i18n.language as 'en' | 'mk';
 
   const autoplayPlugin = useMemo(
@@ -33,7 +33,13 @@ export default function OurServices() {
     []
   );
   
-  const sectionTitle = t('ourServices.title');
+  const sectionTitle = locale === 'mk' 
+    ? 'Одржување на Вашиот систем во врвна форма' 
+    : 'Keeping Your System at Peak Performance';
+
+  const sectionIntro = locale === 'mk'
+    ? 'Од моментот на инсталација и во децениите што следат, вашиот соларен систем бара стручна грижа за да работи најдобро. Ние се грижиме за секој аспект од неговото здравје, за да можете едноставно да уживате во чистата енергија и пониските сметки.'
+    : "From the moment of installation and for decades to come, your solar system requires expert care to perform its best. We handle every aspect of its health, so you can simply enjoy the clean energy and lower bills.";
 
   return (
     <section id="our-services" className="bg-background py-16">
@@ -43,7 +49,7 @@ export default function OurServices() {
             {sectionTitle}
           </h2>
            <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
-            {t('ourServices.intro')}
+            {sectionIntro}
           </p>
         </div>
         <Carousel
