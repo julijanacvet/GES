@@ -49,19 +49,21 @@ export default function VideoCarousel() {
     api.on("select", playCurrentVideo);
     api.on("reInit", playCurrentVideo);
 
-    // This is a proxy for the 'ended' event on YouTube embeds, but it's not foolproof.
-    // A more robust solution would involve the YouTube Iframe API.
     const interval = setInterval(() => {
-        if (api.selectedScrollSnap() !== api.previousScrollSnap()) {
+        const currentSlide = api.selectedScrollSnap();
+        const slideNode = api.slideNodes()[currentSlide];
+        const videoElement = slideNode?.querySelector('video');
+
+        if (videoElement && videoElement.ended) {
             handleVideoEnded();
         }
-    }, 1000)
+    }, 1000); // Check every second
 
 
     return () => {
       api.off("select", playCurrentVideo);
       api.off("reInit", playCurrentVideo);
-      clearInterval(interval)
+      clearInterval(interval);
     };
   }, [api, handleVideoEnded]);
 
