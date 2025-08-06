@@ -9,6 +9,7 @@ export default function Footer() {
   const { t, i18n } = useTranslation('common');
   const locale = i18n.language;
   const currentYear = new Date().getFullYear();
+  const displayYear = locale === 'mk' ? 2025 : currentYear;
 
   const navLinks = [
     { href: '/#home', labelKey: 'nav.home' },
@@ -74,7 +75,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-700 pt-8 text-center md:flex md:justify-between">
           <p className="text-sm opacity-70 mb-4 md:mb-0">
-            {t('footer.copyright', { year: currentYear })}
+            {t('footer.copyright', { year: displayYear })}
           </p>
           <div className="space-x-4 text-sm">
             <Link href="#" className="hover:text-accent transition-colors opacity-70 hover:opacity-100">
