@@ -38,8 +38,8 @@ export default function OurServices() {
     : 'Keeping Your System at Peak Performance';
 
   const sectionIntro = locale === 'mk'
-    ? 'Од моментот на инсталација и во децениите што следат, вашиот соларен систем бара стручна грижа за да работи најдобро. Ние се грижиме за секој аспект од неговото здравје, за да можете едноставно да уживате во чистата енергија и пониските сметки.'
-    : "From the moment of installation and for decades to come, your solar system requires expert care to perform its best. We handle every aspect of its health, so you can simply enjoy the clean energy and lower bills.";
+    ? 'Вашиот соларен систем е проектиран за децениска издржливост и висока ефикасност. Ние обезбедуваме секој панел и компонента да испорача оптимална излезна моќ, штитејќи ги вашите заштеди на енергија и давајќи ви целосна доверба во вашата инвестиција.'
+    : "Your solar system is engineered for decades of durable, high-efficiency performance. We ensure every panel and component delivers optimal output, safeguarding your energy savings and giving you complete confidence in your investment.";
 
   return (
     <section id="our-services" className="bg-background py-16">
