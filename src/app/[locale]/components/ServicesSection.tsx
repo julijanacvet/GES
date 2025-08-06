@@ -2,6 +2,7 @@
 
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 
@@ -38,10 +39,13 @@ const ServiceCard = ({ imageSrc, dataAiHint, titleKey, descriptionKey, ctaKey, c
 
   return (
     <div className="service-card" data-ai-hint={dataAiHint}>
-      <div 
-        className="service-card__background"
-        style={{ backgroundImage: `url(${imageSrc})` }}
-      ></div>
+       <Image
+          src={imageSrc}
+          alt={t(titleKey)}
+          fill
+          style={{ objectFit: 'cover' }}
+          className="service-card__image"
+       />
       <div className="service-card__overlay"></div>
       <div className="service-card__content">
         <h3 className="service-card__title">{t(titleKey)}</h3>
