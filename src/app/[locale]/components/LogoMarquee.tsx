@@ -15,7 +15,7 @@ const logos = [
 const MarqueeTrack = React.forwardRef<HTMLDivElement, { 'aria-hidden'?: boolean }>((props, ref) => (
     <div ref={ref} className="marquee__track" {...props}>
       {logos.map((logo, index) => (
-        <div key={index} className="marquee__item">
+        <div key={index} className="marquee__item" aria-label={logo.alt}>
            <div className="w-[120px] h-[60px] flex items-center justify-center">
             {logo.svg}
           </div>
