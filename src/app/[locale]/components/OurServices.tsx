@@ -7,6 +7,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
@@ -88,6 +90,10 @@ export default function OurServices() {
               </CarouselItem>
             ))}
           </CarouselContent>
+          <div className="carousel-navigation-buttons">
+            <CarouselPrevious />
+            <CarouselNext />
+          </div>
         </Carousel>
       </div>
     </section>

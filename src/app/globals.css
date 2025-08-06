@@ -677,6 +677,21 @@ body {
   opacity: 1;
 }
 
+.our-services-carousel {
+  position: relative;
+  padding-bottom: 4rem;
+}
+
+.carousel-navigation-buttons {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+
+
 @media (hover: hover) and (min-width: 600px) {
   .service-card:after {
     transform: translateY(0);
