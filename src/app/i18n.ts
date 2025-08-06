@@ -55,22 +55,11 @@ export async function initClientTranslations(
 ) {
   const i18n = instance || createInstance();
   i18n.use(initReactI18next);
-  if (!resources) { // Only use backend if resources are not preloaded (e.g. on client first load)
-    i18n.use(resourcesToBackend((language: string, namespace: string) => 
-      import(`../../public/locales/${language}/${namespace}.json`)));
-  }
+  // Always use backend to fetch translations on the client
+  i18n.use(resourcesToBackend((language: string, namespace: string) => 
+    import(`../../public/locales/${language}/${namespace}.json`)));
+  
   await i18n.init(getOptions(locale, namespaces));
 
-  if (resources && i18n.services.resourceStore) {
-     Object.keys(resources).forEach((lang) => {
-       if (resources[lang]) { // Check if lang exists
-         Object.keys(resources[lang]).forEach((ns) => {
-           if (resources[lang][ns]) { // Check if ns exists
-             i18n.services.resourceStore.addResourceBundle(lang, ns, resources[lang][ns], true, true);
-           }
-         });
-       }
-     });
-  }
   return i18n;
 }
