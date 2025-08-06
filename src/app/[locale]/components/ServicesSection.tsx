@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
 
 const servicesData = [
   {
@@ -59,8 +60,7 @@ const ServiceCard = ({ imageSrc, dataAiHint, titleKey, descriptionKey, ctaKey, c
         fill
         className="service-card__background"
       />
-      <div className="service-card__overlay"></div>
-      <div className="service-card__content">
+      <div className="service-card__content text-content">
         <h3 className="service-card__title">{t(titleKey)}</h3>
         <p className="service-card__copy">{descriptionText}</p>
         <Button
@@ -80,9 +80,44 @@ const ServiceCard = ({ imageSrc, dataAiHint, titleKey, descriptionKey, ctaKey, c
 export default function ServicesSection() {
   const { t, i18n } = useTranslation('common');
   const isMacedonian = i18n.language === 'mk';
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    const sectionNode = sectionRef.current;
+    if (sectionNode) {
+      const serviceCards = sectionNode.querySelectorAll('.service-card');
+      serviceCards.forEach(card => {
+        observer.observe(card);
+      });
+    }
+
+    return () => {
+      if (sectionNode) {
+        const serviceCards = sectionNode.querySelectorAll('.service-card');
+        serviceCards.forEach(card => {
+          observer.unobserve(card);
+        });
+      }
+    };
+  }, []);
 
   return (
-    <section id="services" className="bg-muted/30 dark:bg-background/50">
+    <section id="services" className="bg-muted/30 dark:bg-background/50" ref={sectionRef}>
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold">
