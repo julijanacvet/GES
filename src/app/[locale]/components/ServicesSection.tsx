@@ -37,9 +37,18 @@ const ServiceCard = ({ imageSrc, dataAiHint, titleKey, descriptionKey, ctaKey, c
   const { t, i18n } = useTranslation('common');
   const locale = i18n.language;
 
-  const descriptionText = locale === 'mk' && descriptionKey === 'services.residentialDesc'
-    ? 'Прилагодени соларни системи за Вашиот дом, дизајнирани за максимална ефикасност и заштеда.'
-    : t(descriptionKey);
+  let descriptionText;
+  if (locale === 'mk') {
+    if (descriptionKey === 'services.residentialDesc') {
+      descriptionText = 'Прилагодени соларни системи за Вашиот дом, дизајнирани за максимална ефикасност и заштеда.';
+    } else if (descriptionKey === 'services.commercialDesc') {
+      descriptionText = 'Оптимизирајте ги Вашите деловни трошоци со моќни и сигурни соларни решенија за Вашиот бизнис.';
+    } else {
+      descriptionText = t(descriptionKey);
+    }
+  } else {
+    descriptionText = t(descriptionKey);
+  }
 
   return (
     <div className="service-card" data-ai-hint={dataAiHint}>
