@@ -81,8 +81,8 @@ export default function OurServices() {
             ))}
           </CarouselContent>
           <div className="carousel-navigation-buttons">
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className="bg-accent text-accent-foreground border-accent hover:bg-accent/80" />
+            <CarouselNext className="bg-transparent text-accent-foreground border-accent hover:bg-accent/10" />
           </div>
         </Carousel>
       </div>
