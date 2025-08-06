@@ -13,9 +13,8 @@ import {
 import { Card, CardContent } from '@/components/ui/card';
 
 const videos = [
-  // { type: 'local', src: '/videos/placeholder-video-1.mp4' },
-  { type: 'youtube', src: 'https://www.youtube.com/embed/LXb3EKWsInQ?autoplay=1&mute=1&loop=1&playlist=LXb3EKWsInQ&controls=0&modestbranding=1&showinfo=0&rel=0' },
-  // { type: 'local', src: '/videos/placeholder-video-2.mp4' },
+  { type: 'youtube', src: 'https://www.youtube.com/embed/efgX7WjLTAk?autoplay=1&mute=1&loop=1&playlist=efgX7WjLTAk&controls=0&modestbranding=1&showinfo=0&rel=0' },
+  { type: 'youtube', src: 'https://www.youtube.com/embed/HvKsMUNY8KA?autoplay=1&mute=1&loop=1&playlist=HvKsMUNY8KA&controls=0&modestbranding=1&showinfo=0&rel=0' },
 ];
 
 export default function VideoCarousel() {
