@@ -6,12 +6,12 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
 const logos = [
-  { src: "https://cdn.prod.website-files.com/61ed56ae9da9fd7e0ef0a967/6560a0eeeb860f66063130cc_Amsterdam-colored.svg", alt: "Amsterdam" },
-  { src: "https://cdn.prod.website-files.com/61ed56ae9da9fd7e0ef0a967/6560a09591135411dbf1f686_colorado-colored.svg", alt: "Colorado" },
-  { src: "https://cdn.prod.website-files.com/61ed56ae9da9fd7e0ef0a967/65609f775edfd6ba4a3c3af7_Nairobi-colored.svg", alt: "Nairobi" },
-  { src: "https://cdn.prod.website-files.com/61ed56ae9da9fd7e0ef0a967/656093f6591bba4a6757b985_Hudon-colored.svg", alt: "Hudon" },
-  { src: "https://cdn.prod.website-files.com/61ed56ae9da9fd7e0ef0a967/6560817610fbd2b58993793c_Aura-colored.svg", alt: "Aura" },
-  { src: "https://cdn.prod.website-files.com/61ed56ae9da9fd7e0ef0a967/65607df9d46a61fcef7c719f_Aiken-colored.svg", alt: "Aiken" },
+  { src: "/locales/images/logos/Amsterdam.svg", alt: "Amsterdam" },
+  { src: "/locales/images/logos/Colorado.svg", alt: "Colorado" },
+  { src: "/locales/images/logos/Nairobi.svg", alt: "Nairobi" },
+  { src: "/locales/images/logos/Hudon.svg", alt: "Hudon" },
+  { src: "/locales/images/logos/Aura.svg", alt: "Aura" },
+  { src: "/locales/images/logos/Aiken.svg", alt: "Aiken" },
 ];
 
 const MarqueeTrack = React.forwardRef<HTMLDivElement, { 'aria-hidden'?: boolean }>((props, ref) => (
@@ -28,15 +28,16 @@ MarqueeTrack.displayName = 'MarqueeTrack';
 
 export default function LogoMarquee() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
   const rafId = useRef<number | null>(null);
 
   useEffect(() => {
     const container = containerRef.current;
-    const track = trackRef.current;
     
-    if (!container || !track) return;
+    if (!container) return;
     
+    const track = container.querySelector('.marquee__track');
+    if (!track) return;
+
     let start: number | null = null;
     let pos = 0;
 
@@ -66,7 +67,7 @@ export default function LogoMarquee() {
       if (rafId.current) {
         cancelAnimationFrame(rafId.current);
       }
-      if (clone) {
+      if (clone && container.contains(clone)) {
         container.removeChild(clone);
       }
     };
@@ -77,7 +78,7 @@ export default function LogoMarquee() {
     <section className="bg-background py-12 md:py-16">
         <div className="marquee">
             <div ref={containerRef} className="marquee__ctn">
-              <MarqueeTrack ref={trackRef}/>
+              <MarqueeTrack />
             </div>
         </div>
     </section>
