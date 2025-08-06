@@ -1,4 +1,5 @@
 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -77,6 +78,9 @@ body {
     --card-hover-icon-color: hsl(var(--primary-foreground));
     --card-hover-icon-background-color: hsla(var(--primary) / 1);
     --card-hover-icon-border-color: hsla(var(--primary) / 0.2);
+
+    --service-card-d: 700ms;
+    --service-card-e: cubic-bezier(0.19, 1, 0.22, 1);
 
   }
 
@@ -535,11 +539,6 @@ body {
 }
 
 /* NEW SERVICE CARD STYLES */
-:root {
-  --service-card-d: 700ms;
-  --service-card-e: cubic-bezier(0.19, 1, 0.22, 1);
-}
-
 .service-card {
   position: relative;
   display: flex;
@@ -555,7 +554,7 @@ body {
     0 4px 4px rgba(0,0,0,0.1), 
     0 8px 8px rgba(0,0,0,0.1),
     0 16px 16px rgba(0,0,0,0.1);
-    min-height: 350px;
+  min-height: 350px;
 }
   
 .service-card:before {
@@ -569,6 +568,7 @@ body {
     background-position: 0 0;
     transition: transform calc(var(--service-card-d) * 1.5) var(--service-card-e);
     pointer-events: none;
+    background-image: var(--bg-image);
 }
   
 .service-card:after {

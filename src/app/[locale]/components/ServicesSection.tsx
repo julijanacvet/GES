@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useTranslation } from 'react-i18next';
@@ -41,11 +42,15 @@ const ServiceCard = ({ imageSrc, imageAltKey, dataAiHint, titleKey, descriptionK
   const { t, i18n } = useTranslation('common');
   const locale = i18n.language;
 
+  // By creating a style object, we can pass the backgroundImage URL as a CSS variable.
+  const cardStyle = {
+    '--bg-image': `url(${imageSrc})`,
+  } as React.CSSProperties;
+
   return (
-    <div className="service-card">
+    <div className="service-card" style={cardStyle}>
       <div
         className="service-card__before"
-        style={{ backgroundImage: `url(${imageSrc})` }}
         data-ai-hint={dataAiHint}
       ></div>
       <div className="service-card__after"></div>
