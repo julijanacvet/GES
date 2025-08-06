@@ -527,8 +527,10 @@ body {
 	margin-inline-end: 3rem;
 }
 
-.marquee__item img {
+.marquee__item svg {
+  width: 120px;
+  height: 60px;
+  object-fit: contain;
   filter: brightness(100%);
 }
 
-    

@@ -1,30 +1,23 @@
-
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 
+// SVG content is now directly included here. This is the most reliable way.
 const logos = [
-  { src: "/locales/images/logos/Amsterdam.svg", alt: "Amsterdam" },
-  { src: "/locales/images/logos/Colorado.svg", alt: "Colorado" },
-  { src: "/locales/images/logos/Nairobi.svg", alt: "Nairobi" },
-  { src: "/locales/images/logos/Hudon.svg", alt: "Hudon" },
-  { src: "/locales/images/logos/Aura.svg", alt: "Aura" },
-  { src: "/locales/images/logos/Aiken.svg", alt: "Aiken" },
+  { alt: "Amsterdam", svg: <svg viewBox="0 0 108 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.93333 2.13333V27.8667M5.93333 2.13333L11.5333 11.5333M5.93333 2.13333L0.333332 11.5333M5.93333 27.8667L0.333332 18.4667M5.93333 27.8667L11.5333 18.4667" stroke="#00C459" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M21.5333 15C21.5333 19.4667 18.2 27.8667 13.7333 27.8667C9.26667 27.8667 6 19.4667 6 15C6 10.5333 9.26667 2.13333 13.7333 2.13333C18.2 2.13333 21.5333 10.5333 21.5333 15Z" stroke="#00C459" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M25.7333 27.8667V2.13333L31.3333 27.8667V2.13333" stroke="#00C459" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M38.8667 2.13333V27.8667M38.8667 2.13333H33.2667M38.8667 15H33.2667M38.8667 27.8667H33.2667" stroke="#00C459" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M51.6 15C51.6 19.4667 48.3333 27.8667 43.8667 27.8667C39.4 27.8667 36.1333 19.4667 36.1333 15C36.1333 10.5333 39.4 2.13333 43.8667 2.13333C48.3333 2.13333 51.6 10.5333 51.6 15Z" stroke="#00C459" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M53.8 2.13333V27.8667H60.4667M60.4667 2.13333V15.9333C60.4667 15.9333 57.0667 18.0667 53.8 15" stroke="#00C459" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M68 2.13333V27.8667M68 2.13333L73.6 11.5333M68 2.13333L62.4 11.5333M68 27.8667L62.4 18.4667M68 27.8667L73.6 18.4667" stroke="#00C459" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M84.6667 27.8667V2.13333L90.2667 27.8667V2.13333" stroke="#00C459" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M92.4667 15H98.0667" stroke="#00C459" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M106.6 2.13333V27.8667M99.4 2.13333H106.6M106.6 15H102.067" stroke="#00C459" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg> },
+  { alt: "Colorado", svg: <svg viewBox="0 0 114 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.42 2.13333H7.8C4.53333 2.13333 2.4 4.8 2.4 7.53333V22.4C2.4 25.1333 4.53333 27.8667 7.8 27.8667H15.42C20.42 27.8667 23.1533 24.0667 23.1533 20.2667V9.73333C23.1533 5.93333 20.42 2.13333 15.42 2.13333ZM15.82 15.9333H7.8V14.0667H15.82V15.9333Z" fill="#0E9F6E"></path><path d="M37.38 15C37.38 21.0667 33.58 27.8667 27.5133 27.8667C21.4467 27.8667 17.6467 21.0667 17.6467 15C17.6467 8.93333 21.4467 2.13333 27.5133 2.13333C33.58 2.13333 37.38 8.93333 37.38 15Z" fill="#FF9F2D"></path><path d="M49.2467 2.13333V12.1333H54.0467V2.13333H60.4467V27.8667H54.0467V17.8667H49.2467V27.8667H42.8467V2.13333H49.2467Z" fill="#0E9F6E"></path><path d="M74.7 15C74.7 21.0667 70.9 27.8667 64.8333 27.8667C58.7667 27.8667 54.9667 21.0667 54.9667 15C54.9667 8.93333 58.7667 2.13333 64.8333 2.13333C70.9 2.13333 74.7 8.93333 74.7 15Z" fill="#FF9F2D"></path><path d="M86.5667 2.13333V12.1333H91.3667V2.13333H97.7667V27.8667H91.3667V17.8667H86.5667V27.8667H80.1667V2.13333H86.5667Z" fill="#0E9F6E"></path><path d="M111.487 27.8667H105.087V2.13333H111.487V27.8667Z" fill="#FF9F2D"></path></svg> },
+  { alt: "Nairobi", svg: <svg viewBox="0 0 94 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 27.8667V2.13333H12.4V21.4667L22.4667 2.13333H29.4L18.4 22.2V27.8667H6Z" fill="#00C459"></path><path d="M43.0133 15C43.0133 21.0667 39.2133 27.8667 33.1467 27.8667C27.08 27.8667 23.28 21.0667 23.28 15C23.28 8.93333 27.08 2.13333 33.1467 2.13333C39.2133 2.13333 43.0133 8.93333 43.0133 15Z" fill="#FF9F2D"></path><path d="M56.28 27.8667H49.88V2.13333H62.68C65.9467 2.13333 68.2133 4.46667 68.2133 7.8C68.2133 11.1333 65.88 13.4667 62.6133 13.4667H56.28V27.8667ZM56.28 7.8V10.2667H61.28C62.8133 10.2667 63.6133 9.4 63.6133 8C63.6133 6.6 62.8133 5.73333 61.28 5.73333C58.88 5.73333 56.28 7.8 56.28 7.8Z" fill="#00C459"></path><path d="M81.5467 2.13333V27.8667H75.1467V2.13333H81.5467Z" fill="#FF9F2D"></path><path d="M92.48 2.13333V27.8667H86.08V2.13333H92.48Z" fill="#00C459"></path></svg> },
+  { alt: "Hudon", svg: <svg viewBox="0 0 97 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 27.8667V2.13333H13V27.8667H6.6ZM0 15H19.6" stroke="#00C459" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M33.8 2.13333V27.8667M26.6 2.13333V27.8667M26.6 15H33.8" stroke="#00C459" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M48.0667 15C48.0667 21.0667 44.2667 27.8667 38.2 27.8667C32.1333 27.8667 28.3333 21.0667 28.3333 15C28.3333 8.93333 32.1333 2.13333 38.2 2.13333C44.2667 2.13333 48.0667 8.93333 48.0667 15Z" stroke="#00C459" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M63.4 2.13333H55.8C52.5333 2.13333 50.4 4.8 50.4 7.53333V22.4C50.4 25.1333 52.5333 27.8667 55.8 27.8667H63.4C68.4 27.8667 71.1333 24.0667 71.1333 20.2667V9.73333C71.1333 5.93333 68.4 2.13333 63.4 2.13333ZM63.8 15.9333H55.8V14.0667H63.8V15.9333Z" stroke="#00C459" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M75.3333 27.8667V2.13333L87.2667 27.8667V2.13333M90.2 2.13333H96.6V27.8667" stroke="#00C459" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg> },
+  { alt: "Aura", svg: <svg viewBox="0 0 71 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 2.13333V27.8667M6 2.13333L11.6 11.5333M6 2.13333L0.400001 11.5333M6 27.8667L0.400001 18.4667M6 27.8667L11.6 18.4667" stroke="#FF9F2D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M16 27.8667V2.13333M28.4 2.13333V27.8667M16 15H28.4" stroke="#FF9F2D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M43.7333 2.13333V27.8667H50.4M50.4 2.13333V15.9333C50.4 15.9333 47 18.0667 43.7333 15" stroke="#FF9F2D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M54.8 2.13333V27.8667H61.4667M61.4667 2.13333V15.9333C61.4667 15.9333 58.0667 18.0667 54.8 15" stroke="#FF9F2D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M70 27.8667H63.6V2.13333H70V27.8667Z" fill="#FF9F2D"></path></svg> },
+  { alt: "Aiken", svg: <svg viewBox="0 0 88 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.46 2.13333V27.8667M6.46 2.13333L12.06 11.5333M6.46 2.13333L0.860001 11.5333M6.46 27.8667L0.860001 18.4667M6.46 27.8667L12.06 18.4667" stroke="#00C459" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M26.32 2.13333V27.8667H19.92V2.13333H26.32Z" fill="#00C459"></path><path d="M37.98 2.13333H44.38V27.8667H37.98V2.13333Z" fill="#FF9F2D"></path><path d="M48.24 2.13333V27.8667H54.64V17.8667H60.04V27.8667H66.44V2.13333H60.04V12.1333H54.64V2.13333H48.24Z" fill="#00C459"></path><path d="M81.52 2.13333V27.8667H75.12V7.53333L69.52 27.8667H69.4L63.88 7.53333V27.8667H57.48V2.13333H65.8L72.28 21.2L78.76 2.13333H87.12V27.8667" stroke="#FF9F2D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg> },
 ];
 
 const MarqueeTrack = React.forwardRef<HTMLDivElement, { 'aria-hidden'?: boolean }>((props, ref) => (
     <div ref={ref} className="marquee__track" {...props}>
       {logos.map((logo, index) => (
         <div key={index} className="marquee__item">
-           <div style={{ width: '120px', height: '60px', position: 'relative' }}>
-            <Image 
-              src={logo.src} 
-              alt={logo.alt} 
-              fill
-              style={{ objectFit: 'contain' }}
-              sizes="120px"
-            />
+           <div className="w-[120px] h-[60px] flex items-center justify-center">
+            {logo.svg}
           </div>
         </div>
       ))}
@@ -45,5 +38,3 @@ export default function LogoMarquee() {
     </section>
   );
 }
-
-    
