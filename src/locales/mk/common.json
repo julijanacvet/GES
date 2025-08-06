@@ -100,7 +100,7 @@
     "phoneValue": "+389 70 123 456",
     "emailLabel": "Е-пошта:",
     "emailValue": "info@ges.mk",
-    "copyright": "© 2025 GES - Green Energy Solutions. Сите права се задржани.",
+    "copyright": "© {{year}} GES - Green Energy Solutions. Сите права се задржани.",
     "privacyPolicy": "Политика за приватност",
     "termsOfService": "Услови на користење"
   },
