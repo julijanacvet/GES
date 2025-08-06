@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '../globals.css'; // Adjusted path
@@ -30,8 +31,7 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }>) {
-  const i18nInstance = await initServerTranslations(locale, i18nNamespaces);
-  const resources = i18nInstance.services.resourceStore.data;
+  const { resources } = await initServerTranslations(locale, i18nNamespaces);
 
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className={inter.variable}>
