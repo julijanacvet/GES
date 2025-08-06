@@ -1,3 +1,4 @@
+
 {
   "appName": "GES - Green Energy Solutions",
   "nav.home": "Home",
@@ -29,7 +30,7 @@
   "services.solarPlantsTitle": "Solar Power Plant Investments",
   "services.solarPlantsDesc": "Large-scale solar power plant development, contributing to a greener energy grid.",
   "services.exploreSolarPlantsBtn": "Explore Solar Plants",
-  "ourServices.title": "Our services",
+  "ourServices.title": "Our Services",
   "ourServices.panelInstallation": "Panel installation",
   "ourServices.cleaning": "Cleaning",
   "ourServices.maintenance": "Maintenance",
