@@ -726,14 +726,20 @@ body {
 
 .video-carousel {
   position: relative;
+  padding-bottom: 3.5rem; /* Add space for the buttons */
 }
 
 .video-carousel .carousel-navigation-buttons {
   position: absolute;
-  bottom: 1.5rem;
+  bottom: 0rem; /* Position below the carousel */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 0.75rem;
-  z-index: 10;
+  z-index: 10; /* Keep them above other elements if necessary */
+}
+
+.video-carousel .carousel-navigation-buttons > button {
+  position: static;
+  transform: none;
 }
