@@ -5,6 +5,7 @@ import BenefitsSection from './components/BenefitsSection';
 import LogoMarquee from './components/LogoMarquee';
 import ServicesSection from './components/ServicesSection';
 import OurServices from './components/OurServices'; // Import the new component
+import VideoCarousel from './components/VideoCarousel'; // Import the new video component
 import SolarCalculator from './components/SolarCalculator';
 import WhyChooseGES from './components/WhyChooseGES';
 import TestimonialsSection from './components/TestimonialsSection';
@@ -32,6 +33,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
         <LogoMarquee />
         <ServicesSection />
         <OurServices />
+        <VideoCarousel />
         <SolarCalculator />
         <WhyChooseGES />
         <TestimonialsSection />
