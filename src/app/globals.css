@@ -637,11 +637,11 @@ body {
   
   /* Initial state for the on-scroll animation */
   opacity: 0;
-  transform: translateY(50px) rotate(-3deg); /* Start lower and slightly rotated */
+  transform: translateY(50px);
   
   /* Smooth, springy transition for all animations */
-  transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), 
-              transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), 
+  transition: opacity 0.6s ease-out, 
+              transform 0.6s ease-out, 
               box-shadow 0.4s ease;
 }
 
@@ -691,7 +691,7 @@ body {
 */
 .service-card.is-visible {
   opacity: 1;
-  transform: translateY(0) rotate(0); /* Moves the card to its final position */
+  transform: translateY(0); /* Moves the card to its final position */
 }
 
 
@@ -710,5 +710,3 @@ body {
     transform: scale(1.05); /* Zooms the image in */
   }
 }
-
-    

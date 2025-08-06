@@ -11,7 +11,7 @@ import { ArrowRight } from 'lucide-react';
 
 const servicesData = [
   {
-    imageSrc: 'https://placehold.co/600x400.png',
+    imageSrc: '/locales/images/Residential solar.jpg',
     dataAiHint: 'home solar installation',
     titleKey: 'services.residentialTitle',
     descriptionKey: 'services.residentialDesc',
@@ -19,7 +19,7 @@ const servicesData = [
     ctaLink: '/#contact',
   },
   {
-    imageSrc: 'https://placehold.co/600x400.png',
+    imageSrc: '/locales/images/Commercial solar.jpg',
     dataAiHint: 'business solar panels',
     titleKey: 'services.commercialTitle',
     descriptionKey: 'services.commercialDesc',
@@ -27,7 +27,7 @@ const servicesData = [
     ctaLink: '/#contact',
   },
   {
-    imageSrc: 'https://placehold.co/600x400.png',
+    imageSrc: '/locales/images/Solar Power Plants.jpg',
     dataAiHint: 'solar farm field',
     titleKey: 'services.solarPlantsTitle',
     descriptionKey: 'services.solarPlantsDesc',
@@ -45,8 +45,9 @@ const ServiceCard = ({ imageSrc, dataAiHint, titleKey, descriptionKey, ctaKey, c
       <Image
         src={imageSrc}
         alt={t(titleKey)}
-        layout="fill"
-        objectFit="cover"
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        style={{ objectFit: 'cover' }}
         className="service-card__background"
         data-ai-hint={dataAiHint}
       />
