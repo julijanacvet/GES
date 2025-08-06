@@ -667,14 +667,9 @@ body {
   font-weight: 600;
   text-align: center;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-  transform: translateY(20px);
-  opacity: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.our-services-carousel .embla__slide:hover .embla__slide__text {
   transform: translateY(0);
   opacity: 1;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .our-services-carousel {
