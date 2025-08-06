@@ -1,8 +1,10 @@
-
 'use client';
 
 import { useTranslation } from 'react-i18next';
-import ServiceCard from './ServiceCard';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
 const servicesData = [
   {
@@ -12,7 +14,7 @@ const servicesData = [
     titleKey: 'services.residentialTitle',
     descriptionKey: 'services.residentialDesc',
     ctaKey: 'services.getResidentialQuoteBtn',
-    ctaLink: '/#contact', 
+    ctaLink: '/#contact',
   },
   {
     imageSrc: '/locales/images/Commercial solar.jpg',
@@ -30,9 +32,36 @@ const servicesData = [
     titleKey: 'services.solarPlantsTitle',
     descriptionKey: 'services.solarPlantsDesc',
     ctaKey: 'services.exploreSolarPlantsBtn',
-    ctaLink: '/#contact', 
+    ctaLink: '/#contact',
   },
 ];
+
+
+const ServiceCard = ({ imageSrc, imageAltKey, dataAiHint, titleKey, descriptionKey, ctaKey, ctaLink }: (typeof servicesData)[0]) => {
+  const { t, i18n } = useTranslation('common');
+  const locale = i18n.language;
+
+  return (
+    <div className="service-card">
+      <div
+        className="service-card__before"
+        style={{ backgroundImage: `url(${imageSrc})` }}
+        data-ai-hint={dataAiHint}
+      ></div>
+      <div className="service-card__after"></div>
+      <div className="service-card__content">
+        <h3 className="service-card__title">{t(titleKey)}</h3>
+        <p className="service-card__copy">{t(descriptionKey)}</p>
+        <Button asChild className="service-card__btn group">
+          <Link href={`/${locale}${ctaLink}`}>
+            {t(ctaKey)}
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </Button>
+      </div>
+    </div>
+  );
+};
 
 export default function ServicesSection() {
   const { t, i18n } = useTranslation('common');
@@ -50,13 +79,7 @@ export default function ServicesSection() {
           {servicesData.map((service, index) => (
             <ServiceCard
               key={index}
-              imageSrc={service.imageSrc}
-              imageAltKey={service.imageAltKey}
-              dataAiHint={service.dataAiHint}
-              titleKey={service.titleKey}
-              descriptionKey={service.descriptionKey}
-              ctaKey={service.ctaKey}
-              ctaLink={service.ctaLink}
+              {...service}
             />
           ))}
         </div>
