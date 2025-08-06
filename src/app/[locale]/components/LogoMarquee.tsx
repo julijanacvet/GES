@@ -3,7 +3,6 @@
 
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { cn } from '@/lib/utils';
 
 const logos = [
   { src: "/locales/images/logos/Amsterdam.svg", alt: "Amsterdam" },
@@ -18,7 +17,15 @@ const MarqueeTrack = React.forwardRef<HTMLDivElement, { 'aria-hidden'?: boolean 
     <div ref={ref} className="marquee__track" {...props}>
       {logos.map((logo, index) => (
         <div key={index} className="marquee__item">
-          <Image src={logo.src} alt={logo.alt} width={120} height={60} />
+           <div style={{ width: '120px', height: '60px', position: 'relative' }}>
+            <Image 
+              src={logo.src} 
+              alt={logo.alt} 
+              fill
+              style={{ objectFit: 'contain' }}
+              sizes="120px"
+            />
+          </div>
         </div>
       ))}
     </div>
@@ -43,6 +50,7 @@ export default function LogoMarquee() {
 
     const trackWidth = track.getBoundingClientRect().width;
     const clone = track.cloneNode(true) as HTMLDivElement;
+    clone.setAttribute('aria-hidden', 'true');
     container.appendChild(clone);
 
     const speed = 80;
@@ -57,7 +65,9 @@ export default function LogoMarquee() {
         pos = 0;
       }
       
-      container.style.transform = `translateX(${pos}px)`;
+      if (container) {
+          container.style.transform = `translateX(${pos}px)`;
+      }
       rafId.current = requestAnimationFrame(animate);
     };
 
@@ -67,7 +77,7 @@ export default function LogoMarquee() {
       if (rafId.current) {
         cancelAnimationFrame(rafId.current);
       }
-      if (clone && container.contains(clone)) {
+       if (clone && container && container.contains(clone)) {
         container.removeChild(clone);
       }
     };

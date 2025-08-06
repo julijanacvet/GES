@@ -518,14 +518,12 @@ body {
 	align-items: center;
 	justify-content: center;
 	flex-shrink: 0;
-	width: 120px;
+	/* width is set by the container div inside the component */
 	margin-inline-end: 3rem;
 }
 
 .marquee__item img {
-  height: 60px;
-  width: 100%;
-  object-fit: contain;
-  backface-visibility: hidden;
-  filter: brightness(100%);
+  /* height and object-fit are handled by the Image component's props/style */
+	backface-visibility: hidden;
+	filter: brightness(100%);
 }
