@@ -14,8 +14,10 @@ import { Card, CardContent } from '@/components/ui/card';
 
 // To use local videos, place them in the `public/videos/` directory.
 const videos = [
-    { type: 'youtube', src: 'https://www.youtube.com/embed/efgX7WjLTAk?autoplay=1&mute=1&controls=1&modestbranding=1&showinfo=0&rel=0&enablejsapi=1' },
-    { type: 'youtube', src: 'https://www.youtube.com/embed/HvKsMUNY8KA?autoplay=1&mute=1&controls=1&modestbranding=1&showinfo=0&rel=0&enablejsapi=1' },
+    // Previous YouTube link: https://www.youtube.com/embed/efgX7WjLTAk
+    { type: 'local', src: '/videos/placeholder-video-1.mp4' },
+    // Previous YouTube link: https://www.youtube.com/embed/HvKsMUNY8KA
+    { type: 'local', src: '/videos/placeholder-video-2.mp4' },
 ];
 
 export default function VideoCarousel() {
@@ -34,39 +36,17 @@ export default function VideoCarousel() {
 
     const playCurrentVideo = () => {
       api.slideNodes().forEach((slide, index) => {
-        const iframe = slide.querySelector('iframe');
         const video = slide.querySelector('video');
-
-        if (api.selectedScrollSnap() === index) {
-          if (iframe) {
-            iframe.contentWindow?.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-          } else if (video) {
+        if (video) {
+          if (api.selectedScrollSnap() === index) {
             video.play().catch(error => console.error("Video play failed:", error));
-          }
-        } else {
-          if (iframe) {
-             iframe.contentWindow?.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-             iframe.contentWindow?.postMessage('{"event":"command","func":"seekTo","args":[0, true]}', '*');
-          } else if (video) {
+          } else {
             video.pause();
             video.currentTime = 0;
           }
         }
       });
     };
-    
-    // This interval will check if the video has ended and advance the carousel
-    const interval = setInterval(() => {
-      const currentSlide = api.selectedScrollSnap();
-      const slideNode = api.slideNodes()[currentSlide];
-      const iframe = slideNode?.querySelector('iframe');
-      
-      if (iframe) {
-        // This is a workaround as we can't directly get the ended state from a YT iframe
-        // A more robust solution would involve the YouTube Iframe Player API
-      }
-    }, 1000);
-
 
     playCurrentVideo();
     api.on("select", playCurrentVideo);
@@ -75,7 +55,6 @@ export default function VideoCarousel() {
     return () => {
       api.off("select", playCurrentVideo);
       api.off("reInit", playCurrentVideo);
-      clearInterval(interval);
     };
   }, [api]);
 
