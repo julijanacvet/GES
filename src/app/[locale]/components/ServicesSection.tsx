@@ -1,10 +1,11 @@
-
 'use client';
 
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 const servicesData = [
   {
@@ -37,27 +38,36 @@ const servicesData = [
 ];
 
 
-const ServiceCard = ({ imageSrc, titleKey, descriptionKey, ctaKey, ctaLink }: (typeof servicesData)[0]) => {
+const ServiceCard = ({ imageSrc, imageAltKey, dataAiHint, titleKey, descriptionKey, ctaKey, ctaLink }: (typeof servicesData)[0]) => {
   const { t, i18n } = useTranslation('common');
   const locale = i18n.language;
 
   return (
-    <div className="service-card">
-      <div 
-        className="service-card__background"
-        style={{ backgroundImage: `url(${imageSrc})` }}
-      ></div>
-      <div className="service-card__content">
-        <h3 className="service-card__title">{t(titleKey)}</h3>
-        <p className="service-card__copy">{t(descriptionKey)}</p>
-        <Button asChild className="service-card__btn group">
+    <Card className="flex flex-col overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
+      <div className="relative w-full h-56">
+        <Image 
+          src={imageSrc}
+          alt={t(imageAltKey)}
+          layout="fill"
+          objectFit="cover"
+          data-ai-hint={dataAiHint}
+        />
+      </div>
+      <CardHeader>
+        <CardTitle className="text-2xl">{t(titleKey)}</CardTitle>
+      </CardHeader>
+      <CardContent className="flex-grow">
+        <p>{t(descriptionKey)}</p>
+      </CardContent>
+      <CardFooter>
+        <Button asChild className="w-full btn-primary group">
           <Link href={`/${locale}${ctaLink}`}>
             {t(ctaKey)}
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </Button>
-      </div>
-    </div>
+      </CardFooter>
+    </Card>
   );
 };
 
@@ -85,4 +95,3 @@ export default function ServicesSection() {
     </section>
   );
 }
-
