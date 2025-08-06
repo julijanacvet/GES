@@ -625,31 +625,37 @@ body {
 }
 
 .service-card__copy {
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-sans), sans-serif;
   font-size: 1.125rem;
   line-height: 1.35;
 }
 
+.service-card__content > .btn {
+  width: 100%;
+}
+
+
 @media (hover: hover) and (min-width: 600px) {
-  .service-card:hover .service-card__overlay {
+  .service-card:after {
     transform: translateY(0);
   }
   
   .service-card .service-card__content {
     transform: translateY(calc(100% - 4.5rem));
-  }
-  
-  .service-card .service-card__content > *:not(.service-card__title) {
-    opacity: 0;
-    transform: translateY(1rem);
-    transition:
-      transform var(--d) var(--e),
-      opacity var(--d) var(--e);
+    
+    > *:not(.service-card__title) {
+      opacity: 0;
+      transform: translateY(1rem);
+      transition:
+        transform var(--d) var(--e),
+        opacity var(--d) var(--e);
+    }
   }
   
   .service-card:hover,
   .service-card:focus-within {
     align-items: center;
+
   }
 
   .service-card:hover .service-card__background,
