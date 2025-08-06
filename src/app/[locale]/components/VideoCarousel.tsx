@@ -12,12 +12,10 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from '@/components/ui/card';
 
-// To use local videos, place them in the `public/videos/` directory.
+// Using public placeholder videos to ensure they are always accessible.
 const videos = [
-    // Previous YouTube link: https://www.youtube.com/embed/efgX7WjLTAk
-    { type: 'local', src: '/videos/placeholder-video-1.mp4' },
-    // Previous YouTube link: https://www.youtube.com/embed/HvKsMUNY8KA
-    { type: 'local', src: '/videos/placeholder-video-2.mp4' },
+    { type: 'local', src: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' },
+    { type: 'local', src: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4' },
 ];
 
 export default function VideoCarousel() {
@@ -52,6 +50,7 @@ export default function VideoCarousel() {
     api.on("select", playCurrentVideo);
     api.on("reInit", playCurrentVideo);
 
+    // Cleanup
     return () => {
       api.off("select", playCurrentVideo);
       api.off("reInit", playCurrentVideo);
@@ -67,25 +66,15 @@ export default function VideoCarousel() {
               <CarouselItem key={index} className="embla__slide">
                 <Card className="h-full w-full overflow-hidden rounded-xl shadow-lg">
                   <CardContent className="flex items-center justify-center p-0 h-full">
-                    {video.type === 'local' ? (
-                      <video
-                        src={video.src}
-                        autoPlay
-                        muted
-                        playsInline
-                        controls
-                        onEnded={handleVideoEnded}
-                        className="w-full h-full object-cover rounded-xl"
-                      />
-                    ) : (
-                      <iframe
-                        src={video.src}
-                        title={`YouTube video player ${index + 1}`}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                        className="w-full h-full rounded-xl"
-                      ></iframe>
-                    )}
+                    <video
+                      src={video.src}
+                      autoPlay
+                      muted
+                      playsInline
+                      controls
+                      onEnded={handleVideoEnded}
+                      className="w-full h-full object-cover rounded-xl"
+                    />
                   </CardContent>
                 </Card>
               </CarouselItem>
