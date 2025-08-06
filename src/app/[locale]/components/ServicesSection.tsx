@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useTranslation } from 'react-i18next';
@@ -6,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import React from 'react';
 
 const servicesData = [
   {
@@ -81,6 +81,34 @@ const ServiceCard = ({ imageSrc, dataAiHint, titleKey, descriptionKey, ctaKey, c
 export default function ServicesSection() {
   const { t, i18n } = useTranslation('common');
   const isMacedonian = i18n.language === 'mk';
+  const sectionRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const serviceCards = sectionRef.current?.querySelectorAll('.service-card');
+    if (!serviceCards) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    serviceCards.forEach((card) => {
+      observer.observe(card);
+    });
+
+    return () => {
+      serviceCards.forEach((card) => {
+        observer.unobserve(card);
+      });
+    };
+  }, []);
 
   return (
     <section id="services" className="bg-muted/30 dark:bg-background/50" ref={sectionRef}>
