@@ -1,0 +1,94 @@
+'use client';
+
+import React, { useMemo } from 'react';
+import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import AutoScroll from "embla-carousel-auto-scroll";
+
+const services = [
+  {
+    imgSrc: '/locales/images/services/Panel instalation.png',
+    textKey: 'ourServices.panelInstallation',
+  },
+  {
+    imgSrc: '/locales/images/services/Cleaning.webp',
+    textKey: 'ourServices.cleaning',
+  },
+  {
+    imgSrc: '/locales/images/services/Maintenance.jpg',
+    textKey: 'ourServices.maintenance',
+  },
+  {
+    imgSrc: '/locales/images/services/Energy monitoring.jpg',
+    textKey: 'ourServices.energyMonitoring',
+  },
+  {
+    imgSrc: '/locales/images/services/Battery maintenance.png',
+    textKey: 'ourServices.batteryMaintenance',
+  },
+  {
+    imgSrc: '/locales/images/services/Troubleshooting.jpg',
+    textKey: 'ourServices.troubleshooting',
+  },
+  {
+    imgSrc: '/locales/images/services/Inverter repair.png',
+    textKey: 'ourServices.inverterRepair',
+  },
+  {
+    imgSrc: '/locales/images/services/Calibration.webp',
+    textKey: 'ourServices.calibration',
+  },
+];
+
+export default function OurServices() {
+  const { t } = useTranslation('common');
+
+  const autoScrollPlugin = useMemo(
+    () => AutoScroll({ playOnInit: true, stopOnInteraction: false, speed: 1 }),
+    []
+  );
+
+  return (
+    <section id="our-services" className="bg-background py-16">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold">
+            {t('ourServices.title')}
+          </h2>
+        </div>
+        <Carousel
+          plugins={[autoScrollPlugin]}
+          className="w-full our-services-carousel"
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+        >
+          <CarouselContent className="-ml-4">
+            {services.map((service, index) => (
+              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/4">
+                <div className="embla__slide">
+                  <Image
+                    src={service.imgSrc}
+                    alt={t(service.textKey)}
+                    width={400}
+                    height={250}
+                    className="object-cover"
+                  />
+                  <div className="embla__slide__overlay">
+                    <span className="embla__slide__text">{t(service.textKey)}</span>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </div>
+    </section>
+  );
+}
