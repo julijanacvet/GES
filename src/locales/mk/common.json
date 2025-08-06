@@ -20,7 +20,7 @@
     "lowerBillsTitle": "Пониски сметки",
     "lowerBillsDesc": "Намалете ги месечните трошоци за електрична енергија со производство на сопствена чиста енергија.",
     "energyIndependenceTitle": "Енергетска независност",
-    "energyIndependenceDesc": "Ослободете се од променливите цени на електричната енергија и згоleмете ја Вашата енергетска сигурност.",
+    "energyIndependenceDesc": "Ослободете се од променливите цени на електричната енергија и зголемете ја Вашата енергетска сигурност.",
     "carbonReductionTitle": "Намалување на загадувањето со CO2",
     "carbonReductionDesc": "Придонесете за поздрава животна средина со намалување на Вашиот јаглероден отпечаток.",
     "propertyValueTitle": "Зголемена вредност на имотот",
@@ -100,7 +100,7 @@
     "phoneValue": "+389 70 123 456",
     "emailLabel": "Е-пошта:",
     "emailValue": "info@ges.mk",
-    "copyright": "© {year} GES - Green Energy Solutions. Сите права се задржани.",
+    "copyright": "© 2025 GES - Green Energy Solutions. Сите права се задржани.",
     "privacyPolicy": "Политика за приватност",
     "termsOfService": "Услови на користење"
   },
