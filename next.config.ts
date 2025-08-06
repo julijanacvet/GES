@@ -28,6 +28,11 @@ const nextConfig: NextConfig = {
       }
     ],
   },
+  experimental: {
+    allowedDevOrigins: [
+        "https://6000-firebase-studio-1748099768287.cluster-c23mj7ubf5fxwq6nrbev4ugaxa.cloudworkstations.dev"
+    ]
+  }
   // i18n, // Removed: This is for Pages Router i18n and conflicts with App Router [locale] setup.
           // next-i18next.config.js is still used directly by middleware and i18n.ts
 };
