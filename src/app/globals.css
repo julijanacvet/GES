@@ -537,109 +537,23 @@ body {
   filter: brightness(100%);
 }
 
-/* SERVICE CARD ANIMATION STYLES */
-.service-card {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
-  padding: 1rem;
-  width: 100%;
-  min-height: 350px;
-  text-align: center;
-  color: whitesmoke;
-  background-color: black;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.1), 
-    0 2px 2px rgba(0,0,0,0.1), 
-    0 4px 4px rgba(0,0,0,0.1), 
-    0 8px 8px rgba(0,0,0,0.1),
-    0 16px 16px rgba(0,0,0,0.1);
-  border-radius: 0.75rem; /* rounded-xl */
-}
-
-.service-card__background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 110%;
-  object-fit: cover;
-  object-position: 0 0;
-  transition: transform calc(var(--d) * 1.5) var(--e);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.service-card__overlay {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 200%;
-  pointer-events: none;
-  background-image: linear-gradient(
-    to bottom,
-    hsla(0, 0%, 0%, 0) 0%,
-    hsla(0, 0%, 0%, 0.009) 11.7%,
-    hsla(0, 0%, 0%, 0.034) 22.1%,
-    hsla(0, 0%, 0%, 0.072) 31.2%,
-    hsla(0, 0%, 0%, 0.123) 39.4%,
-    hsla(0, 0%, 0%, 0.182) 46.6%,
-    hsla(0, 0%, 0%, 0.249) 53.1%,
-    hsla(0, 0%, 0%, 0.320) 58.9%,
-    hsla(0, 0%, 0%, 0.394) 64.3%,
-    hsla(0, 0%, 0%, 0.468) 69.3%,
-    hsla(0, 0%, 0%, 0.540) 74.1%,
-    hsla(0, 0%, 0%, 0.607) 78.8%,
-    hsla(0, 0%, 0%, 0.668) 83.6%,
-    hsla(0, 0%, 0%, 0.721) 88.7%,
-    hsla(0, 0%, 0%, 0.762) 94.1%,
-    hsla(0, 0%, 0%, 0.790) 100%
-  );
-  transform: translateY(-50%);
-  transition: transform calc(var(--d) * 2) var(--e);
-  z-index: 1;
-}
-
-.service-card__content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 1rem;
-  transition: transform var(--d) var(--e);
-  z-index: 2;
-}
-
-.service-card__content > * + * {
-  margin-top: 1rem;
-}
-
-.service-card__title {
-  font-size: 1.3rem;
-  font-weight: bold;
-  line-height: 1.2;
-}
-
-.service-card__copy {
-  font-family: var(--font-sans), sans-serif;
-  font-size: 1.125rem;
-  line-height: 1.35;
-}
-
-.service-card__content > .btn {
-  width: 100%;
-}
-
-/* Our Services Carousel */
+/* OUR SERVICES CAROUSEL */
 .our-services-carousel .embla__slide {
   position: relative;
   overflow: hidden;
   border-radius: 0.75rem;
   height: 250px;
+}
+
+.our-services-carousel .embla__slide::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 20%, transparent 60%);
+  z-index: 1;
 }
 
 .our-services-carousel .embla__slide img {
@@ -656,13 +570,14 @@ body {
 .our-services-carousel .embla__slide__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  background: transparent; /* Remove the old gradient */
   display: flex;
-  flex-direction: column; /* Change to column */
-  align-items: center;    /* Center horizontally */
-  justify-content: flex-end; /* Align to the bottom */
+  flex-direction: column; 
+  align-items: center;    
+  justify-content: flex-end; 
   padding: 1rem;
   text-align: center;
+  z-index: 2; /* Ensure content is above the new ::after pseudo-element */
 }
 
 .our-services-carousel .embla__slide__content {
@@ -711,57 +626,88 @@ body {
     transform: none;
 }
 
-
-@media (hover: hover) and (min-width: 600px) {
-  .service-card:after {
-    transform: translateY(0);
-  }
+/*
+  1. BASE STYLES FOR THE SERVICE CARD
+  Applies to all devices.
+*/
+.service-card {
+  position: relative; /* Required for the gradient overlay */
+  overflow: hidden;   /* Hides parts of the image that zoom out */
+  border-radius: 1rem; /* Or whatever your border-radius is */
   
-  .service-card .service-card__content {
-    transform: translateY(calc(100% - 4.5rem));
-    
-    > *:not(.service-card__title) {
-      opacity: 0;
-      transform: translateY(1rem);
-      transition:
-        transform var(--d) var(--e),
-        opacity var(--d) var(--e);
-    }
-  }
+  /* Initial state for the mobile "animate on scroll" effect */
+  opacity: 0;
+  transform: translateY(30px); /* Start 30px lower */
   
-  .service-card:hover,
-  .service-card:focus-within {
-    align-items: center;
+  /* Smooth transition for all animations */
+  transition: opacity 0.6s ease-out, 
+              transform 0.6s ease-out, 
+              box-shadow 0.4s ease;
+}
 
+/* The gradient overlay for text readability */
+.service-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 15%, transparent 60%);
+  z-index: 1; /* Sits above the image but below the text */
+}
+
+/* The background image inside the card */
+.service-card .service-card__background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease; /* Smooth zoom for the hover effect */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* The text content container */
+.service-card .text-content {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  padding: 1.5rem; /* p-6 */
+  width: 100%;
+  z-index: 2; /* Sits on top of the gradient overlay */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+
+/*
+  2. MOBILE & DESKTOP: ANIMATE ON SCROLL
+  This class will be added by JavaScript when the card is visible.
+*/
+.service-card.is-visible {
+  opacity: 1;
+  transform: translateY(0); /* Moves the card to its final position */
+}
+
+
+/*
+  3. DESKTOP ONLY: HOVER EFFECTS
+  This @media query only applies these styles to devices with a mouse.
+  It will not affect mobile phones or tablets.
+*/
+@media (hover: hover) {
+  .service-card:hover {
+    transform: translateY(-10px); /* Lifts the card up */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   }
 
-  .service-card:hover .service-card__background,
-  .service-card:focus-within .service-card__background {
-     transform: translateY(-4%);
-  }
-  
-  .service-card:hover .service-card__overlay,
-  .service-card:focus-within .service-card__overlay {
-     transform: translateY(-50%);
-  }
-
-  .service-card:hover .service-card__content,
-  .service-card:focus-within .service-card__content {
-    transform: translateY(0);
-  }
-
-  .service-card:hover .service-card__content > *:not(.service-card__title),
-  .service-card:focus-within .service-card__content > *:not(.service-card__title) {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: calc(var(--d) / 8);
-  }
-  
-  .service-card:focus-within .service-card__background,
-  .service-card:focus-within .service-card__overlay,
-  .service-card:focus-within .service-card__content,
-  .service-card:focus-within .service-card__content > *:not(.service-card__title) {
-    transition-duration: 0s;
+  .service-card:hover .service-card__background {
+    transform: scale(1.05); /* Zooms the image in */
   }
 }
 
