@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '../globals.css'; // Adjusted path
 import TranslationsProvider from '@/components/TranslationsProvider';
-import initServerTranslations from '@/app/i18n';
+import initTranslations from '@/app/i18n';
 // @ts-ignore
 import { i18n as i18nConfig } from '../../../next-i18next.config.js';
 import { Toaster } from "@/components/ui/toaster";
@@ -31,12 +31,12 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }>) {
-  const { resources } = await initServerTranslations(locale, i18nNamespaces);
+  const { t, resources } = await initTranslations(locale, i18nNamespaces);
 
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className={inter.variable}>
       <body className="antialiased">
-        <TranslationsProvider namespaces={i18nNamespaces} locale={locale} resources={resources}>
+        <TranslationsProvider namespaces={i18nNamespaces} locale={locale}>
           {children}
           <Toaster />
         </TranslationsProvider>
