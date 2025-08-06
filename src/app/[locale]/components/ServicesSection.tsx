@@ -39,17 +39,21 @@ const ServiceCard = ({ imageSrc, dataAiHint, titleKey, descriptionKey, ctaKey, c
 
   return (
     <div className="service-card" data-ai-hint={dataAiHint}>
-      <div className="service-card__background" style={{ backgroundImage: `url(${imageSrc})` }} />
+      <Image
+        src={imageSrc}
+        alt={t(titleKey)}
+        fill
+        className="service-card__background"
+      />
       <div className="service-card__overlay"></div>
       <div className="service-card__content">
         <h3 className="service-card__title">{t(titleKey)}</h3>
         <p className="service-card__copy">{t(descriptionKey)}</p>
         <Button
-          size="lg"
           asChild
           className="bg-black/50 border border-primary text-primary font-bold py-1.5 px-3 text-xs sm:py-3 sm:px-6 sm:text-base rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out group"
         >
-           <Link href={`/${locale}${ctaLink}`}>
+          <Link href={`/${locale}${ctaLink}`}>
             {t(ctaKey)}
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
