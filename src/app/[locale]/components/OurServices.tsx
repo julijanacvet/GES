@@ -34,8 +34,8 @@ export default function OurServices() {
   );
   
   const sectionTitle = locale === 'mk' 
-    ? 'Одржување на Вашиот систем во врвна форма' 
-    : 'Keeping Your System at Peak Performance';
+    ? 'Вашиот експерт за соларна енергија' 
+    : 'Your expert for solar energy';
 
   const sectionIntro = locale === 'mk'
     ? 'Вашиот соларен систем е проектиран за децении на издржливост и висока ефикасност. Ние се грижиме секој панел и компонентa да испорача оптимална излезна моќ.'
