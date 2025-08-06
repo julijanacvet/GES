@@ -79,7 +79,7 @@ export default function VideoCarousel() {
                         title={`YouTube video player ${index + 1}`}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
-                        className="w-full h-full"
+                        className="w-full h-full rounded-xl"
                       ></iframe>
                     )}
                   </CardContent>
