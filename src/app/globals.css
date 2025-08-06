@@ -622,9 +622,8 @@ body {
 }
 
 .service-card__copy {
-  font-family: 'Cardo', serif; /* Assumes Cardo font is available or imported */
+  font-family: var(--font-sans);
   font-size: 1.125rem;
-  font-style: italic;
   line-height: 1.35;
 }
 
@@ -647,20 +646,20 @@ body {
 }
 
 @media (hover: hover) and (min-width: 600px) {
-  .service-card__overlay {
+  .service-card:after {
     transform: translateY(0);
   }
   
   .service-card__content {
     transform: translateY(calc(100% - 4.5rem));
-  }
-  
-  .service-card__content > *:not(.service-card__title) {
-    opacity: 0;
-    transform: translateY(1rem);
-    transition:
-      transform var(--d) var(--e),
-      opacity var(--d) var(--e);
+    
+    > *:not(.service-card__title) {
+      opacity: 0;
+      transform: translateY(1rem);
+      transition:
+        transform var(--d) var(--e),
+        opacity var(--d) var(--e);
+    }
   }
   
   .service-card:hover,
