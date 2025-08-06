@@ -645,18 +645,6 @@ body {
               box-shadow 0.4s ease;
 }
 
-/* The gradient overlay for text readability */
-.service-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, rgba(0,0,0,0.8) 15%, transparent 60%);
-  z-index: 1; /* Sits above the image but below the text */
-}
-
 /* The background image inside the card */
 .service-card .service-card__background {
   width: 100%;
@@ -682,6 +670,11 @@ body {
   flex-direction: column;
   height: 100%;
   justify-content: flex-end;
+}
+
+.service-card .service-card__content h3,
+.service-card .service-card__content p {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 
