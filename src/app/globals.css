@@ -631,17 +631,17 @@ body {
   Applies to all devices.
 */
 .service-card {
-  position: relative; /* Required for the gradient overlay */
-  overflow: hidden;   /* Hides parts of the image that zoom out */
-  border-radius: 1rem; /* Or whatever your border-radius is */
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
   
-  /* Initial state for the mobile "animate on scroll" effect */
+  /* Initial state for the on-scroll animation */
   opacity: 0;
-  transform: translateY(30px); /* Start 30px lower */
+  transform: translateY(50px) rotate(-3deg); /* Start lower and slightly rotated */
   
-  /* Smooth transition for all animations */
-  transition: opacity 0.6s ease-out, 
-              transform 0.6s ease-out, 
+  /* Smooth, springy transition for all animations */
+  transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), 
               box-shadow 0.4s ease;
 }
 
@@ -686,12 +686,12 @@ body {
 
 
 /*
-  2. MOBILE & DESKTOP: ANIMATE ON SCROLL
+  2. ANIMATE ON SCROLL
   This class will be added by JavaScript when the card is visible.
 */
 .service-card.is-visible {
   opacity: 1;
-  transform: translateY(0); /* Moves the card to its final position */
+  transform: translateY(0) rotate(0); /* Moves the card to its final position */
 }
 
 
@@ -710,3 +710,5 @@ body {
     transform: scale(1.05); /* Zooms the image in */
   }
 }
+
+    
