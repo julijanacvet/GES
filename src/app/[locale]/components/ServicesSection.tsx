@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useTranslation } from 'react-i18next';
@@ -5,7 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 
 const servicesData = [
   {
@@ -80,16 +81,16 @@ const ServiceCard = ({ imageSrc, dataAiHint, titleKey, descriptionKey, ctaKey, c
 export default function ServicesSection() {
   const { t, i18n } = useTranslation('common');
   const isMacedonian = i18n.language === 'mk';
-  
+
   useEffect(() => {
     const serviceCards = document.querySelectorAll('.service-card');
     
-    if (!serviceCards.length) return;
+    if (serviceCards.length === 0) return;
 
     const observerOptions = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.1
+      threshold: 0.1,
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
@@ -105,7 +106,15 @@ export default function ServicesSection() {
       observer.observe(card);
     });
 
-    return () => serviceCards.forEach(card => observer.unobserve(card));
+    return () => {
+      serviceCards.forEach(card => {
+        // Check if the observer is still observing before trying to unobserve
+        // This can prevent errors on fast re-renders or component unmounts
+        if (card) {
+          observer.unobserve(card);
+        }
+      });
+    };
   }, []);
 
 

@@ -626,23 +626,26 @@ body {
     transform: none;
 }
 
-/* Service Card animation styles */
+/*
+  1. BASE STYLES FOR THE SERVICE CARD
+  Applies to all devices.
+*/
 .service-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 1rem; /* 16px */
+  position: relative; /* Required for the gradient overlay */
+  overflow: hidden;   /* Hides parts of the image that zoom out */
+  border-radius: 1rem; /* Or whatever your border-radius is */
+  
+  /* Initial state for the mobile "animate on scroll" effect */
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(30px); /* Start 30px lower */
+  
+  /* Smooth transition for all animations */
   transition: opacity 0.6s ease-out, 
               transform 0.6s ease-out, 
               box-shadow 0.4s ease;
 }
 
-.service-card.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
+/* The gradient overlay for text readability */
 .service-card::after {
   content: '';
   position: absolute;
@@ -651,27 +654,29 @@ body {
   width: 100%;
   height: 100%;
   background: linear-gradient(to top, rgba(0,0,0,0.85) 15%, transparent 60%);
-  z-index: 1;
+  z-index: 1; /* Sits above the image but below the text */
 }
 
+/* The background image inside the card */
 .service-card .service-card__background {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease; /* Smooth zoom for the hover effect */
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 0;
 }
 
+/* The text content container */
 .service-card .text-content {
-  position: absolute;
+  position: relative;
   bottom: 0;
   left: 0;
   padding: 1.5rem; /* p-6 */
   width: 100%;
-  z-index: 2;
+  z-index: 2; /* Sits on top of the gradient overlay */
   color: white;
   display: flex;
   flex-direction: column;
@@ -679,13 +684,29 @@ body {
   justify-content: flex-end;
 }
 
+
+/*
+  2. MOBILE & DESKTOP: ANIMATE ON SCROLL
+  This class will be added by JavaScript when the card is visible.
+*/
+.service-card.is-visible {
+  opacity: 1;
+  transform: translateY(0); /* Moves the card to its final position */
+}
+
+
+/*
+  3. DESKTOP ONLY: HOVER EFFECTS
+  This @media query only applies these styles to devices with a mouse.
+  It will not affect mobile phones or tablets.
+*/
 @media (hover: hover) {
   .service-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px); /* Lifts the card up */
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   }
 
   .service-card:hover .service-card__background {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Zooms the image in */
   }
 }
