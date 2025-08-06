@@ -13,8 +13,8 @@ import {
 import { Card, CardContent } from '@/components/ui/card';
 
 const videos = [
-  { type: 'youtube', src: 'https://www.youtube.com/embed/efgX7WjLTAk?autoplay=1&mute=1&loop=1&playlist=efgX7WjLTAk&controls=1&modestbranding=1&showinfo=0&rel=0' },
-  { type: 'youtube', src: 'https://www.youtube.com/embed/HvKsMUNY8KA?autoplay=1&mute=1&loop=1&playlist=HvKsMUNY8KA&controls=1&modestbranding=1&showinfo=0&rel=0' },
+  { type: 'youtube', src: 'https://www.youtube.com/embed/efgX7WjLTAk?autoplay=1&mute=1&controls=1&modestbranding=1&showinfo=0&rel=0' },
+  { type: 'youtube', src: 'https://www.youtube.com/embed/HvKsMUNY8KA?autoplay=1&mute=1&controls=1&modestbranding=1&showinfo=0&rel=0' },
 ];
 
 export default function VideoCarousel() {
@@ -49,11 +49,21 @@ export default function VideoCarousel() {
     api.on("select", playCurrentVideo);
     api.on("reInit", playCurrentVideo);
 
+    // This is a proxy for the 'ended' event on YouTube embeds, but it's not foolproof.
+    // A more robust solution would involve the YouTube Iframe API.
+    const interval = setInterval(() => {
+        if (api.selectedScrollSnap() !== api.previousScrollSnap()) {
+            handleVideoEnded();
+        }
+    }, 1000)
+
+
     return () => {
       api.off("select", playCurrentVideo);
       api.off("reInit", playCurrentVideo);
+      clearInterval(interval)
     };
-  }, [api]);
+  }, [api, handleVideoEnded]);
 
   return (
     <section id="video-showcase" className="bg-muted/30 dark:bg-background/50 py-16">
