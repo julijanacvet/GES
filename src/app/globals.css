@@ -415,7 +415,7 @@ body {
 
 .card:hover,
 .card.card-active {
-  box-shadow: 0px var(--card-hover-box-shadow-1-y) var(--card-hover-box-shadow-1-blur) var(--card-hover-box-shadow-1), 0px var(--card-hover-box-shadow-2-y) var(--card-hover-box-shadow-2-blur) var(--card-hover-box-shadow-2), 0 0 0 1px var(--card-hover-border-color);
+  box-shadow: 0px 3px 6px var(--card-hover-box-shadow-1), 0px var(--card-hover-box-shadow-2-y) var(--card-hover-box-shadow-2-blur) var(--card-hover-box-shadow-2), 0 0 0 1px var(--card-hover-border-color);
 }
 
 .card:hover .icon::after,
@@ -527,10 +527,9 @@ body {
 	margin-inline-end: 3rem;
 }
 
-.marquee__item svg {
-  width: 120px;
+.marquee__item img {
   height: 60px;
+  width: auto;
   object-fit: contain;
   filter: brightness(100%);
 }
-
