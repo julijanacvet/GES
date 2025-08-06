@@ -634,6 +634,7 @@ body {
   width: 100%;
 }
 
+/* Our Services Carousel */
 .our-services-carousel .embla__slide {
   position: relative;
   overflow: hidden;
@@ -657,20 +658,37 @@ body {
   inset: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  flex-direction: column; /* Change to column */
+  align-items: center;    /* Center horizontally */
+  justify-content: flex-end; /* Align to the bottom */
   padding: 1rem;
-  opacity: 1; /* Always visible */
-  transform: translateY(0); /* No movement on hover */
+  text-align: center;
 }
 
-.our-services-carousel .embla__slide__text {
+.our-services-carousel .embla__slide__content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.our-services-carousel .embla__slide:hover .embla__slide__content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.our-services-carousel .embla__slide__title {
   color: white;
+  font-size: 1.1rem;
   font-weight: 600;
-  text-align: center;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-  opacity: 1; /* Always visible */
-  transform: translateY(0); /* No movement on hover */
+  margin-bottom: 0.25rem; /* Add some space between title and description */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.our-services-carousel .embla__slide__description {
+  color: hsl(var(--foreground));
+  font-size: 0.8rem;
+  opacity: 0.9;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 
