@@ -2,10 +2,10 @@
 'use client';
 
 import { useTranslation } from 'react-i18next';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { useId } from 'react';
 
 const servicesData = [
   {
@@ -41,19 +41,16 @@ const servicesData = [
 const ServiceCard = ({ imageSrc, imageAltKey, dataAiHint, titleKey, descriptionKey, ctaKey, ctaLink }: (typeof servicesData)[0]) => {
   const { t, i18n } = useTranslation('common');
   const locale = i18n.language;
-
-  // By creating a style object, we can pass the backgroundImage URL as a CSS variable.
-  const cardStyle = {
-    '--bg-image': `url(${imageSrc})`,
-  } as React.CSSProperties;
+  const uniqueId = useId();
+  const cardId = `service-card-${uniqueId}`;
 
   return (
-    <div className="service-card" style={cardStyle}>
-      <div
-        className="service-card__before"
-        data-ai-hint={dataAiHint}
-      ></div>
-      <div className="service-card__after"></div>
+    <div id={cardId} className="service-card">
+       <style>{`
+        #${cardId}:before {
+          background-image: url(${imageSrc});
+        }
+      `}</style>
       <div className="service-card__content">
         <h3 className="service-card__title">{t(titleKey)}</h3>
         <p className="service-card__copy">{t(descriptionKey)}</p>

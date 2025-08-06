@@ -568,7 +568,6 @@ body {
     background-position: 0 0;
     transition: transform calc(var(--service-card-d) * 1.5) var(--service-card-e);
     pointer-events: none;
-    background-image: var(--bg-image);
 }
   
 .service-card:after {
