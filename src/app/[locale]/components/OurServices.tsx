@@ -12,6 +12,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { motion } from 'framer-motion';
 
 const services = [
   { imgSrc: '/locales/images/services/Panel instalation.png', title: { en: 'Panel Installation', mk: 'Инсталација на панели' }, description: { en: 'A flawless start. We build your system for maximum efficiency and durability.', mk: 'Беспрекорен почеток. Го градиме Вашиот систем за максимална ефикасност и долготрајност.' } },
@@ -41,17 +42,41 @@ export default function OurServices() {
     ? 'Вашиот соларен систем е проектиран за децении на издржливост и висока ефикасност. Ние се грижиме секој панел и компонентa да испорача оптимална излезна моќ.'
     : "Your solar system is engineered for decades of durable, high-efficiency performance. We ensure every panel and component delivers optimal output.";
 
+  const textAnimation = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <section id="our-services" className="bg-background py-16">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">
+        <motion.div 
+          className="text-center mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ staggerChildren: 0.2 }}
+        >
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold"
+            variants={textAnimation}
+          >
             {sectionTitle}
-          </h2>
-           <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
+          </motion.h2>
+           <motion.p 
+            className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground"
+            variants={textAnimation}
+          >
             {sectionIntro}
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
         <Carousel
           plugins={[autoplayPlugin]}
           className="w-full our-services-carousel"
