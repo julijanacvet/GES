@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import { useId } from 'react';
 
 const servicesData = [
   {
@@ -38,19 +37,16 @@ const servicesData = [
 ];
 
 
-const ServiceCard = ({ imageSrc, imageAltKey, dataAiHint, titleKey, descriptionKey, ctaKey, ctaLink }: (typeof servicesData)[0]) => {
+const ServiceCard = ({ imageSrc, titleKey, descriptionKey, ctaKey, ctaLink }: (typeof servicesData)[0]) => {
   const { t, i18n } = useTranslation('common');
   const locale = i18n.language;
-  const uniqueId = useId();
-  const cardId = `service-card-${uniqueId}`;
 
   return (
-    <div id={cardId} className="service-card">
-       <style>{`
-        #${cardId}:before {
-          background-image: url(${imageSrc});
-        }
-      `}</style>
+    <div className="service-card">
+      <div 
+        className="service-card__background"
+        style={{ backgroundImage: `url(${imageSrc})` }}
+      ></div>
       <div className="service-card__content">
         <h3 className="service-card__title">{t(titleKey)}</h3>
         <p className="service-card__copy">{t(descriptionKey)}</p>
@@ -89,3 +85,4 @@ export default function ServicesSection() {
     </section>
   );
 }
+
