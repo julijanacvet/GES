@@ -8,7 +8,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import AutoScroll from "embla-carousel-auto-scroll";
+import Autoplay from "embla-carousel-autoplay";
 
 const services = [
   {
@@ -48,8 +48,8 @@ const services = [
 export default function OurServices() {
   const { t } = useTranslation('common');
 
-  const autoScrollPlugin = useMemo(
-    () => AutoScroll({ playOnInit: true, stopOnInteraction: false, speed: 1 }),
+  const autoplayPlugin = useMemo(
+    () => Autoplay({ delay: 3000, stopOnInteraction: true }),
     []
   );
 
@@ -62,7 +62,7 @@ export default function OurServices() {
           </h2>
         </div>
         <Carousel
-          plugins={[autoScrollPlugin]}
+          plugins={[autoplayPlugin]}
           className="w-full our-services-carousel"
           opts={{
             align: "start",
