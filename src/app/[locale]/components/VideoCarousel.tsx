@@ -12,9 +12,12 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from '@/components/ui/card';
 
+// To use local videos, place them in the `public/videos/` directory.
 const videos = [
-  { type: 'youtube', src: 'https://www.youtube.com/embed/efgX7WjLTAk?autoplay=1&mute=1&controls=1&modestbranding=1&showinfo=0&rel=0' },
-  { type: 'youtube', src: 'https://www.youtube.com/embed/HvKsMUNY8KA?autoplay=1&mute=1&controls=1&modestbranding=1&showinfo=0&rel=0' },
+  { type: 'local', src: '/videos/placeholder-video-1.mp4' },
+  { type: 'local', src: '/videos/placeholder-video-2.mp4' },
+  // { type: 'youtube', src: 'https://www.youtube.com/embed/efgX7WjLTAk?autoplay=1&mute=1&controls=1&modestbranding=1&showinfo=0&rel=0' },
+  // { type: 'youtube', src: 'https://www.youtube.com/embed/HvKsMUNY8KA?autoplay=1&mute=1&controls=1&modestbranding=1&showinfo=0&rel=0' },
 ];
 
 export default function VideoCarousel() {
@@ -49,23 +52,11 @@ export default function VideoCarousel() {
     api.on("select", playCurrentVideo);
     api.on("reInit", playCurrentVideo);
 
-    const interval = setInterval(() => {
-        const currentSlide = api.selectedScrollSnap();
-        const slideNode = api.slideNodes()[currentSlide];
-        const videoElement = slideNode?.querySelector('video');
-
-        if (videoElement && videoElement.ended) {
-            handleVideoEnded();
-        }
-    }, 1000); // Check every second
-
-
     return () => {
       api.off("select", playCurrentVideo);
       api.off("reInit", playCurrentVideo);
-      clearInterval(interval);
     };
-  }, [api, handleVideoEnded]);
+  }, [api]);
 
   return (
     <section id="video-showcase" className="bg-muted/30 dark:bg-background/50 py-16">
@@ -82,8 +73,9 @@ export default function VideoCarousel() {
                         autoPlay
                         muted
                         playsInline
+                        controls
                         onEnded={handleVideoEnded}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover rounded-xl"
                       />
                     ) : (
                       <iframe
