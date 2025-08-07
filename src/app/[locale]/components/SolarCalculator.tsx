@@ -181,7 +181,7 @@ export default function SolarCalculator() {
               </div>
             )}
             
-            <Alert className="mt-8 border-accent text-accent-foreground bg-accent/10">
+            <Alert className="mt-8 border-accent text-accent-foreground bg-accent/10 rounded-lg">
               <Info className="h-4 w-4 text-accent" />
               <AlertTitle className="text-accent">{t('calculator.disclaimer').split('.')[0]}</AlertTitle>
               <AlertDescription className="text-foreground">
