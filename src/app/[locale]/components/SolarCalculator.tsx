@@ -161,9 +161,16 @@ export default function SolarCalculator() {
               </Alert>
             )}
 
-            <Button onClick={handleCalculate} size="lg" className="w-full bg-black/50 border border-primary text-primary font-bold py-1.5 px-3 text-xs sm:py-3 sm:px-6 sm:text-base rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out mb-8">
-              {t('calculator.calculateBtn')}
+            <Button
+                size="lg"
+                asChild
+                className="w-full bg-black/50 border border-primary text-primary font-bold py-1.5 px-3 text-xs sm:py-3 sm:px-6 sm:text-base rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out mb-8"
+              >
+              <button onClick={handleCalculate}>
+                {t('calculator.calculateBtn')}
+              </button>
             </Button>
+
 
             {results && (
               <div className="mt-8 p-6 bg-primary/5 rounded-lg">
@@ -175,7 +182,11 @@ export default function SolarCalculator() {
                   <p><strong>{t('calculator.paybackPeriodLabel')}</strong> {isFinite(results.paybackPeriodYears) ? `${results.paybackPeriodYears} ${results.paybackPeriodYears === 1 ? 'year' : 'years'}` : 'N/A'}</p>
                   <p className="sm:col-span-2"><strong>{t('calculator.co2ReductionLabel')}</strong> {results.annualCo2ReductionKg.toLocaleString(locale)} kg</p>
                 </div>
-                <Button size="lg" asChild className="w-full mt-8 bg-black/50 border border-primary text-primary font-bold py-1.5 px-3 text-xs sm:py-3 sm:px-6 sm:text-base rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out">
+                <Button 
+                   size="lg"
+                   asChild
+                   className="w-full mt-8 bg-black/50 border border-primary text-primary font-bold py-1.5 px-3 text-xs sm:py-3 sm:px-6 sm:text-base rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out"
+                >
                     <Link href={`/${locale}/#contact`}>{t('calculator.getDetailedQuoteBtn')}</Link>
                 </Button>
               </div>
