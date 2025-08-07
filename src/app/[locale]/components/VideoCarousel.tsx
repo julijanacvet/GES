@@ -14,8 +14,8 @@ import { Card, CardContent } from '@/components/ui/card';
 
 // Using public placeholder videos to ensure they are always accessible.
 const videos = [
-    { type: 'local', src: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' },
-    { type: 'local', src: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4' },
+    { type: 'local', src: '/locales/video/ges_solar_field_finished_project1.mp4' },
+    { type: 'local', src: '/locales/video/ges_solar_field_finished_project2.mp4' },
 ];
 
 export default function VideoCarousel() {
@@ -89,3 +89,4 @@ export default function VideoCarousel() {
     </section>
   );
 }
+
