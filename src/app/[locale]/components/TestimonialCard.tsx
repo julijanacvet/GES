@@ -1,21 +1,18 @@
 'use client';
 
 import { useTranslation } from 'react-i18next';
-import { Card, CardContent } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Card } from '@/components/ui/card';
 import { Star } from 'lucide-react';
 
 interface TestimonialCardProps {
   quoteKey: string;
   authorKey: string;
-  avatarSrc?: string;
-  dataAiHint?: string;
 }
 
-export default function TestimonialCard({ quoteKey, authorKey, avatarSrc, dataAiHint }: TestimonialCardProps) {
+export default function TestimonialCard({ quoteKey, authorKey }: TestimonialCardProps) {
   const { t } = useTranslation('common');
   const authorName = t(authorKey).split(',')[0];
-  const authorInitial = authorName ? authorName.charAt(0) : 'U';
+  const authorLocation = t(authorKey).split(',')[1]?.trim();
 
   return (
     <Card className="bg-background p-6 rounded-xl shadow-lg h-full flex flex-col">
@@ -27,14 +24,12 @@ export default function TestimonialCard({ quoteKey, authorKey, avatarSrc, dataAi
       <blockquote className="text-lg text-foreground italic mb-4 flex-grow">
         "{t(quoteKey)}"
       </blockquote>
-      <div className="flex items-center mt-auto">
-        <Avatar className="h-10 w-10 mr-3">
-          {avatarSrc && <AvatarImage src={avatarSrc} alt={t(authorKey)} data-ai-hint={dataAiHint || "person portrait"}/>}
-          <AvatarFallback>{authorInitial}</AvatarFallback>
-        </Avatar>
+      <div className="flex items-center mt-auto pt-4 border-t border-border/20">
         <div>
           <p className="font-semibold text-foreground">{authorName}</p>
-          <p className="text-sm text-muted-foreground">{t(authorKey).split(',')[1]?.trim()}</p>
+          {authorLocation && (
+            <p className="text-sm text-muted-foreground">{authorLocation}</p>
+          )}
         </div>
       </div>
     </Card>

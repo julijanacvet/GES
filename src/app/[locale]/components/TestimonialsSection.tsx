@@ -8,14 +8,10 @@ const testimonialsData = [
   { 
     quoteKey: 'testimonials.quote1', 
     authorKey: 'testimonials.author1',
-    avatarSrc: 'https://placehold.co/100x100.png',
-    dataAiHint: 'happy customer'
   },
   { 
     quoteKey: 'testimonials.quote2', 
     authorKey: 'testimonials.author2',
-    avatarSrc: 'https://placehold.co/100x100.png',
-    dataAiHint: 'smiling person'
   },
   // Add more testimonials if needed
 ];
@@ -69,8 +65,6 @@ export default function TestimonialsSection() {
               <TestimonialCard
                 quoteKey={testimonial.quoteKey}
                 authorKey={testimonial.authorKey}
-                avatarSrc={testimonial.avatarSrc}
-                dataAiHint={testimonial.dataAiHint}
               />
             </motion.div>
           ))}
