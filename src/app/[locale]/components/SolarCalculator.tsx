@@ -161,7 +161,7 @@ export default function SolarCalculator() {
               </Alert>
             )}
 
-            <Button onClick={handleCalculate} size="lg" className="w-full mb-8 bg-black/50 border border-primary text-primary font-bold py-1.5 px-3 text-xs sm:py-3 sm:px-6 sm:text-base rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out">
+            <Button onClick={handleCalculate} size="lg" className="w-full bg-black/50 border border-primary text-primary font-bold py-1.5 px-3 text-xs sm:py-3 sm:px-6 sm:text-base rounded-[8px] shadow-lg hover:shadow-xl transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition duration-300 ease-in-out mb-8">
               {t('calculator.calculateBtn')}
             </Button>
 
@@ -184,7 +184,7 @@ export default function SolarCalculator() {
             <Alert className="mt-8 border-accent text-accent-foreground bg-accent/10">
               <Info className="h-4 w-4 text-accent" />
               <AlertTitle className="text-accent">{t('calculator.disclaimer').split('.')[0]}</AlertTitle>
-              <AlertDescription>
+              <AlertDescription className="text-foreground">
                 {t('calculator.disclaimer').substring(t('calculator.disclaimer').indexOf('.') + 1).trim()}
               </AlertDescription>
             </Alert>
