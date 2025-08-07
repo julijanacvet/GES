@@ -1,8 +1,10 @@
+
 "use client";
 
 import React from "react";
 import { useTranslation } from 'react-i18next';
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+import { Star } from "lucide-react";
 
 export default function TestimonialsSection() {
   const { t } = useTranslation('common');
@@ -19,21 +21,14 @@ export default function TestimonialsSection() {
       title: t('testimonials.author2').split(',')[1],
     },
     {
-      quote: "All that we see or seem is but a dream within a dream.",
-      name: "Edgar Allan Poe",
-      title: "A Dream Within a Dream",
+      quote: t('testimonials.quote3'),
+      name: t('testimonials.author3').split(',')[0],
+      title: t('testimonials.author3').split(',')[1],
     },
     {
-      quote:
-        "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-      name: "Jane Austen",
-      title: "Pride and Prejudice",
-    },
-    {
-      quote:
-        "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-      name: "Herman Melville",
-      title: "Moby-Dick",
+      quote: t('testimonials.quote4'),
+      name: t('testimonials.author4').split(',')[0],
+      title: t('testimonials.author4').split(',')[1],
     },
   ];
 
