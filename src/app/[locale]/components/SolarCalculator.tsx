@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -97,7 +98,7 @@ export default function SolarCalculator() {
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Card className="shadow-xl rounded-xl overflow-hidden">
           <CardHeader className="bg-primary/10">
-            <CardTitle className="text-2xl md:text-3xl text-center text-primary flex items-center justify-center">
+            <CardTitle className="text-2xl md:text-3xl text-center text-foreground flex items-center justify-center">
               <TrendingUp className="w-8 h-8 mr-3" />
               {t('calculator.title')}
             </CardTitle>
