@@ -161,7 +161,7 @@ export default function SolarCalculator() {
               </Alert>
             )}
 
-            <Button onClick={handleCalculate} size="lg" className="w-full btn-primary mb-8">
+            <Button onClick={handleCalculate} size="lg" className="w-full mb-8 bg-accent hover:bg-yellow-500 text-accent-foreground font-bold py-4 px-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:scale-105">
               {t('calculator.calculateBtn')}
             </Button>
 
@@ -175,7 +175,7 @@ export default function SolarCalculator() {
                   <p><strong>{t('calculator.paybackPeriodLabel')}</strong> {isFinite(results.paybackPeriodYears) ? `${results.paybackPeriodYears} ${results.paybackPeriodYears === 1 ? 'year' : 'years'}` : 'N/A'}</p>
                   <p className="sm:col-span-2"><strong>{t('calculator.co2ReductionLabel')}</strong> {results.annualCo2ReductionKg.toLocaleString(locale)} kg</p>
                 </div>
-                <Button size="lg" asChild className="w-full mt-8 btn-primary">
+                <Button size="lg" asChild className="w-full mt-8 bg-accent hover:bg-yellow-500 text-accent-foreground font-bold py-4 px-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:scale-105">
                     <Link href={`/${locale}/#contact`}>{t('calculator.getDetailedQuoteBtn')}</Link>
                 </Button>
               </div>
@@ -195,3 +195,6 @@ export default function SolarCalculator() {
     </section>
   );
 }
+
+
+    
