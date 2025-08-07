@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -48,7 +47,7 @@ export default function TestimonialsSection() {
       <div className="h-[25rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
         <InfiniteMovingCards
           items={testimonials}
-          direction="right"
+          direction="left"
           speed="slow"
         />
       </div>
