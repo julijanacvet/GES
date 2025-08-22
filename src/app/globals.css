@@ -164,6 +164,13 @@ body {
   @apply w-full p-3 border border-input rounded-none focus:outline-none focus:ring-2 focus:ring-primary bg-input text-[hsl(0_0%_10%)] placeholder:text-gray-500; /* bg-input (light cream), text-dark, no rounding */
 }
 
+/* Custom Dropdown Hover Style */
+[data-radix-collection-item]:hover, [data-radix-collection-item]:focus {
+  background-color: hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+}
+
+
 .card {
   background-color: var(--background-color);
   box-shadow: 0px var(--card-box-shadow-1-y) var(--card-box-shadow-1-blur) var(--card-box-shadow-1), 0px var(--card-box-shadow-2-y) var(--card-box-shadow-2-blur) var(--card-box-shadow-2), 0 0 0 1px var(--card-border-color);
@@ -740,8 +747,8 @@ body {
 }
 
 .video-carousel .carousel-navigation-buttons > button {
-  position: static;
-  transform: none;
+    position: static;
+    transform: none;
 }
 
 @layer utilities {
@@ -755,4 +762,5 @@ body {
     }
   }
 }
+
 
