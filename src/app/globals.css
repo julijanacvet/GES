@@ -167,7 +167,7 @@ body {
 /* Custom Dropdown Hover Style */
 [data-radix-collection-item]:hover, [data-radix-collection-item]:focus {
   background-color: hsl(var(--primary)) !important;
-  color: #FFFFFF !important;
+  color: hsl(var(--primary-foreground)) !important;
 }
 
 
@@ -616,7 +616,7 @@ body {
 
 .our-services-carousel {
   position: relative;
-  padding-bottom: 4rem;
+  padding-bottom: 4rem; /* Add space for the buttons */
 }
 
 .carousel-navigation-buttons {
@@ -762,6 +762,7 @@ body {
     }
   }
 }
+
 
 
 
