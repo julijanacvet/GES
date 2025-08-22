@@ -8,7 +8,16 @@
     "solarPlants": "Соларни Централи",
     "calculator": "Калкулатор",
     "getQuote": "Побарајте понуда",
-    "mobileMenuTitle": "Мени"
+    "mobileMenuTitle": "Мени",
+    "photovoltaicSystems": "Фотоволтаични системи",
+    "systemsForIndustry": "Фотоволтаични системи за индустрија",
+    "systemsForHome": "Фотоволтаични системи за дома",
+    "technicalMaintenance": "Техничко одржување",
+    "energyStorage": "Складирање на енергија",
+    "projects": "Проекти",
+    "project1": "Завршен проект 1",
+    "project2": "Завршен проект 2",
+    "contact": "Контакт"
   },
   "hero": {
     "headline": "Вашиот партнер за одржлива енергија",
