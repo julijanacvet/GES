@@ -138,7 +138,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                 <DropdownMenuContent>
                   {item.dropdownItems?.map((dropdownItem, dropdownIdx) => (
                     <DropdownMenuItem key={`dropdown-link-${dropdownIdx}`}>
-                      <Link href={`/${locale}${dropdownItem.link}`} className="w-full text-left">{t(dropdownItem.name)}</Link>
+                      <Link href={`/${locale}${dropdownItem.link}`} className="w-full text-left hover:text-primary-foreground focus:text-primary-foreground">{t(dropdownItem.name)}</Link>
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -224,7 +224,7 @@ export const MobileNavMenu = ({
                         key={`mobile-dropdown-link-${dropdownIdx}`}
                         href={`/${locale}${dropdownItem.link}`}
                         onClick={onClose}
-                        className="relative text-primary py-2"
+                        className="relative block rounded-md text-primary px-4 py-2 transition-colors hover:bg-primary hover:text-primary-foreground"
                       >
                         <span className="block">{t(dropdownItem.name)}</span>
                       </Link>
@@ -236,7 +236,7 @@ export const MobileNavMenu = ({
                   key={`mobile-link-${idx}`}
                   href={item.link ? `/${locale}${item.link}` : '#'}
                   onClick={onClose}
-                  className="relative text-primary px-4 py-2"
+                  className="relative block rounded-md w-full text-primary px-4 py-2 transition-colors hover:bg-primary hover:text-primary-foreground"
                 >
                   <span className="block">{t(item.name)}</span>
                 </Link>
