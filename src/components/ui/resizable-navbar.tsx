@@ -1,3 +1,4 @@
+
 "use client";
 import { cn } from "@/lib/utils";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -132,7 +133,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
               <DropdownMenu>
                 <DropdownMenuTrigger
                   onMouseEnter={() => setHovered(idx)}
-                  className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300 flex items-center gap-1"
+                  className="relative px-4 py-2 text-primary flex items-center gap-1"
                 >
                    {hovered === idx && (
                     <motion.div
@@ -156,7 +157,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                 href={item.link ? `/${locale}${item.link}` : '#'}
                 onMouseEnter={() => setHovered(idx)}
                 onClick={onItemClick}
-                className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
+                className="relative px-4 py-2 text-primary"
               >
                 {hovered === idx && (
                   <motion.div
@@ -230,7 +231,7 @@ export const MobileNavMenu = ({
             <React.Fragment key={`mobile-link-group-${idx}`}>
               {item.hasDropdown ? (
                  <div className="w-full">
-                  <span className="block text-neutral-600 dark:text-neutral-300 font-medium px-4 py-2">
+                  <span className="block text-primary font-medium px-4 py-2">
                     {t(item.name)}
                   </span>
                   <div className="flex flex-col pl-4">
@@ -239,7 +240,7 @@ export const MobileNavMenu = ({
                         key={`mobile-dropdown-link-${dropdownIdx}`}
                         href={`/${locale}${dropdownItem.link}`}
                         onClick={onClose}
-                        className="relative text-neutral-600 dark:text-neutral-300 py-2"
+                        className="relative text-primary py-2"
                       >
                         <span className="block">{t(dropdownItem.name)}</span>
                       </Link>
@@ -251,7 +252,7 @@ export const MobileNavMenu = ({
                   key={`mobile-link-${idx}`}
                   href={item.link ? `/${locale}${item.link}` : '#'}
                   onClick={onClose}
-                  className="relative text-neutral-600 dark:text-neutral-300 px-4 py-2"
+                  className="relative text-primary px-4 py-2"
                 >
                   <span className="block">{t(item.name)}</span>
                 </Link>
