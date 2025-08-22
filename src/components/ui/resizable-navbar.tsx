@@ -163,7 +163,7 @@ export const MobileNavMenu = ({
       <SheetContent
         side="right"
         className={cn(
-          "w-[300px] sm:w-[400px] bg-background/80 backdrop-blur-sm p-0",
+          "w-[300px] sm:w-[400px] bg-background/80 backdrop-blur-sm p-0", // p-0 is new
           className
         )}
       >
@@ -177,12 +177,12 @@ export const MobileNavMenu = ({
             </SheetClose>
         </SheetHeader>
         <div className="flex flex-col h-full p-4">
-            <nav className="flex flex-col space-y-2 text-lg">
+            <nav className="flex flex-col space-y-1 text-base">
                  {items.map((item, idx) => (
                   <React.Fragment key={`mobile-link-group-${idx}`}>
                       {item.hasDropdown ? (
                         <div className="w-full">
-                           <span className="block text-muted-foreground font-medium px-4 py-2 text-sm">
+                           <span className="block text-muted-foreground font-medium px-4 py-2 text-xs">
                                 {t(item.name)}
                            </span>
                            <div className="flex flex-col pl-4">
@@ -191,9 +191,9 @@ export const MobileNavMenu = ({
                                 key={`mobile-dropdown-link-${dropdownIdx}`}
                                 href={`/${locale}${dropdownItem.link}`}
                                 onClick={(e) => handleLinkClick(e, `/${locale}${dropdownItem.link}`)}
-                                className="relative block rounded-md text-foreground px-4 py-2 transition-colors hover:bg-primary/10 hover:text-primary"
+                                className="relative block rounded-md text-foreground px-4 py-1.5 transition-colors hover:bg-primary/10 hover:text-primary"
                                >
-                                  <span className="block">{t(dropdownItem.name)}</span>
+                                  <span className="block text-sm">{t(dropdownItem.name)}</span>
                               </Link>
                             ))}
                            </div>
@@ -205,7 +205,7 @@ export const MobileNavMenu = ({
                             onClick={(e) => item.link && handleLinkClick(e, `/${locale}${item.link}`)}
                             className="relative block rounded-md text-foreground px-4 py-2 transition-colors hover:bg-primary/10 hover:text-primary"
                           >
-                           <span className="block">{t(item.name)}</span>
+                           <span className="block font-medium">{t(item.name)}</span>
                           </Link>
                       )}
                   </React.Fragment>
@@ -284,4 +284,3 @@ export const NavbarButton = ({
     </Tag>
   );
 };
-
