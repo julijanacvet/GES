@@ -164,7 +164,7 @@ export const MobileNavMenu = ({
         side="right"
         className={cn(
           "w-[300px] sm:w-[400px] bg-background/80 backdrop-blur-sm p-0",
-          className,
+          className
         )}
       >
         <SheetHeader className="flex-row items-center justify-between border-b p-4">
@@ -190,7 +190,7 @@ export const MobileNavMenu = ({
                               <Link
                                 key={`mobile-dropdown-link-${dropdownIdx}`}
                                 href={`/${locale}${dropdownItem.link}`}
-                                onClick={(e) => handleLinkClick(e,`/${locale}${dropdownItem.link}`)}
+                                onClick={(e) => handleLinkClick(e, `/${locale}${dropdownItem.link}`)}
                                 className="relative block rounded-md text-foreground px-4 py-2 transition-colors hover:bg-primary/10 hover:text-primary"
                                >
                                   <span className="block">{t(dropdownItem.name)}</span>
@@ -212,7 +212,7 @@ export const MobileNavMenu = ({
               ))}
             </nav>
             <div className="mt-auto space-y-4 pt-4 border-t">
-              <Button
+            <Button
                 onClick={() => {
                   onClose();
                   document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
@@ -284,3 +284,4 @@ export const NavbarButton = ({
     </Tag>
   );
 };
+
