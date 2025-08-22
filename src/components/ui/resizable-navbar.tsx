@@ -138,7 +138,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                 <DropdownMenuContent>
                   {item.dropdownItems?.map((dropdownItem, dropdownIdx) => (
                     <DropdownMenuItem key={`dropdown-link-${dropdownIdx}`}>
-                      <Link href={`/${locale}${dropdownItem.link}`}>{t(dropdownItem.name)}</Link>
+                      <Link href={`/${locale}${dropdownItem.link}`} className="w-full text-left">{t(dropdownItem.name)}</Link>
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
