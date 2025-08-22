@@ -130,7 +130,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             {item.hasDropdown ? (
               <DropdownMenu>
                 <DropdownMenuTrigger
-                  className="relative px-3 py-1.5 text-primary flex items-center gap-1 rounded-[8px] transition-colors duration-300 hover:bg-primary focus:outline-none"
+                  className="relative px-3 py-1.5 text-primary flex items-center gap-1 rounded-[8px] transition-colors duration-300 hover:bg-primary focus:outline-none data-[state=open]:bg-primary hover:text-primary-foreground focus:text-primary-foreground data-[state=open]:text-primary-foreground"
                 >
                   <span className="relative z-20">{t(item.name)}</span>
                   <ChevronDown className="h-4 w-4 relative z-20" />
@@ -138,7 +138,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                 <DropdownMenuContent>
                   {item.dropdownItems?.map((dropdownItem, dropdownIdx) => (
                     <DropdownMenuItem key={`dropdown-link-${dropdownIdx}`} asChild>
-                      <Link href={`/${locale}${dropdownItem.link}`} className="w-full text-left hover:text-primary-foreground focus:text-primary-foreground">{t(dropdownItem.name)}</Link>
+                      <Link href={`/${locale}${dropdownItem.link}`} className="w-full text-left">{t(dropdownItem.name)}</Link>
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -207,7 +207,7 @@ export const MobileNavMenu = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-background/60 backdrop-blur-sm px-4 py-8 shadow-lg",
+            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-background/80 backdrop-blur-sm px-4 py-8 shadow-lg",
             className,
           )}
         >
