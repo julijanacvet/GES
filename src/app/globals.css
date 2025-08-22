@@ -169,9 +169,9 @@ body {
   background-color: hsl(var(--primary)) !important;
   color: hsl(var(--primary-foreground)) !important;
 }
-[data-radix-dropdown-menu-item]:hover, [data-radix-dropdown-menu-item]:focus,
-[data-radix-menubar-item]:hover, [data-radix-menubar-item]:focus,
-[data-radix-dropdown-menu-sub-trigger]:hover, [data-radix-dropdown-menu-sub-trigger]:focus {
+[data-radix-dropdown-menu-item]:hover > *, [data-radix-dropdown-menu-item]:focus > *,
+[data-radix-menubar-item]:hover > *, [data-radix-menubar-item]:focus > *,
+[data-radix-dropdown-menu-sub-trigger]:hover > *, [data-radix-dropdown-menu-sub-trigger]:focus > * {
     color: hsl(var(--primary-foreground)) !important;
 }
 
@@ -767,6 +767,7 @@ body {
     }
   }
 }
+
 
 
 
