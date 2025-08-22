@@ -2,14 +2,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { Menu, X, ChevronDown } from "lucide-react";
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useMotionValueEvent,
-} from "framer-motion";
-
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import {
@@ -18,45 +11,18 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetClose,
+} from "@/components/ui/sheet";
+import Image from "next/image";
 
 
-interface NavbarProps {
-  children: React.ReactNode;
-  className?: string;
-  navItems: NavItem[];
-}
-
-interface NavBodyProps {
-  children: React.ReactNode;
-  className?: string;
-  visible?: boolean;
-}
-
-interface NavItemsProps {
-  items: NavItem[];
-  className?: string;
-  onItemClick?: () => void;
-}
-
-interface MobileNavProps {
-  children: React.ReactNode;
-  className?: string;
-  visible?: boolean;
-}
-
-interface MobileNavHeaderProps {
-  children: React.ReactNode;
-  className?: string;
-}
-
-interface MobileNavMenuProps {
-  children: React.ReactNode;
-  className?: string;
-  isOpen: boolean;
-  onClose: () => void;
-  items: NavItem[];
-}
-
+// Main Component Types
+// =================================================================
 export type NavItem = {
   name: string;
   link?: string;
@@ -67,59 +33,49 @@ export type NavItem = {
   }[];
 };
 
-export const Navbar = ({ children, className, navItems }: NavbarProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollY } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const [visible, setVisible] = useState<boolean>(false);
+interface NavItemsProps {
+  items: NavItem[];
+  className?: string;
+  onItemClick?: () => void;
+}
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    if (latest > 100) {
-      setVisible(true);
-    } else {
-      setVisible(false);
-    }
-  });
+interface MobileNavMenuProps {
+  children: React.ReactNode;
+  className?: string;
+  isOpen: boolean;
+  onClose: () => void;
+  items: NavItem[];
+}
 
+// Logo Component
+// =================================================================
+export const NavbarLogo = () => {
+  const { t, i18n } = useTranslation("common");
+  const locale = i18n.language;
   return (
-    <motion.div
-      ref={ref}
-      className={cn("w-full", className)}
+    <Link
+      href={`/${locale}/#home`}
+      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal"
     >
-      {React.Children.map(children, (child) =>
-        React.isValidElement(child)
-          ? React.cloneElement(
-              child as React.ReactElement<{ visible?: boolean }>,
-              { visible },
-            )
-          : child,
-      )}
-    </motion.div>
+      <Image
+        src="/locales/images/ges_logo_dark.png"
+        alt={t('appName').split(' - ')[0] || 'GES Logo'}
+        width={100}
+        height={32}
+      />
+    </Link>
   );
 };
 
-export const NavBody = ({ children, className, visible }: NavBodyProps) => {
-  return (
-    <motion.div
-       className={cn(
-        "relative z-[60] mx-auto flex w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 lg:flex dark:bg-transparent",
-        visible && "bg-white/80 dark:bg-neutral-950/80",
-        className
-      )}
-    >
-      {children}
-    </motion.div>
-  );
-};
 
+// Desktop Navigation Components
+// =================================================================
 export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   const { i18n, t } = useTranslation('common');
   const locale = i18n.language;
 
   return (
-    <motion.div
+    <nav
       className={cn(
         "hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium transition duration-200 lg:flex lg:space-x-2",
         className
@@ -138,7 +94,12 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                 <DropdownMenuContent>
                   {item.dropdownItems?.map((dropdownItem, dropdownIdx) => (
                     <DropdownMenuItem key={`dropdown-link-${dropdownIdx}`} asChild>
-                      <Link href={`/${locale}${dropdownItem.link}`} className="w-full text-left">{t(dropdownItem.name)}</Link>
+                       <Link 
+                        href={`/${locale}${dropdownItem.link}`} 
+                        className="w-full text-left hover:text-primary-foreground focus:text-primary-foreground"
+                      >
+                        {t(dropdownItem.name)}
+                      </Link>
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -154,40 +115,26 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             )}
         </div>
       ))}
-    </motion.div>
+    </nav>
   );
 };
 
-
-export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
+// Mobile Navigation Components
+// =================================================================
+export const MobileNavToggle = ({
+  isOpen,
+  onClick,
+}: {
+  isOpen: boolean;
+  onClick: () => void;
+}) => {
   return (
-    <motion.div
-       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 lg:hidden",
-        visible && "bg-white/80 dark:bg-neutral-950/80",
-        className
-      )}
-    >
-      {children}
-    </motion.div>
+    <button onClick={onClick} className="md:hidden p-2" aria-label="Toggle menu">
+      {isOpen ? <X className="h-6 w-6 text-foreground" /> : <Menu className="h-6 w-6 text-foreground" />}
+    </button>
   );
 };
 
-export const MobileNavHeader = ({
-  children,
-  className,
-}: MobileNavHeaderProps) => {
-  return (
-    <div
-      className={cn(
-        "flex w-full flex-row items-center justify-between",
-        className,
-      )}
-    >
-      {children}
-    </div>
-  );
-};
 
 export const MobileNavMenu = ({
   children,
@@ -199,92 +146,87 @@ export const MobileNavMenu = ({
   const { t, i18n } = useTranslation('common');
   const locale = i18n.language;
 
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.split('#')[1];
+    if (targetId) {
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+    onClose();
+  };
+  
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-background/80 backdrop-blur-sm px-4 py-8 shadow-lg",
-            className,
-          )}
-        >
-          {items.map((item, idx) => (
-            <React.Fragment key={`mobile-link-group-${idx}`}>
-              {item.hasDropdown ? (
-                 <div className="w-full">
-                  <span className="block text-primary font-medium px-4 py-2">
-                    {t(item.name)}
-                  </span>
-                  <div className="flex flex-col pl-4">
-                    {item.dropdownItems?.map((dropdownItem, dropdownIdx) => (
-                      <Link
-                        key={`mobile-dropdown-link-${dropdownIdx}`}
-                        href={`/${locale}${dropdownItem.link}`}
-                        onClick={onClose}
-                        className="relative block rounded-md text-primary px-4 py-2 transition-colors hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground"
-                      >
-                        <span className="block">{t(dropdownItem.name)}</span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                <Link
-                  key={`mobile-link-${idx}`}
-                  href={item.link ? `/${locale}${item.link}` : '#'}
-                  onClick={onClose}
-                  className="relative block rounded-md w-full text-primary px-4 py-2 transition-colors hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground"
-                >
-                  <span className="block">{t(item.name)}</span>
-                </Link>
-              )}
-            </React.Fragment>
-          ))}
-          <div className="flex w-full flex-col gap-4 mt-4">
-            {children}
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <Sheet open={isOpen} onOpenChange={onClose}>
+      <SheetContent
+        side="right"
+        className={cn(
+          "w-[300px] sm:w-[400px] bg-background/80 backdrop-blur-sm p-0",
+          className,
+        )}
+      >
+        <SheetHeader className="flex-row items-center justify-between border-b p-4">
+            <SheetTitle asChild>
+                <NavbarLogo />
+            </SheetTitle>
+            <SheetClose asChild>
+                <button aria-label="Close menu">
+                    <X className="h-6 w-6 text-foreground" />
+                </button>
+            </SheetClose>
+        </SheetHeader>
+        <div className="flex flex-col h-full p-4">
+            <nav className="flex flex-col space-y-2 text-lg">
+                 {items.map((item, idx) => (
+                  <React.Fragment key={`mobile-link-group-${idx}`}>
+                      {item.hasDropdown ? (
+                        <div className="w-full">
+                           <span className="block text-muted-foreground font-medium px-4 py-2 text-sm">
+                                {t(item.name)}
+                           </span>
+                           <div className="flex flex-col pl-4">
+                            {item.dropdownItems?.map((dropdownItem, dropdownIdx) => (
+                              <Link
+                                key={`mobile-dropdown-link-${dropdownIdx}`}
+                                href={`/${locale}${dropdownItem.link}`}
+                                onClick={(e) => handleLinkClick(e,`/${locale}${dropdownItem.link}`)}
+                                className="relative block rounded-md text-foreground px-4 py-2 transition-colors hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground"
+                               >
+                                  <span className="block">{t(dropdownItem.name)}</span>
+                              </Link>
+                            ))}
+                           </div>
+                        </div>
+                      ) : (
+                          <Link
+                            key={`mobile-link-${idx}`}
+                            href={item.link ? `/${locale}${item.link}` : '#'}
+                            onClick={(e) => item.link && handleLinkClick(e, `/${locale}${item.link}`)}
+                            className="relative block rounded-md text-foreground px-4 py-2 transition-colors hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground"
+                          >
+                           <span className="block">{t(item.name)}</span>
+                          </Link>
+                      )}
+                  </React.Fragment>
+              ))}
+            </nav>
+            <div className="mt-auto space-y-4 pt-4 border-t">
+              {children}
+            </div>
+        </div>
+      </SheetContent>
+    </Sheet>
   );
 };
 
 
-export const MobileNavToggle = ({
-  isOpen,
-  onClick,
-}: {
-  isOpen: boolean;
-  onClick: () => void;
-}) => {
-  return isOpen ? (
-    <X className="text-foreground" onClick={onClick} />
-  ) : (
-    <Menu className="text-foreground" onClick={onClick} />
-  );
-};
-
-export const NavbarLogo = () => {
-  const { t, i18n } = useTranslation("common");
-  const locale = i18n.language;
-  return (
-    <Link
-      href={`/${locale}/#home`}
-      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal"
-    >
-      <img
-        src="/locales/images/ges_logo_dark.png"
-        alt={t('appName').split(' - ')[0] || 'GES Logo'}
-        width={100}
-        height={32}
-      />
-    </Link>
-  );
-};
-
+// Deprecated components - can be removed later if not used
+export const Navbar = ({ children }: { children: React.ReactNode }) => <>{children}</>;
+export const NavBody = ({ children }: { children: React.ReactNode }) => <>{children}</>;
+export const MobileNav = ({ children }: { children: React.ReactNode }) => <>{children}</>;
+export const MobileNavHeader = ({ children }: { children: React.ReactNode }) => <>{children}</>;
 export const NavbarButton = ({
   href,
   as: Tag = "a",

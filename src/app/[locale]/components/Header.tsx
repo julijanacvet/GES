@@ -2,16 +2,10 @@
 'use client';
 
 import {
-  Navbar,
-  NavBody,
-  NavItems,
   MobileNav,
   NavbarLogo,
-  NavbarButton,
-  MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu,
-  type NavItem,
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -80,7 +74,7 @@ export default function Header() {
         {/* Mobile Navigation Toggle */}
         <div className="md:hidden flex items-center gap-2">
           <LanguageSwitcher isMobile={true} />
-          <MobileNavToggle
+           <MobileNavToggle
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             />
@@ -92,26 +86,28 @@ export default function Header() {
             onClose={() => setIsMobileMenuOpen(false)}
             items={navItems}
           >
-            <Button
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              variant="outline"
-              className="w-full"
-            >
-              {t('nav.calculator')}
-            </Button>
-            <Button
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              variant="primary"
-              className="w-full"
-            >
-              {t('nav.getQuote')}
-            </Button>
+            <div className="flex w-full flex-col gap-4 mt-auto">
+              <Button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                variant="outline"
+                className="w-full"
+              >
+                {t('nav.calculator')}
+              </Button>
+              <Button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                variant="primary"
+                className="w-full"
+              >
+                {t('nav.getQuote')}
+              </Button>
+            </div>
         </MobileNavMenu>
 
       </div>
