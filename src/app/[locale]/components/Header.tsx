@@ -2,10 +2,9 @@
 'use client';
 
 import {
-  MobileNav,
+  MobileNavMenu,
   NavbarLogo,
   MobileNavToggle,
-  MobileNavMenu,
   NavItems,
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
@@ -87,14 +86,14 @@ export default function Header() {
             onClose={() => setIsMobileMenuOpen(false)}
             items={navItems}
           >
-            <div className="flex w-full flex-col gap-4 mt-auto">
+            <div className="flex w-full flex-col gap-4">
               <Button
                 onClick={() => {
                   setIsMobileMenuOpen(false);
                   document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
                 }}
                 variant="outline"
-                className="w-full"
+                className="w-full rounded-lg shadow-md"
               >
                 {t('nav.calculator')}
               </Button>
@@ -103,8 +102,8 @@ export default function Header() {
                   setIsMobileMenuOpen(false);
                   document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                variant="primary"
-                className="w-full"
+                variant="default"
+                className="w-full rounded-lg shadow-md"
               >
                 {t('nav.getQuote')}
               </Button>
