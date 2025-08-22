@@ -207,7 +207,7 @@ export const MobileNavMenu = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-background/95 backdrop-blur-sm px-4 py-8 shadow-lg",
+            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-background/60 backdrop-blur-sm px-4 py-8 shadow-lg",
             className,
           )}
         >
@@ -224,7 +224,7 @@ export const MobileNavMenu = ({
                         key={`mobile-dropdown-link-${dropdownIdx}`}
                         href={`/${locale}${dropdownItem.link}`}
                         onClick={onClose}
-                        className="relative block rounded-md text-primary px-4 py-2 transition-colors hover:bg-primary hover:text-primary-foreground"
+                        className="relative block rounded-md text-primary px-4 py-2 transition-colors hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground"
                       >
                         <span className="block">{t(dropdownItem.name)}</span>
                       </Link>
@@ -236,7 +236,7 @@ export const MobileNavMenu = ({
                   key={`mobile-link-${idx}`}
                   href={item.link ? `/${locale}${item.link}` : '#'}
                   onClick={onClose}
-                  className="relative block rounded-md w-full text-primary px-4 py-2 transition-colors hover:bg-primary hover:text-primary-foreground"
+                  className="relative block rounded-md w-full text-primary px-4 py-2 transition-colors hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground"
                 >
                   <span className="block">{t(item.name)}</span>
                 </Link>
