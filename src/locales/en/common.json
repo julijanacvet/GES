@@ -1,4 +1,3 @@
-
 {
   "appName": "GES - Green Energy Solutions",
   "nav.home": "Home",
@@ -9,7 +8,7 @@
   "nav.getQuote": "Get Quote",
   "nav.mobileMenuTitle": "Navigation Menu",
   "nav.photovoltaicSystems": "Photovoltaic Systems",
-  "nav.systemsForIndustry": "Systems for Industry",
+  "nav.systemsForIndustry": "Commercial Solar Systems",
   "nav.systemsForHome": "Residential Solar Systems",
   "nav.technicalMaintenance": "Technical Maintenance",
   "nav.energyStorage": "Energy Storage",
@@ -124,3 +123,5 @@
   "languageSwitcher.en": "EN",
   "languageSwitcher.mk": "MK"
 }
+
+    
