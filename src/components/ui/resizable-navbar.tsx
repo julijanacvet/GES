@@ -115,15 +115,13 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
 };
 
 export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
-  const [hovered, setHovered] = useState<number | null>(null);
   const { i18n, t } = useTranslation('common');
   const locale = i18n.language;
 
   return (
     <motion.div
-      onMouseLeave={() => setHovered(null)}
       className={cn(
-        "hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-2",
+        "hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium transition duration-200 lg:flex lg:space-x-2",
         className
       )}
     >
@@ -132,15 +130,8 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             {item.hasDropdown ? (
               <DropdownMenu>
                 <DropdownMenuTrigger
-                  onMouseEnter={() => setHovered(idx)}
-                  className="relative px-4 py-2 text-primary flex items-center gap-1"
+                  className="relative px-3 py-1.5 text-primary flex items-center gap-1 rounded-[8px] transition-colors duration-300 hover:bg-[#80ac53] hover:text-primary-foreground focus:outline-none"
                 >
-                   {hovered === idx && (
-                    <motion.div
-                      layoutId="hovered"
-                      className="absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-neutral-800"
-                    />
-                  )}
                   <span className="relative z-20">{t(item.name)}</span>
                   <ChevronDown className="h-4 w-4 relative z-20" />
                 </DropdownMenuTrigger>
@@ -155,16 +146,9 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             ) : (
               <Link
                 href={item.link ? `/${locale}${item.link}` : '#'}
-                onMouseEnter={() => setHovered(idx)}
                 onClick={onItemClick}
-                className="relative px-4 py-2 text-primary"
+                className="relative px-3 py-1.5 text-primary rounded-[8px] transition-colors duration-300 hover:bg-[#80ac53] hover:text-primary-foreground"
               >
-                {hovered === idx && (
-                  <motion.div
-                    layoutId="hovered"
-                    className="absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-neutral-800"
-                  />
-                )}
                 <span className="relative z-20">{t(item.name)}</span>
               </Link>
             )}
