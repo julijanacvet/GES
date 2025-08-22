@@ -168,9 +168,8 @@ export const MobileNavMenu = ({
         )}
       >
         <SheetHeader className="flex-row items-center justify-between border-b p-4">
-            <SheetTitle asChild>
-                <NavbarLogo />
-            </SheetTitle>
+            <NavbarLogo />
+            <SheetTitle className="sr-only">{t('nav.mobileMenuTitle')}</SheetTitle>
             <SheetClose asChild>
                 <button aria-label="Close menu">
                     <X className="h-6 w-6 text-foreground" />
@@ -213,7 +212,26 @@ export const MobileNavMenu = ({
               ))}
             </nav>
             <div className="mt-auto space-y-4 pt-4 border-t">
-              {children}
+              <Button
+                onClick={() => {
+                  onClose();
+                  document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                variant="outline"
+                className="w-full rounded-lg shadow-md"
+              >
+                {t('nav.calculator')}
+              </Button>
+              <Button
+                onClick={() => {
+                  onClose();
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                variant="default"
+                className="w-full rounded-lg shadow-md"
+              >
+                {t('nav.getQuote')}
+              </Button>
             </div>
         </div>
       </SheetContent>
