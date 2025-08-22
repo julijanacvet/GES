@@ -130,7 +130,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             {item.hasDropdown ? (
               <DropdownMenu>
                 <DropdownMenuTrigger
-                  className="relative px-3 py-1.5 text-primary flex items-center gap-1 rounded-[8px] transition-colors duration-300 hover:bg-[#80ac53] hover:text-primary-foreground focus:outline-none"
+                  className="relative px-3 py-1.5 text-primary flex items-center gap-1 rounded-[8px] transition-colors duration-300 hover:bg-primary hover:text-primary-foreground focus:outline-none"
                 >
                   <span className="relative z-20">{t(item.name)}</span>
                   <ChevronDown className="h-4 w-4 relative z-20" />
@@ -147,7 +147,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
               <Link
                 href={item.link ? `/${locale}${item.link}` : '#'}
                 onClick={onItemClick}
-                className="relative px-3 py-1.5 text-primary rounded-[8px] transition-colors duration-300 hover:bg-[#80ac53] hover:text-primary-foreground"
+                className="relative px-3 py-1.5 text-primary rounded-[8px] transition-colors duration-300 hover:bg-primary hover:text-primary-foreground"
               >
                 <span className="relative z-20">{t(item.name)}</span>
               </Link>
@@ -261,9 +261,9 @@ export const MobileNavToggle = ({
   onClick: () => void;
 }) => {
   return isOpen ? (
-    <X className="text-black dark:text-white" onClick={onClick} />
+    <X className="text-foreground" onClick={onClick} />
   ) : (
-    <Menu className="text-black dark:text-white" onClick={onClick} />
+    <Menu className="text-foreground" onClick={onClick} />
   );
 };
 
@@ -311,7 +311,7 @@ export const NavbarButton = ({
     secondary: "bg-transparent text-primary border border-primary hover:bg-primary/10",
     dark: "bg-black text-white",
     gradient:
-      "bg-gradient-to-b from-blue-500 to-blue-700 text-white",
+      "bg-gradient-to-b from-blue-500 to-blue-700 text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset]",
   };
 
   return (
