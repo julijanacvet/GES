@@ -16,9 +16,16 @@ import {
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from './LanguageSwitcher';
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 
 export default function Header() {
   const { t } = useTranslation('common');
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1] || 'en';
+
 
   const navItems: NavItem[] = [
     {
@@ -51,50 +58,57 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <Navbar navItems={navItems}>
-      <NavBody>
-        <NavbarLogo />
-        <NavItems items={navItems} />
-        <div className="flex items-center gap-2">
-          <NavbarButton variant="secondary">{t('nav.calculator')}</NavbarButton>
-          <NavbarButton variant="primary">{t('nav.getQuote')}</NavbarButton>
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center">
+        <div className="mr-4 hidden md:flex">
+          <NavbarLogo />
+        </div>
+        <div className="flex-1 hidden md:flex justify-center">
+          <NavItems items={navItems} />
+        </div>
+        <div className="hidden md:flex items-center gap-2">
+          <Button variant="outline" size="sm" asChild className="font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out rounded-[8px]">
+             <Link href={`/${locale}/#calculator`}>{t('nav.calculator')}</Link>
+          </Button>
+           <Button variant="outline" size="sm" asChild className="font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out rounded-[8px]">
+             <Link href={`/${locale}/#contact`}>{t('nav.getQuote')}</Link>
+          </Button>
           <LanguageSwitcher />
         </div>
-      </NavBody>
 
-      <MobileNav>
-        <MobileNavHeader>
-          <NavbarLogo />
-          <div className="flex items-center gap-2">
-            <LanguageSwitcher isMobile={true} />
-            <MobileNavToggle
-              isOpen={isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            />
-          </div>
-        </MobileNavHeader>
+        {/* Mobile */}
+        <div className="flex w-full items-center justify-between md:hidden">
+            <NavbarLogo />
+            <div className="flex items-center gap-2">
+              <LanguageSwitcher isMobile={true} />
+              <MobileNavToggle
+                  isOpen={isMobileMenuOpen}
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                />
+            </div>
+        </div>
+         <MobileNavMenu
+            isOpen={isMobileMenuOpen}
+            onClose={() => setIsMobileMenuOpen(false)}
+            items={navItems}
+          >
+            <Button
+              onClick={() => setIsMobileMenuOpen(false)}
+              variant="outline"
+              className="w-full"
+            >
+              {t('nav.calculator')}
+            </Button>
+            <Button
+              onClick={() => setIsMobileMenuOpen(false)}
+              variant="primary"
+              className="w-full"
+            >
+              {t('nav.getQuote')}
+            </Button>
+          </MobileNavMenu>
 
-        <MobileNavMenu
-          isOpen={isMobileMenuOpen}
-          onClose={() => setIsMobileMenuOpen(false)}
-          items={navItems}
-        >
-          <NavbarButton
-            onClick={() => setIsMobileMenuOpen(false)}
-            variant="secondary"
-            className="w-full"
-          >
-            {t('nav.calculator')}
-          </NavbarButton>
-          <NavbarButton
-            onClick={() => setIsMobileMenuOpen(false)}
-            variant="primary"
-            className="w-full"
-          >
-            {t('nav.getQuote')}
-          </NavbarButton>
-        </MobileNavMenu>
-      </MobileNav>
-    </Navbar>
+      </div>
+    </header>
   );
 }

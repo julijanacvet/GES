@@ -1,14 +1,14 @@
-
 "use client";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import {
   motion,
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
 } from "framer-motion";
-import React, { useRef, useState, useEffect } from "react";
+
+import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import {
@@ -17,7 +17,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ChevronDown } from "lucide-react";
 
 
 interface NavbarProps {
@@ -86,7 +85,7 @@ export const Navbar = ({ children, className, navItems }: NavbarProps) => {
   return (
     <motion.div
       ref={ref}
-      className={cn("sticky top-0 z-50 w-full", className)}
+      className={cn("w-full", className)}
     >
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
@@ -104,7 +103,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
   return (
     <motion.div
        className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 lg:flex dark:bg-transparent",
+        "relative z-[60] mx-auto flex w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 lg:flex dark:bg-transparent",
         visible && "bg-white/80 dark:bg-neutral-950/80",
         className
       )}
@@ -123,8 +122,8 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-2",
-        className,
+        "hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-2",
+        className
       )}
     >
       {items.map((item, idx) => (
@@ -181,7 +180,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
        className={cn(
         "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 lg:hidden",
         visible && "bg-white/80 dark:bg-neutral-950/80",
-        className,
+        className
       )}
     >
       {children}
