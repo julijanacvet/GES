@@ -163,7 +163,7 @@ export const MobileNavMenu = ({
       <SheetContent
         side="right"
         className={cn(
-          "w-[300px] sm:w-[400px] bg-background/80 backdrop-blur-sm p-0", // p-0 is new
+          "w-[300px] sm:w-[400px] bg-background/80 backdrop-blur-sm p-0", 
           className
         )}
       >
@@ -177,7 +177,7 @@ export const MobileNavMenu = ({
             </SheetClose>
         </SheetHeader>
         <div className="flex flex-col h-full p-4">
-            <nav className="flex flex-col space-y-1 text-base">
+            <nav className="flex flex-col space-y-1 text-sm">
                  {items.map((item, idx) => (
                   <React.Fragment key={`mobile-link-group-${idx}`}>
                       {item.hasDropdown ? (
@@ -211,8 +211,8 @@ export const MobileNavMenu = ({
                   </React.Fragment>
               ))}
             </nav>
-            <div className="mt-auto space-y-4 pt-4 border-t">
-            <Button
+            <div className="space-y-4 pt-4 border-t mt-4">
+              <Button
                 onClick={() => {
                   onClose();
                   document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
