@@ -96,9 +96,9 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                     <DropdownMenuItem key={`dropdown-link-${dropdownIdx}`} asChild>
                        <Link
                         href={`/${locale}${dropdownItem.link}`}
-                        className="w-full text-left hover:text-primary-foreground focus:text-primary-foreground"
+                        className="w-full text-left"
                       >
-                        {t(dropdownItem.name)}
+                        <span className="hover:text-primary-foreground focus:text-primary-foreground">{t(dropdownItem.name)}</span>
                       </Link>
                     </DropdownMenuItem>
                   ))}
@@ -191,7 +191,7 @@ export const MobileNavMenu = ({
                                 key={`mobile-dropdown-link-${dropdownIdx}`}
                                 href={`/${locale}${dropdownItem.link}`}
                                 onClick={(e) => handleLinkClick(e, `/${locale}${dropdownItem.link}`)}
-                                className="relative block rounded-md text-foreground px-4 py-1.5 transition-colors hover:bg-primary/10 hover:text-primary"
+                                className="relative block rounded-md px-4 py-1.5 transition-colors text-primary hover:bg-primary hover:text-primary-foreground"
                                >
                                   <span className="block text-sm">{t(dropdownItem.name)}</span>
                               </Link>
@@ -203,36 +203,36 @@ export const MobileNavMenu = ({
                             key={`mobile-link-${idx}`}
                             href={item.link ? `/${locale}${item.link}` : '#'}
                             onClick={(e) => item.link && handleLinkClick(e, `/${locale}${item.link}`)}
-                            className="relative block rounded-md text-foreground px-4 py-2 transition-colors hover:bg-primary/10 hover:text-primary"
+                            className="relative block rounded-md px-4 py-2 transition-colors text-primary hover:bg-primary hover:text-primary-foreground"
                           >
                            <span className="block font-medium">{t(item.name)}</span>
                           </Link>
                       )}
                   </React.Fragment>
               ))}
+                <div className="flex w-full flex-col gap-4 pt-4 mt-4 border-t">
+                  <Button
+                    onClick={() => {
+                      onClose();
+                      document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    variant="outline"
+                    className="w-full rounded-lg shadow-md font-bold text-primary border-primary hover:bg-primary hover:text-primary-foreground"
+                  >
+                    {t('nav.calculator')}
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      onClose();
+                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    variant="default"
+                    className="w-full rounded-lg shadow-md font-bold"
+                  >
+                    {t('nav.getQuote')}
+                  </Button>
+                </div>
             </nav>
-            <div className="space-y-4 pt-4 border-t mt-4">
-              <Button
-                onClick={() => {
-                  onClose();
-                  document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                variant="outline"
-                className="w-full rounded-lg shadow-md font-bold text-primary border-primary hover:bg-primary hover:text-primary-foreground"
-              >
-                {t('nav.calculator')}
-              </Button>
-              <Button
-                onClick={() => {
-                  onClose();
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                variant="default"
-                className="w-full rounded-lg shadow-md font-bold"
-              >
-                {t('nav.getQuote')}
-              </Button>
-            </div>
         </div>
       </SheetContent>
     </Sheet>
