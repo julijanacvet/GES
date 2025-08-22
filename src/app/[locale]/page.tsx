@@ -5,7 +5,6 @@ import HeroSection from './components/HeroSection';
 import BenefitsSection from './components/BenefitsSection';
 import LogoMarquee from './components/LogoMarquee';
 import OurServices from './components/OurServices'; 
-import ServicesSection from './components/ServicesSection';
 import VideoCarousel from './components/VideoCarousel';
 import SolarCalculator from './components/SolarCalculator';
 import WhyChooseGES from './components/WhyChooseGES';
@@ -24,7 +23,6 @@ export default async function HomePage({ params: { locale } }: { params: { local
         <BenefitsSection />
         <LogoMarquee />
         <OurServices />
-        <ServicesSection />
         <VideoCarousel />
         <SolarCalculator />
         <WhyChooseGES />

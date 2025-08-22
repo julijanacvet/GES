@@ -32,26 +32,26 @@ export default function Header() {
       name: "nav.photovoltaicSystems",
       hasDropdown: true,
       dropdownItems: [
-        { name: "nav.systemsForIndustry", link: "#" },
-        { name: "nav.systemsForHome", link: "#" },
-        { name: "nav.technicalMaintenance", link: "#" },
+        { name: "nav.systemsForIndustry", link: "/#services" },
+        { name: "nav.systemsForHome", link: "/#services" },
+        { name: "nav.technicalMaintenance", link: "/#our-services" },
       ],
     },
     {
       name: "nav.energyStorage",
-      link: "#",
+      link: "/#",
     },
     {
       name: "nav.projects",
       hasDropdown: true,
       dropdownItems: [
-        { name: "nav.project1", link: "#" },
-        { name: "nav.project2", link: "#" },
+        { name: "nav.project1", link: "/#video-showcase" },
+        { name: "nav.project2", link: "/#video-showcase" },
       ],
     },
     {
       name: "nav.contact",
-      link: "#contact",
+      link: "/#contact",
     },
   ];
 
@@ -59,14 +59,15 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center">
-        <div className="mr-4 hidden md:flex">
-          <NavbarLogo />
-        </div>
-        <div className="flex-1 hidden md:flex justify-center">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
+        <NavbarLogo />
+        
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex flex-1 items-center justify-center">
           <NavItems items={navItems} />
         </div>
-        <div className="hidden md:flex items-center gap-2">
+
+        <div className="hidden md:flex items-center space-x-2">
           <Button variant="outline" size="sm" asChild className="font-bold text-primary border-primary shadow-md hover:shadow-lg transform hover:scale-105 hover:bg-[#80ac53] hover:text-primary-foreground transition-all duration-300 ease-in-out rounded-[8px]">
              <Link href={`/${locale}/#calculator`}>{t('nav.calculator')}</Link>
           </Button>
@@ -76,37 +77,42 @@ export default function Header() {
           <LanguageSwitcher />
         </div>
 
-        {/* Mobile */}
-        <div className="flex w-full items-center justify-between md:hidden">
-            <NavbarLogo />
-            <div className="flex items-center gap-2">
-              <LanguageSwitcher isMobile={true} />
-              <MobileNavToggle
-                  isOpen={isMobileMenuOpen}
-                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                />
-            </div>
+        {/* Mobile Navigation Toggle */}
+        <div className="md:hidden flex items-center gap-2">
+          <LanguageSwitcher isMobile={true} />
+          <MobileNavToggle
+              isOpen={isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            />
         </div>
-         <MobileNavMenu
+
+        {/* Mobile Menu */}
+        <MobileNavMenu
             isOpen={isMobileMenuOpen}
             onClose={() => setIsMobileMenuOpen(false)}
             items={navItems}
           >
             <Button
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
+              }}
               variant="outline"
               className="w-full"
             >
               {t('nav.calculator')}
             </Button>
             <Button
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
               variant="primary"
               className="w-full"
             >
               {t('nav.getQuote')}
             </Button>
-          </MobileNavMenu>
+        </MobileNavMenu>
 
       </div>
     </header>
