@@ -6,6 +6,7 @@ import {
   NavbarLogo,
   MobileNavToggle,
   MobileNavMenu,
+  NavItems,
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
