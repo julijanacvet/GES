@@ -167,7 +167,7 @@ body {
 /* Custom Dropdown Hover Style */
 [data-radix-collection-item]:hover, [data-radix-collection-item]:focus {
   background-color: hsl(var(--primary)) !important;
-  color: hsl(var(--primary-foreground)) !important;
+  color: #FFFFFF !important;
 }
 
 
@@ -762,6 +762,7 @@ body {
     }
   }
 }
+
 
 
 
