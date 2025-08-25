@@ -60,7 +60,7 @@ export default function SystemsForIndustryPage() {
         {/* Hero Section */}
         <section className="relative h-[40vh] md:h-[50vh] bg-black text-white flex items-center justify-center text-center">
             <Image 
-                src="/locales/images/pages/commercial-solar/Large-commercial-building-with-solar-panels.jpg"
+                src="/locales/images/pages/commercial-solar/Large commercial building with solar panels.jpg"
                 alt={t('industry.hero.alt')}
                 fill
                 style={{objectFit: 'cover'}}
@@ -89,7 +89,7 @@ export default function SystemsForIndustryPage() {
                 viewport={{ once: true, amount: 0.3 }}
                 variants={imageVariants}
               >
-                <Image src="/locales/images/pages/commercial-solar/Workers-installing-solar-panels-on-a-large-factory-roof.jpg" alt={t('industry.commercial.alt')} width={600} height={400} className="rounded-xl shadow-lg" data-ai-hint="commercial building solar" />
+                <Image src="/locales/images/pages/commercial-solar/Workers installing solar panels on a large factory roof.jpg" alt={t('industry.commercial.alt')} width={600} height={400} className="rounded-xl shadow-lg" data-ai-hint="commercial building solar" />
               </motion.div>
               <motion.div
                 initial="hidden"
@@ -101,7 +101,7 @@ export default function SystemsForIndustryPage() {
                 <motion.p variants={textVariants} className="text-muted-foreground mb-6">{t('industry.commercial.description')}</motion.p>
                 <ul className="space-y-3 mb-8">
                   {commercialBenefits.map((key, index) => (
-                    <motion.li key={key} variants={textVariants} className="flex items-center gap-3">
+                     <motion.li key={key} variants={textVariants} className="flex items-center gap-3">
                       <Zap className="h-5 w-5 text-primary" />
                       <span>{t(key)}</span>
                     </motion.li>
@@ -128,7 +128,7 @@ export default function SystemsForIndustryPage() {
                 viewport={{ once: true, amount: 0.3 }}
                 variants={imageVariants}
               >
-                <Image src="/locales/images/pages/commercial-solar/Aerial-view-of-a-large-solar-power-plant.jpg" alt={t('industry.plants.alt')} width={600} height={400} className="rounded-xl shadow-lg" data-ai-hint="solar power plant" />
+                <Image src="/locales/images/pages/commercial-solar/Aerial view of a large solar power plant.jpg" alt={t('industry.plants.alt')} width={600} height={400} className="rounded-xl shadow-lg" data-ai-hint="solar power plant" />
               </motion.div>
               <motion.div 
                 className="md:order-1"
