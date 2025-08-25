@@ -164,14 +164,18 @@ export default function SystemsForHomePage() {
         {/* CTA */}
         <section className="py-16 md:py-24 bg-primary text-primary-foreground">
             <div className="container max-w-4xl mx-auto text-center">
-                <h2 className="text-3xl font-bold mb-4">{t('home.cta.headline')}</h2>
-                <p className="text-lg opacity-90 mb-8">{t('home.cta.subheadline')}</p>
-                <Button asChild size="lg" className="group">
+                <h2 className="text-3xl font-bold mb-4 text-white">{t('home.cta.headline')}</h2>
+                <p className="text-lg text-white/90 mb-8">{t('home.cta.subheadline')}</p>
+                <Button asChild size="lg" className="group bg-accent text-accent-foreground hover:bg-accent/90">
                     <Link href={`/${locale}/#contact`}>
                         {t('home.cta.button')}
                         <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </Link>
                 </Button>
+                <div className="mt-6 text-sm text-white/90">
+                  <p>Телефон: {t('footer.phoneValue')}</p>
+                  <p>Е-пошта: {t('footer.emailValue')}</p>
+                </div>
             </div>
         </section>
 
