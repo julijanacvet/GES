@@ -164,16 +164,16 @@ export default function SystemsForHomePage() {
         {/* CTA */}
         <section className="py-16 md:py-24 bg-primary text-primary-foreground">
           <div className="container max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-4 text-white">Подготвени сте да преминете на соларна енергија?</h2>
-              <p className="text-lg text-white/90 mb-8">Не чекајте! Искористете го сонцето и започнете со заштеди уште денес. Нашиот тим е тука да ви помогне на секој чекор.</p>
+              <h2 className="text-3xl font-bold mb-4 text-white">{t('home.cta.headline')}</h2>
+              <p className="text-lg text-white/90 mb-8">{t('home.cta.subheadline')}</p>
               <Button asChild size="lg" className="group bg-accent text-accent-foreground hover:bg-accent/90">
                   <Link href={`/${locale}/#contact`}>
-                      Побарајте бесплатна понуда
+                      {t('home.cta.button')}
                   </Link>
               </Button>
               <div className="mt-6 text-sm text-white/90">
-                <p>Телефон: +389 70 123 456</p>
-                <p>Е-пошта: info@ges.mk</p>
+                <p>{t('footer.phoneLabel')} <a href={`tel:${t('footer.phoneValue')}`} className="hover:underline">{t('footer.phoneValue')}</a></p>
+                <p>{t('footer.emailLabel')} <a href={`mailto:${t('footer.emailValue')}`} className="hover:underline">{t('footer.emailValue')}</a></p>
               </div>
           </div>
         </section>

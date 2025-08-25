@@ -1,3 +1,4 @@
+
 {
   "appName": "GES - Green Energy Solutions",
   "nav.home": "Home",
@@ -161,7 +162,7 @@
   "home.process.step3.description": "Our certified team installs your system with precision and care, ensuring safety and optimal performance.",
   "home.process.step4.title": "Activation & Support",
   "home.process.step4.description": "We handle the final connections and paperwork, then provide ongoing support for the life of your system.",
-  "home.cta.headline": "Ready for a Brighter Home?",
-  "home.cta.subheadline": "Take the first step towards energy independence. Get a free, personalized quote for your home today.",
-  "home.cta.button": "Get My Free Quote"
+  "home.cta.headline": "Ready to Switch to Solar?",
+  "home.cta.subheadline": "Join the growing number of Macedonians choosing clean, affordable solar energy. Get your free, no-obligation quote today!",
+  "home.cta.button": "Request Free Quote"
 }
