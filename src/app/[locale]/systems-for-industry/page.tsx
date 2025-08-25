@@ -60,7 +60,7 @@ export default function SystemsForIndustryPage() {
         {/* Hero Section */}
         <section className="relative h-[40vh] md:h-[50vh] bg-black text-white flex items-center justify-center text-center">
             <Image 
-                src="/locales/images/pages/commercial%20solar/Large%20commercial%20building%20with%20solar%20panels.jpg"
+                src="/locales/images/pages/commercial solar/Large commercial building with solar panels on the roof.jpg"
                 alt={t('industry.hero.alt')}
                 fill
                 style={{objectFit: 'cover'}}
@@ -89,7 +89,7 @@ export default function SystemsForIndustryPage() {
                 viewport={{ once: true, amount: 0.3 }}
                 variants={imageVariants}
               >
-                <Image src="/locales/images/pages/commercial%20solar/workers%20installing%20solar%20panels%20on%20a%20large.jpg" alt={t('industry.commercial.alt')} width={600} height={400} className="rounded-xl shadow-lg" data-ai-hint="commercial building solar" />
+                <Image src="/locales/images/pages/commercial solar/workers installing solar panels on a large.jpg" alt={t('industry.commercial.alt')} width={600} height={400} className="rounded-xl shadow-lg" data-ai-hint="commercial building solar" />
               </motion.div>
               <motion.div
                 initial="hidden"
@@ -128,7 +128,7 @@ export default function SystemsForIndustryPage() {
                 viewport={{ once: true, amount: 0.3 }}
                 variants={imageVariants}
               >
-                <Image src="/locales/images/pages/commercial%20solar/aerial%20view%20of%20a%20large%20solar%20power%20plant.jpg" alt={t('industry.plants.alt')} width={600} height={400} className="rounded-xl shadow-lg" data-ai-hint="solar power plant" />
+                <Image src="/locales/images/pages/commercial solar/aerial view of a large solar power plant.jpg" alt={t('industry.plants.alt')} width={600} height={400} className="rounded-xl shadow-lg" data-ai-hint="solar power plant" />
               </motion.div>
               <motion.div 
                 className="md:order-1"
