@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useTranslation } from 'react-i18next';
@@ -20,6 +21,21 @@ export default function CallToActionBlock() {
       },
     },
   };
+  
+  const handleSmoothScroll = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    event.preventDefault();
+    const targetId = href.split('#')[1];
+    if (targetId) {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+    }
+  };
+
 
   return (
     <section id="contact" className="bg-primary text-primary-foreground py-16 md:py-24">
@@ -48,7 +64,7 @@ export default function CallToActionBlock() {
             asChild
             className="bg-accent hover:bg-yellow-500 text-accent-foreground font-bold py-4 px-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:scale-105"
           >
-            <Link href={`/${locale}/#contact`}>{t('cta.requestFreeQuoteBtn')}</Link>
+            <Link href={`/${locale}/#contact`} onClick={(e) => handleSmoothScroll(e, `/${locale}/#contact`)}>{t('cta.requestFreeQuoteBtn')}</Link>
           </Button>
         </motion.div>
         <motion.div 

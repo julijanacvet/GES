@@ -147,14 +147,15 @@ export const MobileNavMenu = ({
   const locale = i18n.language;
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
     const targetId = href.split('#')[1];
     if (targetId) {
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
+      e.preventDefault();
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
     }
+    // For all links (hash or not), we close the mobile menu
     onClose();
   };
   
@@ -212,20 +213,14 @@ export const MobileNavMenu = ({
               ))}
                 <div className="flex w-full flex-col gap-4 pt-4 mt-4 border-t">
                   <Button
-                    onClick={() => {
-                      onClose();
-                      document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
+                    onClick={(e) => handleLinkClick(e, '#calculator')}
                     variant="outline"
                     className="w-full rounded-lg shadow-md font-bold text-primary border-primary hover:bg-primary hover:text-primary-foreground"
                   >
                     {t('nav.calculator')}
                   </Button>
                   <Button
-                    onClick={() => {
-                      onClose();
-                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
+                    onClick={(e) => handleLinkClick(e, '#contact')}
                     variant="default"
                     className="w-full rounded-lg shadow-md font-bold"
                   >

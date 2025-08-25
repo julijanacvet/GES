@@ -86,6 +86,7 @@ export default function Header() {
             onClose={() => setIsMobileMenuOpen(false)}
             items={navItems}
           >
+          {/* Children of MobileNavMenu are handled inside its definition */}
         </MobileNavMenu>
 
       </div>
