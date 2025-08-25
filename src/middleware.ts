@@ -1,7 +1,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 // @ts-ignore // i18n config is a .js file
-import { i18n as i18nConfig } from '../next-i18next.config.js'; // { locales: string[], defaultLocale: string }
+import i18nConfig from '../next-i18next.config.js'; // { locales: string[], defaultLocale: string }
 import { match as matchLocale } from '@formatjs/intl-localematcher';
 import Negotiator from 'negotiator';
 
