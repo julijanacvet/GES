@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useTranslation } from "react-i18next";
@@ -75,7 +76,7 @@ export default function SystemsForHomePage() {
         {/* Hero Section */}
         <section className="relative h-[40vh] md:h-[50vh] bg-black text-white flex items-center justify-center text-center">
             <Image 
-                src="/locales/images/residential-hero.jpg"
+                src="/locales/images/pages/residential-hero.jpg"
                 alt={t('home.hero.alt')}
                 fill
                 style={{objectFit: 'cover'}}
@@ -104,7 +105,7 @@ export default function SystemsForHomePage() {
                 viewport={{ once: true, amount: 0.3 }}
                 variants={imageVariants}
               >
-                <Image src="/locales/images/home-benefits.jpg" alt={t('home.benefits.alt')} width={600} height={450} className="rounded-xl shadow-lg" data-ai-hint="modern home exterior savings" />
+                <Image src="/locales/images/pages/home-benefits.jpg" alt={t('home.benefits.alt')} width={600} height={450} className="rounded-xl shadow-lg" data-ai-hint="modern home exterior savings" />
               </motion.div>
               <motion.div
                 initial="hidden"

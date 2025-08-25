@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useTranslation } from "react-i18next";
@@ -59,7 +60,7 @@ export default function SystemsForIndustryPage() {
         {/* Hero Section */}
         <section className="relative h-[40vh] md:h-[50vh] bg-black text-white flex items-center justify-center text-center">
             <Image 
-                src="/locales/images/industrial-hero.jpg"
+                src="/locales/images/pages/industrial-hero.jpg"
                 alt={t('industry.hero.alt')}
                 fill
                 style={{objectFit: 'cover'}}
@@ -88,7 +89,7 @@ export default function SystemsForIndustryPage() {
                 viewport={{ once: true, amount: 0.3 }}
                 variants={imageVariants}
               >
-                <Image src="/locales/images/commercial-detail.jpg" alt={t('industry.commercial.alt')} width={600} height={400} className="rounded-xl shadow-lg" data-ai-hint="commercial building solar" />
+                <Image src="/locales/images/pages/commercial-detail.jpg" alt={t('industry.commercial.alt')} width={600} height={400} className="rounded-xl shadow-lg" data-ai-hint="commercial building solar" />
               </motion.div>
               <motion.div
                 initial="hidden"
@@ -127,7 +128,7 @@ export default function SystemsForIndustryPage() {
                 viewport={{ once: true, amount: 0.3 }}
                 variants={imageVariants}
               >
-                <Image src="/locales/images/plant-detail.jpg" alt={t('industry.plants.alt')} width={600} height={400} className="rounded-xl shadow-lg" data-ai-hint="solar power plant" />
+                <Image src="/locales/images/pages/plant-detail.jpg" alt={t('industry.plants.alt')} width={600} height={400} className="rounded-xl shadow-lg" data-ai-hint="solar power plant" />
               </motion.div>
               <motion.div 
                 className="md:order-1"
