@@ -76,7 +76,7 @@ export default function SystemsForHomePage() {
         {/* Hero Section */}
         <section className="relative h-[40vh] md:h-[50vh] bg-black text-white flex items-center justify-center text-center">
             <Image 
-                src="/locales/images/pages/residential-hero.jpg"
+                src="/locales/images/pages/residential solar/A beautiful family home with solar panels.jpg"
                 alt={t('home.hero.alt')}
                 fill
                 style={{objectFit: 'cover'}}
@@ -105,7 +105,7 @@ export default function SystemsForHomePage() {
                 viewport={{ once: true, amount: 0.3 }}
                 variants={imageVariants}
               >
-                <Image src="/locales/images/pages/home-benefits.jpg" alt={t('home.benefits.alt')} width={600} height={450} className="rounded-xl shadow-lg" data-ai-hint="modern home exterior savings" />
+                <Image src="/locales/images/pages/residential solar/A smiling family in front of their home with solar panels.jpg" alt={t('home.benefits.alt')} width={600} height={450} className="rounded-xl shadow-lg" data-ai-hint="modern home exterior savings" />
               </motion.div>
               <motion.div
                 initial="hidden"
@@ -166,7 +166,7 @@ export default function SystemsForHomePage() {
             <div className="container max-w-4xl mx-auto text-center">
                 <h2 className="text-3xl font-bold mb-4">{t('home.cta.headline')}</h2>
                 <p className="text-lg opacity-90 mb-8">{t('home.cta.subheadline')}</p>
-                <Button asChild size="lg" className="bg-accent hover:bg-yellow-500 text-accent-foreground group">
+                <Button asChild size="lg" className="group">
                     <Link href={`/${locale}/#contact`}>
                         {t('home.cta.button')}
                         <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
