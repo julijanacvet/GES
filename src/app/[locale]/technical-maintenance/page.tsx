@@ -1,4 +1,3 @@
-
 'use client';
 
 import OurServices from "../components/OurServices";
@@ -15,11 +14,6 @@ export default function TechnicalMaintenancePage() {
       <main className="flex-grow">
         <section className="bg-muted/30 dark:bg-background/50 py-16 md:py-24">
             <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-12">
-                    <h1 className="text-3xl md:text-4xl font-bold">
-                        {t('nav.technicalMaintenance')}
-                    </h1>
-                </div>
                 <OurServices />
             </div>
         </section>
