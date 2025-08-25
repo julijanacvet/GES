@@ -172,8 +172,8 @@ export default function SystemsForHomePage() {
                   </Link>
               </Button>
               <div className="mt-6 text-sm text-white/90">
-                <p>{t('footer.phoneLabel')} <a href={`tel:${t('footer.phoneValue')}`} className="hover:underline">{t('footer.phoneValue')}</a></p>
-                <p>{t('footer.emailLabel')} <a href={`mailto:${t('footer.emailValue')}`} className="hover:underline">{t('footer.emailValue')}</a></p>
+                <p>{t('footer.phoneLabel')} <a href={`tel:${t('footer.phoneValue')}`} className="text-white hover:underline">{t('footer.phoneValue')}</a></p>
+                <p>{t('footer.emailLabel')} <a href={`mailto:${t('footer.emailValue')}`} className="text-white hover:underline">{t('footer.emailValue')}</a></p>
               </div>
           </div>
         </section>
