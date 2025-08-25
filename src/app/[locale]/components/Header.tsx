@@ -26,9 +26,9 @@ export default function Header() {
       name: "nav.photovoltaicSystems",
       hasDropdown: true,
       dropdownItems: [
-        { name: "nav.systemsForIndustry", link: "/#services" },
-        { name: "nav.systemsForHome", link: "/#services" },
-        { name: "nav.technicalMaintenance", link: "/#our-services" },
+        { name: "nav.systemsForIndustry", link: "/systems-for-industry" },
+        { name: "nav.systemsForHome", link: "/systems-for-home" },
+        { name: "nav.technicalMaintenance", link: "/technical-maintenance" },
       ],
     },
     {
@@ -86,28 +86,6 @@ export default function Header() {
             onClose={() => setIsMobileMenuOpen(false)}
             items={navItems}
           >
-            <div className="flex w-full flex-col gap-4">
-              <Button
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                variant="outline"
-                className="w-full rounded-lg shadow-md"
-              >
-                {t('nav.calculator')}
-              </Button>
-              <Button
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                variant="default"
-                className="w-full rounded-lg shadow-md"
-              >
-                {t('nav.getQuote')}
-              </Button>
-            </div>
         </MobileNavMenu>
 
       </div>
