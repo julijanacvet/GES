@@ -121,7 +121,24 @@
   "imagePlaceholders.service": "Image representing a solar service",
   "imagePlaceholders.testimonial": "Avatar of a testimonial author",
   "languageSwitcher.en": "EN",
-  "languageSwitcher.mk": "MK"
+  "languageSwitcher.mk": "MK",
+  "industry.hero.headline": "Powering Your Business Future",
+  "industry.hero.subheadline": "Scalable solar solutions for commercial enterprises and large-scale energy investors.",
+  "industry.hero.alt": "Large commercial building with solar panels on the roof",
+  "industry.commercial.title": "Commercial Solar Systems",
+  "industry.commercial.description": "From small businesses to large industrial facilities, we design and install custom photovoltaic systems that reduce operational costs, enhance your brand's green credentials, and provide a reliable, long-term energy source.",
+  "industry.commercial.benefit1": "Significant reduction in electricity expenses and operational costs.",
+  "industry.commercial.benefit2": "Predictable energy pricing, insulating you from grid volatility.",
+  "industry.commercial.benefit3": "Enhanced corporate image and appeal to eco-conscious customers.",
+  "industry.commercial.benefit4": "Attractive return on investment and potential for government incentives.",
+  "industry.commercial.cta": "Get a Commercial Quote",
+  "industry.commercial.alt": "Workers installing solar panels on a large factory roof",
+  "industry.plants.title": "Solar Power Plant Investments",
+  "industry.plants.description": "We specialize in the development, construction, and management of large-scale solar power plants. Partner with us to invest in the future of energy, generate substantial returns, and make a significant impact on the national energy grid.",
+  "industry.plants.benefit1": "Turnkey solutions from land acquisition to grid connection.",
+  "industry.plants.benefit2": "Long-term, stable returns through power purchase agreements (PPAs).",
+  "industry.plants.benefit3": "Contribute significantly to national renewable energy targets.",
+  "industry.plants.benefit4": "Expert project management and state-of-the-art technology.",
+  "industry.plants.cta": "Discuss an Investment",
+  "industry.plants.alt": "Aerial view of a large solar power plant"
 }
-
-    
