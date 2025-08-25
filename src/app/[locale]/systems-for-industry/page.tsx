@@ -42,7 +42,7 @@ export default function SystemsForIndustryPage() {
   const commercialBenefits = [
     "industry.commercial.benefit1",
     "industry.commercial.benefit2",
-    "industry.commercial.benefit3",
+ "industry.commercial.benefit3",
     "industry.commercial.benefit4",
   ];
 
