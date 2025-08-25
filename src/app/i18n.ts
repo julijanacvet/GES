@@ -4,7 +4,7 @@ import { createInstance, type i18n as I18nInstanceType } from 'i18next';
 import resourcesToBackend from 'i18next-resources-to-backend';
 import { initReactI18next } from 'react-i18next/initReactI18next';
 // @ts-ignore
-import { i18n as i18nConfig } from '../../next-i18next.config.js';
+import i18nConfig from '../../next-i18next.config.js';
 
 export const getOptions = (lng = i18nConfig.defaultLocale, ns = 'common') => {
   return {

@@ -5,7 +5,7 @@ import '../globals.css'; // Adjusted path
 import TranslationsProvider from '@/components/TranslationsProvider';
 import initTranslations from '@/app/i18n';
 // @ts-ignore
-import { i18n as i18nConfig } from '../../../next-i18next.config.js';
+import i18nConfig from '../../../next-i18next.config.js';
 import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ 

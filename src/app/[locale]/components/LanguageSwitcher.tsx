@@ -1,9 +1,10 @@
+
 'use client';
 
 import { useTranslation } from 'react-i18next';
 import { useRouter, usePathname } from 'next/navigation';
 // @ts-ignore
-import { i18n as i18nConfig } from '../../../../next-i18next.config.js';
+import i18nConfig from '../../../../next-i18next.config.js';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
