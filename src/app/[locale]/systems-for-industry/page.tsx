@@ -89,7 +89,7 @@ export default function SystemsForIndustryPage() {
                 viewport={{ once: true, amount: 0.3 }}
                 variants={imageVariants}
               >
-                <Image src="/locales/images/pages/commercial%20solar/Workers%20installing%20solar%20panels%20on%20a%20large.jpg" alt={t('industry.commercial.alt')} width={600} height={400} className="rounded-xl shadow-lg" data-ai-hint="commercial building solar" />
+                <Image src="/locales/images/pages/commercial%20solar/Workers%20installing%20solar%20panels%20on%20a%20large%20factory%20roof.jpg" alt={t('industry.commercial.alt')} width={600} height={400} className="rounded-xl shadow-lg" data-ai-hint="commercial building solar" />
               </motion.div>
               <motion.div
                 initial="hidden"
