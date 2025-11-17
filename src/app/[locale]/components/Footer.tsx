@@ -15,7 +15,7 @@ export default function Footer() {
   const navLinks = [
     { href: '/#home', labelKey: 'nav.home' },
     { href: '/#residential', labelKey: 'nav.residential' },
-    { href: '/#business', labelKey: 'nav.business' },
+    { href: '/systems-for-industry', labelKey: 'nav.systemsForIndustry' },
     { href: '/#solar-plants', labelKey: 'nav.solarPlants' },
     { href: '/#calculator', labelKey: 'nav.calculator' },
   ];
@@ -110,9 +110,7 @@ export default function Footer() {
           variants={itemVariants}
         >
           <p className="text-sm opacity-70 mb-4 md:mb-0">
-            {locale === 'mk' 
-              ? `© 2025 GES - Green Energy Solutions. Сите права се задржани.`
-              : t('footer.copyright', { year: currentYear })}
+            {t('footer.copyright', { year: currentYear })}
           </p>
           <div className="space-x-4 text-sm">
             <Link href="#" className="hover:text-accent transition-colors opacity-70 hover:opacity-100">
