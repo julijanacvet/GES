@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 export default function Footer() {
   const { t, i18n } = useTranslation('common');
   const locale = i18n.language;
-  const currentYear = new Date().getFullYear();
+  const currentYear = 2026;
 
   const navLinks = [
     { href: '/#home', labelKey: 'nav.home' },
