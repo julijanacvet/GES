@@ -37,7 +37,7 @@ export default function Header() {
     },
     {
       name: "nav.projects",
-      link: "/#video-showcase",
+      link: "/projects",
     },
     {
       name: "nav.contact",

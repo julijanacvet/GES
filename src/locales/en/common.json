@@ -14,8 +14,6 @@
   "nav.technicalMaintenance": "Technical Maintenance",
   "nav.energyStorage": "Energy Storage",
   "nav.projects": "Projects",
-  "nav.project1": "Finished Project 1",
-  "nav.project2": "Finished Project 2",
   "nav.contact": "Contact",
   "hero.headline": "Your Partner for Sustainable Energy",
   "hero.subheadline": "Harness solar power to reduce your bills and protect the environment. We offer top-tier solar solutions tailored to your needs.",
@@ -161,5 +159,8 @@
   "home.process.step4.description": "We handle the final connections and paperwork, then provide ongoing support for the life of your system.",
   "home.cta.headline": "Ready for a Brighter Home?",
   "home.cta.subheadline": "Take the first step towards energy independence and lower bills. Our team is here to guide you.",
-  "home.cta.button": "Get My Free Quote"
+  "home.cta.button": "Get My Free Quote",
+  "projects.pageTitle": "Our Projects",
+  "projects.pageDescription": "A showcase of our successfully completed solar energy installations.",
+  "projects.galleryItem.alt": "View of a completed solar project"
 }
