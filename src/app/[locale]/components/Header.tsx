@@ -37,11 +37,7 @@ export default function Header() {
     },
     {
       name: "nav.projects",
-      hasDropdown: true,
-      dropdownItems: [
-        { name: "nav.project1", link: "/#video-showcase" },
-        { name: "nav.project2", link: "/#video-showcase" },
-      ],
+      link: "/#video-showcase",
     },
     {
       name: "nav.contact",
