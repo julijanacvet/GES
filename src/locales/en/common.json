@@ -112,7 +112,7 @@
   "footer.addressLabel": "Address:",
   "footer.addressValue": "123 Solar Street, Skopje, Macedonia",
   "footer.phoneLabel": "Phone:",
-  "footer.phoneValue": "+389 70 123 456",
+  "footer.phoneValue": "+389 78 327 683",
   "footer.emailLabel": "Email:",
   "footer.emailValue": "info@ges.mk",
   "footer.copyright": "© {{year}} Green Energy Solutions. All rights reserved.",
@@ -162,7 +162,7 @@
   "home.process.step3.description": "Our certified team installs your system with precision and care, ensuring safety and optimal performance.",
   "home.process.step4.title": "Activation & Support",
   "home.process.step4.description": "We handle the final connections and paperwork, then provide ongoing support for the life of your system.",
-  "home.cta.headline": "Ready to Switch to Solar?",
-  "home.cta.subheadline": "Join the growing number of Macedonians choosing clean, affordable solar energy. Get your free, no-obligation quote today!",
-  "home.cta.button": "Request Free Quote"
+  "home.cta.headline": "Ready for a Brighter Home?",
+  "home.cta.subheadline": "Take the first step towards energy independence and lower bills. Our team is here to guide you.",
+  "home.cta.button": "Get My Free Quote"
 }
