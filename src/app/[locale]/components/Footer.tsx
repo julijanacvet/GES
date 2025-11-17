@@ -16,7 +16,7 @@ export default function Footer() {
     { href: '/#home', labelKey: 'nav.home' },
     { href: '/systems-for-industry', labelKey: 'nav.systemsForIndustry' },
     { href: '/systems-for-home', labelKey: 'nav.systemsForHome' },
-    { href: '/#solar-plants', labelKey: 'nav.solarPlants' },
+    { href: '/technical-maintenance', labelKey: 'nav.technicalMaintenance' },
     { href: '/#calculator', labelKey: 'nav.calculator' },
   ];
 
