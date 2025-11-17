@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -82,7 +83,6 @@ export default function Footer() {
           <motion.div variants={itemVariants}>
             <h3 className="text-lg font-semibold mb-4 text-white">{t('footer.contactTitle')}</h3>
             <address className="text-sm not-italic space-y-2 opacity-80">
-              <p><strong>{t('footer.addressLabel')}</strong> {t('footer.addressValue')}</p>
               <p><strong>{t('footer.phoneLabel')}</strong> <a href={`tel:${t('footer.phoneValue')}`} className="hover:text-accent transition-colors">{t('footer.phoneValue')}</a></p>
               <p><strong>{t('footer.emailLabel')}</strong> <a href={`mailto:${t('footer.emailValue')}`} className="hover:text-accent transition-colors">{t('footer.emailValue')}</a></p>
             </address>
