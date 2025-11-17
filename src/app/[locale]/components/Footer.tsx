@@ -12,11 +12,11 @@ export default function Footer() {
   const locale = i18n.language;
 
   const navLinks = [
-    { href: '/#home', labelKey: 'nav.home' },
     { href: '/systems-for-industry', labelKey: 'nav.systemsForIndustry' },
     { href: '/systems-for-home', labelKey: 'nav.systemsForHome' },
     { href: '/technical-maintenance', labelKey: 'nav.technicalMaintenance' },
     { href: '/#calculator', labelKey: 'nav.calculator' },
+    { href: '/#contact', labelKey: 'nav.getQuote' },
   ];
 
   const containerVariants = {
@@ -89,7 +89,7 @@ export default function Footer() {
           
           {/* Column 4: Social Media Icons */}
           <motion.div variants={itemVariants}>
-            <h3 className="text-lg font-semibold mb-4 text-white">Follow Us</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">{t('footer.followUs')}</h3>
             <div className="flex space-x-4">
               <a href="#" aria-label="Facebook" className="text-text-light-on-dark hover:text-accent transition-colors opacity-80 hover:opacity-100">
                 <Facebook className="h-6 w-6" />
