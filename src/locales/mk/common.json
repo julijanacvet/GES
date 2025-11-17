@@ -136,16 +136,14 @@
     "phoneValue": "+389 78 327 683",
     "emailLabel": "Е-пошта:",
     "emailValue": "info@ges.mk",
-    "copyright": "© {year} GES - Green Energy Solutions. Сите права се задржани.",
-    "privacyPolicy": "Политика за приватност",
-    "termsOfService": "Услови на користење"
+    "copyright": "© {year} GES - Green Energy Solutions. Сите права се задржани."
   },
   "imagePlaceholders": {
     "hero": "Соларни панели на покрив со чисто небо",
     "service": "Инсталација на соларни панели"
   },
   "languageSwitcher": {
-    "mk": "MK",
+    "mk": "МК",
     "en": "EN"
   },
   "industry.hero.headline": "Напојување на иднината на Вашиот бизнис",

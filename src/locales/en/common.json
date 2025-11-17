@@ -114,8 +114,6 @@
   "footer.emailLabel": "Email:",
   "footer.emailValue": "info@ges.mk",
   "footer.copyright": "© {{year}} Green Energy Solutions. All rights reserved.",
-  "footer.privacyPolicy": "Privacy Policy",
-  "footer.termsOfService": "Terms of Service",
   "imagePlaceholders.hero": "Hero image showing solar panels or a sustainable energy concept",
   "imagePlaceholders.service": "Image representing a solar service",
   "imagePlaceholders.testimonial": "Avatar of a testimonial author",

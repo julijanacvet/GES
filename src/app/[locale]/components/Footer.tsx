@@ -106,20 +106,12 @@ export default function Footer() {
         </motion.div>
 
         <motion.div 
-          className="border-t border-gray-700 pt-8 text-center md:flex md:justify-between"
+          className="border-t border-gray-700 pt-8 text-center"
           variants={itemVariants}
         >
-          <p className="text-sm opacity-70 mb-4 md:mb-0">
+          <p className="text-sm opacity-70">
             {t('footer.copyright', { year: currentYear })}
           </p>
-          <div className="space-x-4 text-sm">
-            <Link href="#" className="hover:text-accent transition-colors opacity-70 hover:opacity-100">
-              {t('footer.privacyPolicy')}
-            </Link>
-            <Link href="#" className="hover:text-accent transition-colors opacity-70 hover:opacity-100">
-              {t('footer.termsOfService')}
-            </Link>
-          </div>
         </motion.div>
       </div>
     </motion.footer>
