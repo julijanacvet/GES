@@ -10,7 +10,6 @@ import { motion } from 'framer-motion';
 export default function Footer() {
   const { t, i18n } = useTranslation('common');
   const locale = i18n.language;
-  const currentYear = 2026;
 
   const navLinks = [
     { href: '/#home', labelKey: 'nav.home' },
@@ -110,7 +109,7 @@ export default function Footer() {
           variants={itemVariants}
         >
           <p className="text-sm opacity-70">
-            {t('footer.copyright', { year: currentYear })}
+            {t('footer.copyright')}
           </p>
         </motion.div>
       </div>
