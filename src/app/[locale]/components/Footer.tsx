@@ -14,8 +14,8 @@ export default function Footer() {
 
   const navLinks = [
     { href: '/#home', labelKey: 'nav.home' },
-    { href: '/systems-for-home', labelKey: 'nav.systemsForHome' },
     { href: '/systems-for-industry', labelKey: 'nav.systemsForIndustry' },
+    { href: '/systems-for-home', labelKey: 'nav.systemsForHome' },
     { href: '/#solar-plants', labelKey: 'nav.solarPlants' },
     { href: '/#calculator', labelKey: 'nav.calculator' },
   ];
