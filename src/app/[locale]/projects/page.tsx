@@ -8,14 +8,23 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const projectImages = [
-    { src: "/locales/images/projects/project-1.jpg", alt: "Solar panel installation on a modern home", dataAiHint: "modern home solar" },
-    { src: "/locales/images/projects/project-2.jpg", alt: "Expansive solar farm under a clear blue sky", dataAiHint: "solar farm aerial" },
-    { src: "/locales/images/projects/project-3.jpg", alt: "Close-up of solar panels on a commercial roof", dataAiHint: "commercial roof solar" },
-    { src: "/locales/images/projects/project-4.jpg", alt: "Residential solar system with a battery storage unit", dataAiHint: "home solar battery" },
-    { src: "/locales/images/projects/project-5.jpg", alt: "Solar panels installed on a rural barn", dataAiHint: "farm solar panels" },
-    { src: "/locales/images/projects/project-6.jpg", alt: "Technician inspecting solar panels on a rooftop", dataAiHint: "solar panel maintenance" },
-    { src: "/locales/images/projects/project-7.jpg", alt: "Large ground-mounted solar array in a field", dataAiHint: "ground mount solar" },
-    { src: "/locales/images/projects/project-8.jpg", alt: "Solar panels on a multi-story apartment building", dataAiHint: "apartment building solar" },
+    { src: "/locales/images/pages/projects/01-GND-Excavation.jpg", alt: "Ground excavation for solar panel foundation", dataAiHint: "ground excavation" },
+    { src: "/locales/images/pages/projects/02-GND-Racking_Install.jpg", alt: "Installation of solar panel racking system", dataAiHint: "racking install" },
+    { src: "/locales/images/pages/projects/04-GND-Completed_Array_Hillsid...jpg", alt: "Completed solar array on a hillside", dataAiHint: "solar array hillside" },
+    { src: "/locales/images/pages/projects/05-LGR-Racking_Sunset.jpg", alt: "Solar panel racking at sunset", dataAiHint: "racking sunset" },
+    { src: "/locales/images/pages/projects/06-LGR-Racking_Wide_View.jpg", alt: "Wide view of solar panel racking", dataAiHint: "racking wide" },
+    { src: "/locales/images/pages/projects/07-LGR-Panel_Install_Progress.jpg", alt: "Progress of a solar panel installation", dataAiHint: "panel installation" },
+    { src: "/locales/images/pages/projects/08-LGR-Working_In_Mist.jpg", alt: "Technicians working on solar panels in mist", dataAiHint: "solar work mist" },
+    { src: "/locales/images/pages/projects/09-LGR-Completed_Section.jpg", alt: "A completed section of a solar farm", dataAiHint: "solar section" },
+    { src: "/locales/images/pages/projects/10-CRV-Crew_On_Ridge.jpg", alt: "Installation crew on a roof ridge", dataAiHint: "crew roof" },
+    { src: "/locales/images/pages/projects/11-CRV-Wiring_Detail.jpg", alt: "Detailed view of solar panel wiring", dataAiHint: "solar wiring" },
+    { src: "/locales/images/pages/projects/12-CRV-Completed_Array_Overvie...jpg", alt: "Overview of a completed solar array", dataAiHint: "array overview" },
+    { src: "/locales/images/pages/projects/13-SML-Red_Roof_Residential.jpg", alt: "Solar panels on a red roof of a residential house", dataAiHint: "red roof" },
+    { src: "/locales/images/pages/projects/14-SML-City_Rooftop_View.jpg", alt: "Solar panels on a city rooftop", dataAiHint: "city rooftop" },
+    { src: "/locales/images/pages/projects/15-SML-Apartment_Reflection.jpg", alt: "Reflection on solar panels on an apartment building", dataAiHint: "apartment reflection" },
+    { src: "/locales/images/pages/projects/16-SML-Two_Section_Roof.jpg", alt: "Two sections of solar panels on a roof", dataAiHint: "roof sections" },
+    { src: "/locales/images/pages/projects/17-SML-Flat_Commercial.jpg", alt: "Solar panels on a flat commercial roof", dataAiHint: "flat commercial" },
+    { src: "/locales/images/pages/projects/18-OVW-Project_Collage.jpg", alt: "A collage overview of a solar project", dataAiHint: "project collage" },
 ];
 
 
