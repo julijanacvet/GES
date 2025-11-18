@@ -91,7 +91,7 @@ export default function Footer() {
           <motion.div variants={itemVariants}>
             <h3 className="text-lg font-semibold mb-4 text-white">{t('footer.followUs')}</h3>
             <div className="flex space-x-4">
-              <a href="#" aria-label="Facebook" className="text-text-light-on-dark hover:text-accent transition-colors opacity-80 hover:opacity-100">
+              <a href="https://www.facebook.com/profile.php?id=61558176825713" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-text-light-on-dark hover:text-accent transition-colors opacity-80 hover:opacity-100">
                 <Facebook className="h-6 w-6" />
               </a>
               <a href="#" aria-label="Instagram" className="text-text-light-on-dark hover:text-accent transition-colors opacity-80 hover:opacity-100">
